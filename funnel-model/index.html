@@ -72,7 +72,7 @@
         <h2>Ad Performance</h2>
         <div class="slider-group">
           <div class="slider-label"><span class="name">Monthly Ad Budget</span><span class="val" id="v-budget">$15,000</span></div>
-          <input type="range" id="s-budget" min="5000" max="100000" step="1000" value="15000">
+          <input type="range" id="s-budget" min="5000" max="250000" step="5000" value="15000">
         </div>
         <div class="slider-group">
           <div class="slider-label"><span class="name">CPM (Cost per 1k impressions)</span><span class="val" id="v-cpm">$12</span></div>
@@ -83,8 +83,8 @@
           <input type="range" id="s-ctr" min="0.3" max="5" step="0.1" value="1.8">
         </div>
         <div class="slider-group">
-          <div class="slider-label"><span class="name">App Install Rate</span><span class="val" id="v-install">22%</span></div>
-          <input type="range" id="s-install" min="5" max="60" step="1" value="22">
+          <div class="slider-label"><span class="name">App Install Rate</span><span class="val" id="v-install">3%</span></div>
+          <input type="range" id="s-install" min="1" max="10" step="0.1" value="3">
         </div>
         <div class="section-divider"></div>
         <h2>User Journey</h2>
@@ -101,7 +101,7 @@
           <input type="range" id="s-gcref" min="5" max="80" step="1" value="40">
         </div>
         <div class="slider-group">
-          <div class="slider-label"><span class="name">GC Close Rate</span><span class="val" id="v-close">30%</span></div>
+          <div class="slider-label"><span class="name">Combined Win Rate</span><span class="val" id="v-close">30%</span></div>
           <input type="range" id="s-close" min="5" max="70" step="1" value="30">
         </div>
         <div class="section-divider"></div>
@@ -183,7 +183,7 @@
       <div class="sensitivity-wrap">
         <h3>Win Rate Sensitivity &mdash; Monthly Net Revenue</h3>
         <table id="sensitivity-table">
-          <thead><tr><th>GC Close Rate</th><th>$10k Budget</th><th>$15k Budget</th><th>$20k Budget</th><th>$30k Budget</th><th>$50k Budget</th></tr></thead>
+          <thead><tr><th>Combined Win Rate</th><th>$10k Budget</th><th>$15k Budget</th><th>$20k Budget</th><th>$30k Budget</th><th>$50k Budget</th></tr></thead>
           <tbody id="sensitivity-body"></tbody>
         </table>
       </div>
