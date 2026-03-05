@@ -3,13 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Spacelift Ã¢ Social Media Funnel Model</title>
+<title>Spacelift &mdash; Social Media Funnel Model</title>
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f1117;color:#e8eaf0;min-height:100vh}
   header{background:#161b27;border-bottom:1px solid #2a2f3e;padding:18px 32px;display:flex;align-items:center;gap:16px}
-  header .logo{font-size:20px;font-weight:700;color:#fff;letter-spacing:-0.5px}
-  header .logo span{color:#6c8cf5}
   header .subtitle{font-size:13px;color:#6b7280;margin-left:auto}
   .container{max-width:1200px;margin:0 auto;padding:32px}
   h1{font-size:26px;font-weight:700;margin-bottom:6px}
@@ -54,7 +52,7 @@
   td.hit{color:#4ade80;font-weight:700}
   td.miss{color:#f87171}
   .target-row td{background:#0d1a0d}
-  .status-bar{margin-top:16px;background:#0f1117;border:1px solid #2a2f3e;border-radius:10px;padding:16px 20px}
+  .status-bar{margin-top:0;background:#0f1117;border:1px solid #2a2f3e;border-radius:10px;padding:16px 20px}
   .status-label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:#6b7280;margin-bottom:8px;display:flex;justify-content:space-between}
   .progress-track{height:8px;background:#1e2433;border-radius:4px;overflow:hidden}
   .progress-fill{height:100%;border-radius:4px;transition:width .4s ease,background .3s}
@@ -62,14 +60,13 @@
 </head>
 <body>
 <header>
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 60" height="26" style="display:block"><text y="48" style="font-family:'Arial Black',Arial,sans-serif;font-weight:900;font-size:58px;fill:white;letter-spacing:-2px">spacelift</text></svg>
-  <div class="subtitle">Social Media Funnel Model Ã¢ Interactive</div>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 65" height="28" style="display:block;flex-shrink:0"><text y="52" style="font-family:'Arial Black',Arial,sans-serif;font-weight:900;font-size:56px;fill:#ffffff;letter-spacing:-1px">spacelift</text></svg>
+  <div class="subtitle">Social Media Funnel Model &mdash; Interactive</div>
 </header>
 <div class="container">
   <h1>Paid Social Funnel Model</h1>
   <p class="tagline">Adjust any assumption below to see real-time impact on revenue, ad spend, and funnel performance.</p>
   <div class="grid">
-    <!-- LEFT: Controls -->
     <div>
       <div class="panel">
         <h2>Ad Performance</h2>
@@ -89,7 +86,6 @@
           <div class="slider-label"><span class="name">App Install Rate</span><span class="val" id="v-install">22%</span></div>
           <input type="range" id="s-install" min="5" max="60" step="1" value="22">
         </div>
-
         <div class="section-divider"></div>
         <h2>User Journey</h2>
         <div class="slider-group">
@@ -108,7 +104,6 @@
           <div class="slider-label"><span class="name">GC Close Rate</span><span class="val" id="v-close">30%</span></div>
           <input type="range" id="s-close" min="5" max="70" step="1" value="30">
         </div>
-
         <div class="section-divider"></div>
         <h2>Economics</h2>
         <div class="slider-group">
@@ -129,48 +124,43 @@
         </div>
       </div>
     </div>
-
-    <!-- RIGHT: Results -->
     <div class="results">
-      <!-- KPIs -->
       <div class="kpi-row">
         <div class="kpi blue">
           <div class="kpi-label">Monthly Net Revenue</div>
-          <div class="kpi-value" id="kpi-monthly-net">Ã¢</div>
-          <div class="kpi-sub" id="kpi-monthly-sub">Ã¢</div>
+          <div class="kpi-value" id="kpi-monthly-net">--</div>
+          <div class="kpi-sub" id="kpi-monthly-sub">--</div>
         </div>
         <div class="kpi blue">
           <div class="kpi-label">Annualized Net Revenue</div>
-          <div class="kpi-value" id="kpi-annual-net">Ã¢</div>
+          <div class="kpi-value" id="kpi-annual-net">--</div>
           <div class="kpi-sub" id="kpi-target-pct">vs target</div>
         </div>
       </div>
       <div class="kpi-row">
         <div class="kpi">
           <div class="kpi-label">Monthly Referral Revenue</div>
-          <div class="kpi-value" id="kpi-ref-rev" style="color:#e8eaf0">Ã¢</div>
-          <div class="kpi-sub" id="kpi-conversions">Ã¢ conversions</div>
+          <div class="kpi-value" id="kpi-ref-rev" style="color:#e8eaf0">--</div>
+          <div class="kpi-sub" id="kpi-conversions">-- conversions</div>
         </div>
         <div class="kpi">
           <div class="kpi-label">Total Monthly Cost</div>
-          <div class="kpi-value" id="kpi-total-cost" style="color:#e8eaf0">Ã¢</div>
-          <div class="kpi-sub" id="kpi-cost-sub">ad spend + creative</div>
+          <div class="kpi-value" id="kpi-total-cost" style="color:#e8eaf0">--</div>
+          <div class="kpi-sub">ad spend + creative</div>
         </div>
       </div>
       <div class="kpi-row">
         <div class="kpi">
           <div class="kpi-label">Contracted GPV / Month</div>
-          <div class="kpi-value" id="kpi-cgpv" style="color:#c4b5fd">Ã¢</div>
+          <div class="kpi-value" id="kpi-cgpv" style="color:#c4b5fd">--</div>
           <div class="kpi-sub">projects closed</div>
         </div>
         <div class="kpi">
           <div class="kpi-label">Cost per Conversion</div>
-          <div class="kpi-value" id="kpi-cpc" style="color:#e8eaf0">Ã¢</div>
-          <div class="kpi-sub">total cost Ã· conversions</div>
+          <div class="kpi-value" id="kpi-cpc" style="color:#e8eaf0">--</div>
+          <div class="kpi-sub">total cost / conversions</div>
         </div>
       </div>
-
-      <!-- Progress bar -->
       <div class="status-bar">
         <div class="status-label">
           <span>Progress to Annual Target</span>
@@ -180,186 +170,69 @@
           <div class="progress-fill" id="progress-fill" style="width:0%"></div>
         </div>
       </div>
-
-      <!-- Funnel -->
       <div class="funnel-wrap">
         <h3>Funnel Flow (Monthly)</h3>
-        <div class="funnel-stage">
-          <div class="funnel-label">Impressions</div>
-          <div class="funnel-bar-wrap"><div class="funnel-bar" id="fb-imp" style="background:#4b5563;width:100%"><span id="ft-imp">Ã¢</span></div></div>
-          <div class="funnel-count" id="fc-imp">Ã¢</div>
-        </div>
-        <div class="funnel-stage">
-          <div class="funnel-label">Clicks</div>
-          <div class="funnel-bar-wrap"><div class="funnel-bar" id="fb-click" style="background:#6366f1"><span id="ft-click">Ã¢</span></div></div>
-          <div class="funnel-count" id="fc-click">Ã¢</div>
-        </div>
-        <div class="funnel-stage">
-          <div class="funnel-label">App Installs</div>
-          <div class="funnel-bar-wrap"><div class="funnel-bar" id="fb-install" style="background:#8b5cf6"><span id="ft-install">Ã¢</span></div></div>
-          <div class="funnel-count" id="fc-install">Ã¢</div>
-        </div>
-        <div class="funnel-stage">
-          <div class="funnel-label">Projects Created</div>
-          <div class="funnel-bar-wrap"><div class="funnel-bar" id="fb-project" style="background:#a78bfa"><span id="ft-project">Ã¢</span></div></div>
-          <div class="funnel-count" id="fc-project">Ã¢</div>
-        </div>
-        <div class="funnel-stage">
-          <div class="funnel-label">Consultations</div>
-          <div class="funnel-bar-wrap"><div class="funnel-bar" id="fb-consult" style="background:#6c8cf5"><span id="ft-consult">Ã¢</span></div></div>
-          <div class="funnel-count" id="fc-consult">Ã¢</div>
-        </div>
-        <div class="funnel-stage">
-          <div class="funnel-label">GC Referrals</div>
-          <div class="funnel-bar-wrap"><div class="funnel-bar" id="fb-gcref" style="background:#38bdf8"><span id="ft-gcref">Ã¢</span></div></div>
-          <div class="funnel-count" id="fc-gcref">Ã¢</div>
-        </div>
-        <div class="funnel-stage">
-          <div class="funnel-label">Projects Closed</div>
-          <div class="funnel-bar-wrap"><div class="funnel-bar" id="fb-close" style="background:#4ade80"><span id="ft-close">Ã¢</span></div></div>
-          <div class="funnel-count" id="fc-close">Ã¢</div>
-        </div>
+        <div class="funnel-stage"><div class="funnel-label">Impressions</div><div class="funnel-bar-wrap"><div class="funnel-bar" id="fb-imp" style="background:#4b5563;width:100%"></div></div><div class="funnel-count" id="fc-imp">--</div></div>
+        <div class="funnel-stage"><div class="funnel-label">Clicks</div><div class="funnel-bar-wrap"><div class="funnel-bar" id="fb-click" style="background:#6366f1"></div></div><div class="funnel-count" id="fc-click">--</div></div>
+        <div class="funnel-stage"><div class="funnel-label">App Installs</div><div class="funnel-bar-wrap"><div class="funnel-bar" id="fb-install" style="background:#8b5cf6"></div></div><div class="funnel-count" id="fc-install">--</div></div>
+        <div class="funnel-stage"><div class="funnel-label">Projects Created</div><div class="funnel-bar-wrap"><div class="funnel-bar" id="fb-project" style="background:#a78bfa"></div></div><div class="funnel-count" id="fc-project">--</div></div>
+        <div class="funnel-stage"><div class="funnel-label">Consultations</div><div class="funnel-bar-wrap"><div class="funnel-bar" id="fb-consult" style="background:#6c8cf5"></div></div><div class="funnel-count" id="fc-consult">--</div></div>
+        <div class="funnel-stage"><div class="funnel-label">GC Referrals</div><div class="funnel-bar-wrap"><div class="funnel-bar" id="fb-gcref" style="background:#38bdf8"></div></div><div class="funnel-count" id="fc-gcref">--</div></div>
+        <div class="funnel-stage"><div class="funnel-label">Projects Closed</div><div class="funnel-bar-wrap"><div class="funnel-bar" id="fb-close" style="background:#4ade80"></div></div><div class="funnel-count" id="fc-close">--</div></div>
       </div>
-
-      <!-- Sensitivity table -->
       <div class="sensitivity-wrap">
-        <h3>Win Rate Sensitivity Ã¢ Monthly Net Revenue</h3>
+        <h3>Win Rate Sensitivity &mdash; Monthly Net Revenue</h3>
         <table id="sensitivity-table">
-          <thead>
-            <tr>
-              <th>GC Close Rate</th>
-              <th>$10k Budget</th>
-              <th>$15k Budget</th>
-              <th>$20k Budget</th>
-              <th>$30k Budget</th>
-              <th>$50k Budget</th>
-            </tr>
-          </thead>
+          <thead><tr><th>GC Close Rate</th><th>$10k Budget</th><th>$15k Budget</th><th>$20k Budget</th><th>$30k Budget</th><th>$50k Budget</th></tr></thead>
           <tbody id="sensitivity-body"></tbody>
         </table>
       </div>
     </div>
   </div>
 </div>
-
 <script>
-const fmt = n => n >= 1e6 ? '$' + (n/1e6).toFixed(2) + 'M' : n >= 1e3 ? '$' + Math.round(n/1e3) + 'k' : '$' + Math.round(n);
-const fmtN = n => n >= 1e6 ? (n/1e6).toFixed(1) + 'M' : n >= 1e3 ? (n/1e3).toFixed(1) + 'k' : Math.round(n).toLocaleString();
-const pct = n => (n*100).toFixed(1) + '%';
-
-function getVals() {
-  return {
-    budget: +document.getElementById('s-budget').value,
-    cpm: +document.getElementById('s-cpm').value,
-    ctr: +document.getElementById('s-ctr').value / 100,
-    install: +document.getElementById('s-install').value / 100,
-    project: +document.getElementById('s-project').value / 100,
-    consult: +document.getElementById('s-consult').value / 100,
-    gcref: +document.getElementById('s-gcref').value / 100,
-    close: +document.getElementById('s-close').value / 100,
-    gpv: +document.getElementById('s-gpv').value,
-    commission: +document.getElementById('s-commission').value / 100,
-    creative: +document.getElementById('s-creative').value,
-    target: +document.getElementById('s-target').value
-  };
+const fmt=n=>n>=1e6?'$'+(n/1e6).toFixed(2)+'M':n>=1e3?'$'+Math.round(n/1e3)+'k':'$'+Math.round(n);
+const fmtN=n=>n>=1e6?(n/1e6).toFixed(1)+'M':n>=1e3?(n/1e3).toFixed(1)+'k':Math.round(n).toLocaleString();
+function getVals(){return{budget:+document.getElementById('s-budget').value,cpm:+document.getElementById('s-cpm').value,ctr:+document.getElementById('s-ctr').value/100,install:+document.getElementById('s-install').value/100,project:+document.getElementById('s-project').value/100,consult:+document.getElementById('s-consult').value/100,gcref:+document.getElementById('s-gcref').value/100,close:+document.getElementById('s-close').value/100,gpv:+document.getElementById('s-gpv').value,commission:+document.getElementById('s-commission').value/100,creative:+document.getElementById('s-creative').value,target:+document.getElementById('s-target').value};}
+function calcFunnel(v){const impressions=(v.budget/v.cpm)*1000;const clicks=impressions*v.ctr;const installs=clicks*v.install;const projects=installs*v.project;const consults=projects*v.consult;const gcReferrals=consults*v.gcref;const closed=gcReferrals*v.close;const referralRev=closed*v.gpv*v.commission;const totalCost=v.budget+v.creative;const netRev=referralRev-totalCost;const contractedGPV=closed*v.gpv;return{impressions,clicks,installs,projects,consults,gcReferrals,closed,referralRev,totalCost,netRev,contractedGPV};}
+function update(){
+  const v=getVals();const f=calcFunnel(v);const annualNet=f.netRev*12;const targetPct=annualNet/v.target;
+  document.getElementById('v-budget').textContent=fmt(v.budget);
+  document.getElementById('v-cpm').textContent='$'+v.cpm.toFixed(1);
+  document.getElementById('v-ctr').textContent=(v.ctr*100).toFixed(1)+'%';
+  document.getElementById('v-install').textContent=(v.install*100).toFixed(0)+'%';
+  document.getElementById('v-project').textContent=(v.project*100).toFixed(0)+'%';
+  document.getElementById('v-consult').textContent=(v.consult*100).toFixed(0)+'%';
+  document.getElementById('v-gcref').textContent=(v.gcref*100).toFixed(0)+'%';
+  document.getElementById('v-close').textContent=(v.close*100).toFixed(0)+'%';
+  document.getElementById('v-gpv').textContent=fmt(v.gpv);
+  document.getElementById('v-commission').textContent=(v.commission*100).toFixed(1)+'%';
+  document.getElementById('v-creative').textContent=fmt(v.creative);
+  document.getElementById('v-target').textContent=fmt(v.target);
+  const mnEl=document.getElementById('kpi-monthly-net');
+  mnEl.textContent=fmt(f.netRev);mnEl.parentElement.className='kpi '+(f.netRev>=0?'green':'red');
+  const anEl=document.getElementById('kpi-annual-net');
+  anEl.textContent=fmt(annualNet);anEl.parentElement.className='kpi '+(annualNet>=v.target?'green':'blue');
+  document.getElementById('kpi-monthly-sub').textContent=f.netRev>=0?'profitable':'net loss';
+  document.getElementById('kpi-target-pct').textContent=(targetPct*100).toFixed(0)+'% of target';
+  document.getElementById('kpi-ref-rev').textContent=fmt(f.referralRev);
+  document.getElementById('kpi-conversions').textContent=f.closed.toFixed(1)+' closings';
+  document.getElementById('kpi-total-cost').textContent=fmt(f.totalCost);
+  document.getElementById('kpi-cgpv').textContent=fmt(f.contractedGPV);
+  document.getElementById('kpi-cpc').textContent=f.closed>0?fmt(f.totalCost/f.closed):'--';
+  const pctVal=Math.min(targetPct*100,100);
+  document.getElementById('progress-fill').style.width=pctVal+'%';
+  document.getElementById('progress-fill').style.background=targetPct>=1?'#4ade80':targetPct>=0.7?'#facc15':'#6c8cf5';
+  document.getElementById('progress-label').textContent=(targetPct*100).toFixed(0)+'%';
+  const stages=[{id:'imp',val:f.impressions},{id:'click',val:f.clicks},{id:'install',val:f.installs},{id:'project',val:f.projects},{id:'consult',val:f.consults},{id:'gcref',val:f.gcReferrals},{id:'close',val:f.closed}];
+  stages.forEach(s=>{document.getElementById('fb-'+s.id).style.width=Math.max((s.val/f.impressions)*100,1)+'%';document.getElementById('fc-'+s.id).textContent=fmtN(s.val);});
+  const budgets=[10000,15000,20000,30000,50000];const closeRates=[0.15,0.20,0.25,0.30,0.35,0.40,0.50];
+  let tbody='';
+  closeRates.forEach(cr=>{const isCurrentClose=Math.abs(cr-v.close)<0.001;tbody+='<tr'+(isCurrentClose?' class="target-row"':'')+'>'; tbody+='<td>'+(cr*100).toFixed(0)+'% close</td>';
+  budgets.forEach(b=>{const vv=Object.assign({},v,{budget:b,close:cr});const ff=calcFunnel(vv);tbody+='<td class="'+(ff.netRev>=0?'hit':'miss')+'">'+fmt(ff.netRev)+'</td>';});tbody+='</tr>';});
+  document.getElementById('sensitivity-body').innerHTML=tbody;
 }
-
-function calcFunnel(v) {
-  const impressions = (v.budget / v.cpm) * 1000;
-  const clicks = impressions * v.ctr;
-  const installs = clicks * v.install;
-  const projects = installs * v.project;
-  const consults = projects * v.consult;
-  const gcReferrals = consults * v.gcref;
-  const closed = gcReferrals * v.close;
-  const referralRev = closed * v.gpv * v.commission;
-  const totalCost = v.budget + v.creative;
-  const netRev = referralRev - totalCost;
-  const contractedGPV = closed * v.gpv;
-  return { impressions, clicks, installs, projects, consults, gcReferrals, closed, referralRev, totalCost, netRev, contractedGPV };
-}
-
-function update() {
-  const v = getVals();
-  const f = calcFunnel(v);
-  const annualNet = f.netRev * 12;
-  const targetPct = annualNet / v.target;
-
-  // Labels
-  document.getElementById('v-budget').textContent = fmt(v.budget);
-  document.getElementById('v-cpm').textContent = '$' + v.cpm.toFixed(1);
-  document.getElementById('v-ctr').textContent = (v.ctr*100).toFixed(1) + '%';
-  document.getElementById('v-install').textContent = (v.install*100).toFixed(0) + '%';
-  document.getElementById('v-project').textContent = (v.project*100).toFixed(0) + '%';
-  document.getElementById('v-consult').textContent = (v.consult*100).toFixed(0) + '%';
-  document.getElementById('v-gcref').textContent = (v.gcref*100).toFixed(0) + '%';
-  document.getElementById('v-close').textContent = (v.close*100).toFixed(0) + '%';
-  document.getElementById('v-gpv').textContent = fmt(v.gpv);
-  document.getElementById('v-commission').textContent = (v.commission*100).toFixed(1) + '%';
-  document.getElementById('v-creative').textContent = fmt(v.creative);
-  document.getElementById('v-target').textContent = fmt(v.target);
-
-  // KPIs
-  const mnEl = document.getElementById('kpi-monthly-net');
-  mnEl.textContent = fmt(f.netRev);
-  mnEl.parentElement.className = 'kpi ' + (f.netRev >= 0 ? 'green' : 'red');
-
-  const anEl = document.getElementById('kpi-annual-net');
-  anEl.textContent = fmt(annualNet);
-  anEl.parentElement.className = 'kpi ' + (annualNet >= v.target ? 'green' : 'blue');
-
-  document.getElementById('kpi-monthly-sub').textContent = f.netRev >= 0 ? 'profitable' : 'net loss';
-  document.getElementById('kpi-target-pct').textContent = (targetPct * 100).toFixed(0) + '% of target';
-  document.getElementById('kpi-ref-rev').textContent = fmt(f.referralRev);
-  document.getElementById('kpi-conversions').textContent = f.closed.toFixed(1) + ' closings';
-  document.getElementById('kpi-total-cost').textContent = fmt(f.totalCost);
-  document.getElementById('kpi-cgpv').textContent = fmt(f.contractedGPV);
-  document.getElementById('kpi-cpc').textContent = f.closed > 0 ? fmt(f.totalCost / f.closed) : 'Ã¢';
-
-  // Progress
-  const pctVal = Math.min(targetPct * 100, 100);
-  document.getElementById('progress-fill').style.width = pctVal + '%';
-  document.getElementById('progress-fill').style.background = targetPct >= 1 ? '#4ade80' : targetPct >= 0.7 ? '#facc15' : '#6c8cf5';
-  document.getElementById('progress-label').textContent = (targetPct * 100).toFixed(0) + '%';
-
-  // Funnel bars
-  const stages = [
-    { id: 'imp', val: f.impressions, base: f.impressions },
-    { id: 'click', val: f.clicks, base: f.impressions },
-    { id: 'install', val: f.installs, base: f.impressions },
-    { id: 'project', val: f.projects, base: f.impressions },
-    { id: 'consult', val: f.consults, base: f.impressions },
-    { id: 'gcref', val: f.gcReferrals, base: f.impressions },
-    { id: 'close', val: f.closed, base: f.impressions }
-  ];
-  stages.forEach(s => {
-    const w = Math.max((s.val / s.base) * 100, 1);
-    document.getElementById('fb-' + s.id).style.width = w + '%';
-    document.getElementById('fc-' + s.id).textContent = fmtN(s.val);
-  });
-
-  // Sensitivity table
-  const budgets = [10000, 15000, 20000, 30000, 50000];
-  const closeRates = [0.15, 0.20, 0.25, 0.30, 0.35, 0.40, 0.50];
-  let tbody = '';
-  closeRates.forEach(cr => {
-    const isCurrentClose = Math.abs(cr - v.close) < 0.001;
-    tbody += '<tr' + (isCurrentClose ? ' class="target-row"' : '') + '>';
-    tbody += '<td>' + (cr * 100).toFixed(0) + '% close</td>';
-    budgets.forEach(b => {
-      const vv = Object.assign({}, v, { budget: b, close: cr });
-      const ff = calcFunnel(vv);
-      const net = ff.netRev;
-      const isCurrentBudget = b === v.budget;
-      const cls = net >= 0 ? 'hit' : 'miss';
-      tbody += '<td class="' + cls + (isCurrentBudget && isCurrentClose ? ' ' : '') + '">' + fmt(net) + '</td>';
-    });
-    tbody += '</tr>';
-  });
-  document.getElementById('sensitivity-body').innerHTML = tbody;
-}
-
-document.querySelectorAll('input[type=range]').forEach(el => el.addEventListener('input', update));
+document.querySelectorAll('input[type=range]').forEach(el=>el.addEventListener('input',update));
 update();
 </script>
 </body>
