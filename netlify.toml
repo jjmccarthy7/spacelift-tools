@@ -1,0 +1,12 @@
+[build]
+  publish = "."
+
+[[redirects]]
+  from = "/funnel-model"
+  to = "/funnel-model/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/funnel-model/"
+  to = "/funnel-model/index.html"
+  status = 200
