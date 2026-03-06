@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f4f5f7; color: #1a1a2e; font-size: 13px; }
+  .header { background: #1a1a2e; color: white; padding: 16px 24px; }
+  .header h1 { font-size: 16px; font-weight: 700; }
+  .header p { font-size: 11px; color: #aaa; margin-top: 2px; }
+  .layout { display: grid; grid-template-columns: 320px 1fr; min-height: calc(100vh - 56px); }
+
+  .left { background: white; border-right: 1px solid #e8e8e8; overflow-y: auto; }
+  .panel-section { padding: 14px 18px; border-bottom: 1px solid #f0f0f0; }
+  .panel-section-title { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #999; margin-bottom: 12px; }
+  .input-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+  .input-label { font-size: 12px; color: #444; flex: 1; padding-right: 10px; line-height: 1.3; }
+  .input-sublabel { font-size: 10px; color: #aaa; display: block; }
+  .input-control { display: flex; align-items: center; gap: 6px; }
+  input[type=range] { width: 100px; accent-color: #1a1a2e; }
+  .val-box { background: #f4f5f7; border: 1px solid #ddd; border-radius: 4px; padding: 3px 7px; font-size: 12px; font-weight: 700; min-width: 54px; text-align: center; color: #1a1a2e; }
+
+  .right { padding: 20px 24px; overflow-y: auto; }
+
+  .kpi-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 20px; }
+  .kpi { background: white; border-radius: 10px; padding: 12px 14px; border: 1px solid #e8e8e8; }
+  .kpi.green  { background: #f0fdf4; border-color: #bbf7d0; }
+  .kpi.yellow { background: #fefce8; border-color: #fef08a; }
+  .kpi.red    { background: #fef2f2; border-color: #fecaca; }
+  .kpi-label { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #888; margin-bottom: 5px; }
+  .kpi-value { font-size: 20px; font-weight: 800; color: #1a1a2e; line-height: 1; }
+  .kpi.green  .kpi-value { color: #166534; }
+  .kpi.yellow .kpi-value { color: #854d0e; }
+  .kpi.red    .kpi-value { color: #991b1b; }
+  .kpi-sub { font-size: 10px; color: #aaa; margin-top: 4px; }
+
+  .funnel-wrap { background: white; border-radius: 10px; border: 1px solid #e8e8e8; padding: 18px 20px; margin-bottom: 20px; }
+  .funnel-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: #999; margin-bottom: 14px; }
+  .funnel-stage { display: flex; align-items: center; margin-bottom: 8px; gap: 10px; }
+  .funnel-label { font-size: 11px; color: #555; width: 160px; flex-shrink: 0; }
+  .funnel-sublabel { font-size: 10px; color: #aaa; }
+  .funnel-bar-wrap { flex: 1; background: #f4f5f7; border-radius: 4px; height: 24px; overflow: hidden; }
+  .funnel-bar { height: 100%; border-radius: 4px; display: flex; align-items: center; padding-left: 8px; font-size: 11px; font-weight: 600; color: white; white-space: nowrap; transition: width 0.3s ease; }
+
+  .table-wrap { background: white; border-radius: 10px; border: 1px solid #e8e8e8; padding: 18px 20px; }
+  .table-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: #999; margin-bottom: 14px; }
+  table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  th { background: #f4f5f7; padding: 8px 10px; text-align: right; font-weight: 700; font-size: 10px; text-transform: uppercase; letter-spacing: 0.05em; color: #777; border-bottom: 2px solid #e8e8e8; white-space: nowrap; }
+  th:first-child { text-align: left; }
+  td { padding: 8px 10px; text-align: right; border-bottom: 1px solid #f4f5f7; white-space: nowrap; }
+  td:first-child { text-align: left; font-weight: 600; }
+  tr.active-row td { background: #f0fdf4; color: #166534; font-weight: 700; }
+  .badge { display: inline-block; font-size: 9px; font-weight: 700; padding: 1px 6px; border-radius: 8px; margin-left: 5px; }
+  .badge-current { background: #dbeafe; color: #1e40af; }
+  .badge-target  { background: #dcfce7; color: #166534; }
+  .badge-long    { background: #ede9fe; color: #5b21b6; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Spacelift — Social Media Funnel Model</h1>
+  <p>Meta · TikTok · YouTube | 2026 | Adjust assumptions to update model in real time</p>
+</div>
+
+<div class="layout">
+  <div class="left">
+    <div class="panel-section">
+      <div class="panel-section-title">📡 Paid Media</div>
+      <div class="input-row">
+        <div class="input-label">CPM <span class="input-sublabel">Cost per 1,000 impressions</span></div>
+        <div class="input-control"><input type="range" id="cpm" min="10" max="40" step="0.5" value="19"><div class="val-box" id="cpm-val"></div></div>
+      </div>
+      <div class="input-row">
+        <div class="input-label">Click-Through Rate</div>
+        <div class="input-control"><input type="range" id="ctr" min="0.3" max="3.0" step="0.1" value="1.2"><div class="val-box" id="ctr-val"></div></div>
+      </div>
+      <div class="input-row">
+        <div class="input-label">App Install Rate <span class="input-sublabel">Landing page → install</span></div>
+        <div class="input-control"><input type="range" id="install" min="1" max="20" step="0.5" value="4"><div class="val-box" id="install-val"></div></div>
+      </div>
+    </div>
+    <div class="panel-section">
+      <div class="panel-section-title">📱 In-App Funnel</div>
+      <div class="input-row">
+        <div class="input-label">Project Creation Rate <span class="input-sublabel">Of installs</span></div>
+        <div class="input-control"><input type="range" id="project" min="5" max="90" step="1" value="60"><div class="val-box" id="project-val"></div></div>
+      </div>
+      <div class="input-row">
+        <div class="input-label">Consultation Booking <span class="input-sublabel">Of project creators</span></div>
+        <div class="input-control"><input type="range" id="consult" min="5" max="60" step="1" value="20"><div class="val-box" id="consult-val"></div></div>
+      </div>
+      <div class="input-row">
+        <div class="input-label">Referred to GC <span class="input-sublabel">Of consultation completers</span></div>
+        <div class="input-control"><input type="range" id="gcref" min="10" max="95" step="1" value="65"><div class="val-box" id="gcref-val"></div></div>
+      </div>
+    </div>
+    <div class="panel-section">
+      <div class="panel-section-title">🏗️ GC Network</div>
+      <div class="input-row">
+        <div class="input-label">GCs Referred Per Client</div>
+        <div class="input-control"><input type="range" id="gccount" min="1" max="6" step="1" value="3"><div class="val-box" id="gccount-val"></div></div>
+      </div>
+      <div class="input-row">
+        <div class="input-label">Individual GC Close Rate <span class="input-sublabel">Per GC, per referral</span></div>
+        <div class="input-control"><input type="range" id="gcclose" min="5" max="50" step="1" value="15"><div class="val-box" id="gcclose-val"></div></div>
+      </div>
+      <div class="input-row">
+        <div class="input-label">Combined Win Rate <span class="input-sublabel">Calculated from above</span></div>
+        <div class="input-control"><div class="val-box" id="winrate-val" style="background:#1a1a2e;color:white;border-color:#1a1a2e;"></div></div>
+      </div>
+    </div>
+    <div class="panel-section">
+      <div class="panel-section-title">💰 Revenue</div>
+      <div class="input-row">
+        <div class="input-label">Avg Project Value</div>
+        <div class="input-control"><input type="range" id="apv" min="20000" max="300000" step="5000" value="66000"><div class="val-box" id="apv-val"></div></div>
+      </div>
+      <div class="input-row">
+        <div class="input-label">Commission Rate</div>
+        <div class="input-control"><input type="range" id="commission" min="1" max="10" step="0.5" value="5"><div class="val-box" id="commission-val"></div></div>
+      </div>
+      <div class="input-row">
+        <div class="input-label">Creative Budget</div>
+        <div class="input-control"><input type="range" id="creative" min="50000" max="1000000" step="25000" value="250000"><div class="val-box" id="creative-val"></div></div>
+      </div>
+      <div class="input-row">
+        <div class="input-label">Net Revenue Target</div>
+        <div class="input-control"><input type="range" id="target" min="250000" max="10000000" step="250000" value="2000000"><div class="val-box" id="target-val"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="right">
+    <div class="kpi-grid" id="kpis"></div>
+    <div class="funnel-wrap">
+      <div class="funnel-title">Funnel Flow — Actual Volume to Hit Target</div>
+      <div id="funnel-stages"></div>
+    </div>
+    <div class="table-wrap">
+      <div class="table-title">Win Rate Sensitivity (all other assumptions locked)</div>
+      <table>
+        <thead>
+          <tr>
+            <th>Win Rate</th>
+            <th>Creative</th>
+            <th>Ad Spend</th>
+            <th>Total Cost</th>
+            <th>Referred to GC</th>
+            <th>Contracts</th>
+            <th>Contracted GPV</th>
+            <th>Referral Revenue</th>
+            <th>Net Revenue</th>
+          </tr>
+        </thead>
+        <tbody id="sens-body"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const barColors = ['#1a1a2e','#2d6a4f','#1e6091','#6a0572','#b5451b','#0d6efd','#5c6bc0'];
+
+// Format a dollar value, rounding to nearest thousand
+function fmtD(v) {
+  var neg = v < 0;
+  var abs = Math.abs(v);
+  var s;
+  if (abs >= 1e6) {
+    s = (abs / 1e6).toFixed(2) + 'M';
+  } else {
+    // Round to nearest thousand
+    var rounded = Math.round(abs / 1000) * 1000;
+    s = (rounded / 1000).toFixed(0) + 'k';
+  }
+  return (neg ? '-$' : '$') + s;
+}
+
+function fmtN(v) {
+  if (v >= 1e6) return (v / 1e6).toFixed(2) + 'M';
+  if (v >= 1e3) return (v / 1e3).toFixed(0) + 'k';
+  return v.toFixed(0);
+}
+
+function fmtInt(v) { return Math.round(v).toLocaleString(); }
+
+function getP() {
+  return {
+    cpm:        +$('cpm').value,
+    ctr:        +$('ctr').value / 100,
+    install:    +$('install').value / 100,
+    project:    +$('project').value / 100,
+    consult:    +$('consult').value / 100,
+    gcref:      +$('gcref').value / 100,
+    gccount:    +$('gccount').value,
+    gcclose:    +$('gcclose').value / 100,
+    apv:        +$('apv').value,
+    commission: +$('commission').value / 100,
+    creative:   +$('creative').value,
+    target:     +$('target').value
+  };
+}
+
+function winRate(p) { return 1 - Math.pow(1 - p.gcclose, p.gccount); }
+
+function funnelPer1k(p, wr) {
+  var clicks    = 1000 * p.ctr;
+  var installs  = clicks * p.install;
+  var projects  = installs * p.project;
+  var consults  = projects * p.consult;
+  var gcRefs    = consults * p.gcref;
+  var contracts = gcRefs * wr;
+  return { clicks, installs, projects, consults, gcRefs, contracts };
+}
+
+function solve(p, wr) {
+  var avgComm = p.apv * p.commission;
+  var c1M     = funnelPer1k(p, wr).contracts * 1000;
+  var denom   = avgComm - (p.cpm * 1000) / c1M;
+  if (denom <= 0) return null;
+  var contracts   = (p.target + p.creative) / denom;
+  var impressions = contracts / c1M * 1e6;
+  var adSpend     = impressions / 1000 * p.cpm;
+  var grossRev    = contracts * avgComm;
+  var totalCost   = adSpend + p.creative;
+  var netRev      = grossRev - totalCost;
+  var gpv         = contracts * p.apv;
+  return { contracts, impressions, adSpend, grossRev, totalCost, netRev, gpv, c1M };
+}
+
+function update() {
+  var p  = getP();
+  var wr = winRate(p);
+  var avgComm = p.apv * p.commission;
+
+  $('cpm-val').textContent        = '$' + p.cpm;
+  $('ctr-val').textContent        = (p.ctr * 100).toFixed(1) + '%';
+  $('install-val').textContent    = (p.install * 100).toFixed(1) + '%';
+  $('project-val').textContent    = (p.project * 100).toFixed(0) + '%';
+  $('consult-val').textContent    = (p.consult * 100).toFixed(0) + '%';
+  $('gcref-val').textContent      = (p.gcref * 100).toFixed(0) + '%';
+  $('gccount-val').textContent    = p.gccount;
+  $('gcclose-val').textContent    = (p.gcclose * 100).toFixed(0) + '%';
+  $('winrate-val').textContent    = (wr * 100).toFixed(1) + '%';
+  $('apv-val').textContent        = '$' + (p.apv / 1000).toFixed(0) + 'k';
+  $('commission-val').textContent = (p.commission * 100).toFixed(1) + '%';
+  $('creative-val').textContent   = '$' + (p.creative / 1000).toFixed(0) + 'k';
+  $('target-val').textContent     = '$' + (p.target / 1e6).toFixed(1) + 'M';
+
+  var s = solve(p, wr);
+
+  var totalProjects = s ? s.contracts / (p.gcref * wr) : null;
+  var totalGPV      = totalProjects ? totalProjects * p.apv : null;
+  var delta         = s ? s.netRev - p.target : null;
+  var netClass      = delta === null ? 'red' : delta >= 0 ? 'green' : delta >= -p.target * 0.2 ? 'yellow' : 'red';
+
+  $('kpis').innerHTML =
+    '<div class="kpi">' +
+      '<div class="kpi-label">Total GPV</div>' +
+      '<div class="kpi-value">' + (totalGPV ? fmtD(totalGPV) : '—') + '</div>' +
+      '<div class="kpi-sub">' + (totalProjects ? fmtInt(totalProjects) + ' projects × ' + fmtD(p.apv) : 'Not viable') + '</div>' +
+    '</div>' +
+    '<div class="kpi">' +
+      '<div class="kpi-label">Contracted GPV</div>' +
+      '<div class="kpi-value">' + (s ? fmtD(s.gpv) : '—') + '</div>' +
+      '<div class="kpi-sub">' + (s ? fmtInt(s.contracts) + ' contracts × ' + fmtD(p.apv) : 'Not viable') + '</div>' +
+    '</div>' +
+    '<div class="kpi">' +
+      '<div class="kpi-label">Referral Revenue</div>' +
+      '<div class="kpi-value">' + (s ? fmtD(s.grossRev) : '—') + '</div>' +
+      '<div class="kpi-sub">' + (p.commission * 100).toFixed(1) + '% of Contracted GPV</div>' +
+    '</div>' +
+    '<div class="kpi">' +
+      '<div class="kpi-label">Ad Spend</div>' +
+      '<div class="kpi-value">' + (s ? fmtD(s.adSpend) : '—') + '</div>' +
+      '<div class="kpi-sub">' + (s ? fmtN(s.impressions) + ' impressions' : 'Not viable') + '</div>' +
+    '</div>' +
+    '<div class="kpi ' + netClass + '">' +
+      '<div class="kpi-label">Net Revenue</div>' +
+      '<div class="kpi-value">' + (s ? fmtD(s.netRev) : '—') + '</div>' +
+      '<div class="kpi-sub">' + (delta !== null ? (delta >= 0 ? '✓ +' : '✗ −') + fmtD(Math.abs(delta)) + ' vs target' : 'Not viable') + '</div>' +
+    '</div>';
+
+  // Funnel flow
+  var imp  = s ? s.impressions : 0;
+  var clk  = imp * p.ctr;
+  var ins  = clk * p.install;
+  var proj = ins * p.project;
+  var con  = proj * p.consult;
+  var gcR  = con * p.gcref;
+  var won  = gcR * wr;
+
+  var stages = [
+    { label: 'Impressions',         sub: '100%',                                     val: imp,  fmt: function(v){ return fmtN(v); } },
+    { label: 'Clicks',              sub: (p.ctr*100).toFixed(1)+'% of impr',         val: clk,  fmt: function(v){ return fmtN(v); } },
+    { label: 'App Installs',        sub: (p.install*100).toFixed(1)+'% of clicks',   val: ins,  fmt: function(v){ return fmtN(v); } },
+    { label: 'Project Created',     sub: (p.project*100).toFixed(0)+'% of installs', val: proj, fmt: function(v){ return fmtN(v); } },
+    { label: 'Consultation Booked', sub: (p.consult*100).toFixed(0)+'% of projects', val: con,  fmt: function(v){ return fmtN(v); } },
+    { label: 'Referred to GC',      sub: (p.gcref*100).toFixed(0)+'% of consults',   val: gcR,  fmt: function(v){ return fmtN(v); } },
+    { label: 'Contract Won',        sub: (wr*100).toFixed(1)+'% of GC refs',         val: won,  fmt: function(v){ return fmtInt(v); } },
+  ];
+
+  var logMax = Math.log10(Math.max(imp, 1));
+  var logMin = Math.log10(Math.max(won, 1));
+  var html = '';
+  for (var i = 0; i < stages.length; i++) {
+    var st  = stages[i];
+    var lv  = Math.log10(Math.max(st.val, 1));
+    var pct = logMin === logMax ? 100 : 20 + ((lv - logMin) / (logMax - logMin)) * 80;
+    html += '<div class="funnel-stage">' +
+      '<div class="funnel-label">' + st.label + '<div class="funnel-sublabel">' + st.sub + '</div></div>' +
+      '<div class="funnel-bar-wrap">' +
+        '<div class="funnel-bar" style="width:' + pct.toFixed(1) + '%;background:' + barColors[i] + '">' +
+          st.fmt(st.val) +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  }
+  $('funnel-stages').innerHTML = html;
+
+  // Sensitivity table
+  var fixedImpressions = s ? s.impressions : 1e8;
+  var fixedAdSpend     = fixedImpressions / 1000 * p.cpm;
+  var winRates = [0.10, 0.15, 0.20, 0.25, 0.30, 0.35, 0.40, 0.45, 0.50, 0.58, 0.65];
+  var tbody = '';
+
+  for (var j = 0; j < winRates.length; j++) {
+    var wRow     = winRates[j];
+    var c1M      = funnelPer1k(p, wRow).contracts * 1000;
+    var gcRefs   = fixedImpressions * p.ctr * p.install * p.project * p.consult * p.gcref;
+    var contracts = gcRefs * wRow;
+    var gpvRow   = contracts * p.apv;
+    var grossRev = contracts * avgComm;
+    var totalCost = fixedAdSpend + p.creative;
+    var netRev   = grossRev - totalCost;
+    var isActive = Math.abs(wRow - wr) < 0.005;
+
+    var badge = '';
+    if (isActive)    badge += '<span class="badge badge-current">current</span>';
+    if (wRow===0.40) badge += '<span class="badge badge-target">✓ target</span>';
+    if (wRow===0.58) badge += '<span class="badge badge-long">long-term</span>';
+
+    var ns;
+    if (netRev >= p.target)         ns = 'color:#166534;font-weight:800';
+    else if (netRev >= p.target*0.8) ns = 'color:#92400e;font-weight:700';
+    else                             ns = 'color:#991b1b;font-weight:700';
+
+    tbody +=
+      '<tr class="' + (isActive ? 'active-row' : '') + '">' +
+        '<td>' + (wRow*100).toFixed(0) + '%' + badge + '</td>' +
+        '<td>' + fmtD(p.creative) + '</td>' +
+        '<td>' + fmtD(fixedAdSpend) + '</td>' +
+        '<td>' + fmtD(totalCost) + '</td>' +
+        '<td>' + fmtInt(gcRefs) + '</td>' +
+        '<td>' + fmtInt(contracts) + '</td>' +
+        '<td>' + fmtD(gpvRow) + '</td>' +
+        '<td>' + fmtD(grossRev) + '</td>' +
+        '<td style="' + ns + '">' + fmtD(netRev) + '</td>' +
+      '</tr>';
+  }
+  $('sens-body').innerHTML = tbody;
+}
+
+document.querySelectorAll('input[type=range]').forEach(function(el){ el.addEventListener('input', update); });
+update();
+</script>
+</body>
+</html>
