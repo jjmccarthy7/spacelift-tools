@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
@@ -19,12 +20,21 @@ export default function Navigation() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-[#EEF1F4]">
       <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-20 h-16 flex items-center justify-between">
-        {/* Logo */}
+
+        {/* Logo — canonical asset from docs/designdocs/assets/spacelift-logo.png */}
+        {/* Sized to match hellospacelift.com: 120x31px within 64px nav */}
         <Link
           href="/"
-          className="text-[#FC4C4C] font-extrabold text-xl tracking-tight hover:opacity-80 transition-opacity duration-200"
+          className="flex items-center hover:opacity-80 transition-opacity duration-200"
+          aria-label="Spacelift home"
         >
-          spacelift
+          <Image
+            src="/spacelift-logo.png"
+            alt="Spacelift"
+            width={120}
+            height={31}
+            priority
+          />
         </Link>
 
         {/* Desktop Nav */}
