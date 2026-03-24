@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { Instagram, Youtube, Facebook, Linkedin } from 'lucide-react'
 
 const socialLinks = [
@@ -10,10 +11,11 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#141B24] text-white">
-      <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-20 pt-16 pb-8">
+    <footer className="bg-[#141B24] text-white overflow-hidden">
+      {/* Footer links content — constrained width */}
+      <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-20 pt-16 pb-12">
         {/* Three column grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Connect With Us */}
           <div>
             <p className="text-xs font-black uppercase tracking-widest text-[#8D9EB2] mb-6">
@@ -66,16 +68,17 @@ export default function Footer() {
             </ul>
           </div>
         </div>
+      </div>
 
-        {/* Large logo wordmark */}
-        <div className="border-t border-white/10 pt-8">
-          <p className="text-[80px] md:text-[120px] lg:text-[160px] font-black leading-none tracking-tight text-white">
-            spacelift
-          </p>
-          <p className="mt-4 text-[#8D9EB2] text-sm">
-            © {new Date().getFullYear()} Spacelift. All rights reserved.
-          </p>
-        </div>
+      {/* Full-bleed footer wordmark — crops at bottom so descender touches page edge */}
+      <div className="relative w-full" style={{ height: 'clamp(120px, 22vw, 320px)', marginBottom: '-6%' }}>
+        <Image
+          src="/spacelift-logo-white.png"
+          alt="Spacelift"
+          fill
+          priority
+          style={{ objectFit: 'contain', objectPosition: 'left bottom' }}
+        />
       </div>
     </footer>
   )
