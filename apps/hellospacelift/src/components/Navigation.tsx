@@ -12,6 +12,38 @@ const navLinks = [
   { label: 'Reviews', href: '/reviews' },
 ]
 
+/**
+ * SpaceLiftLogo — Official coral wordmark
+ * Source: Spacelift Brand Style Guide (design-system.pdf, page 12)
+ * Rules: lowercase "spacelift", Love coral #FC4C4C, font-weight 800
+ * Per design-rules.md: "Logo is always coral on white backgrounds"
+ */
+function SpaceLiftLogo({ className }: { className?: string }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 320 56"
+      width="120"
+      height="21"
+      aria-label="Spacelift"
+      role="img"
+      className={className}
+    >
+      <text
+        x="0"
+        y="44"
+        fontFamily="Arial Black, Arial, sans-serif"
+        fontWeight="800"
+        fontSize="52"
+        fill="#FC4C4C"
+        letterSpacing="-1"
+      >
+        spacelift
+      </text>
+    </svg>
+  )
+}
+
 export default function Navigation() {
   const pathname = usePathname()
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -19,12 +51,13 @@ export default function Navigation() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-[#EEF1F4]">
       <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-20 h-16 flex items-center justify-between">
-        {/* Logo */}
+        {/* Logo — coral wordmark from Spacelift design system (PDF page 12) */}
         <Link
           href="/"
-          className="text-[#FC4C4C] font-extrabold text-xl tracking-tight hover:opacity-80 transition-opacity duration-200"
+          className="flex items-center hover:opacity-80 transition-opacity duration-200"
+          aria-label="Spacelift home"
         >
-          spacelift
+          <SpaceLiftLogo />
         </Link>
 
         {/* Desktop Nav */}
