@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-primary: Inter, sans-serif;
+  
+  /* Spacelift Brand Colors */
+  --color-love: #FC4C4C;
+  --color-foundation: #141B24;
+  --color-stone: #EEF1F4;
+  --color-slate: #8D9EB2;
+  --color-blueprint: #3B86E1;
+  --color-greenlight: #0ED096;
+  --color-lavender: #A27BFC;
+  --color-plaster: #FFBFD0;
+  --color-highlight: #E4FFA4;
+  
+  /* Love tints */
+  --color-love-light: #FEB7B7;
+  --color-love-dark: #CA3D3D;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-primary);
+  color: #141B24;
+  background: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Focus states */
+:focus-visible {
+  outline: 2px solid #FC4C4C;
+  outline-offset: 2px;
+}
+
+/* Transitions */
+.transition-color {
+  transition: color 200ms ease;
+}
+
+.transition-bg {
+  transition: background-color 200ms ease, color 200ms ease;
+}
