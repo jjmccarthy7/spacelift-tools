@@ -7,7 +7,7 @@ const steps = [
   {
     number: '01',
     title: 'Show us your space',
-    copy: 'Upload photos and tell us about your project. We'll learn what matters most to you — style, budget, and timeline.',
+    copy: "Upload photos and tell us about your project. We'll learn what matters most to you - style, budget, and timeline.",
   },
   {
     number: '02',
@@ -17,17 +17,17 @@ const steps = [
   {
     number: '03',
     title: 'Meet your matches',
-    copy: 'We'll introduce you to vetted renovation professionals perfectly matched to your project and preferences.',
+    copy: "We'll introduce you to vetted renovation professionals perfectly matched to your project and preferences.",
   },
   {
     number: '04',
     title: 'Pick your partner',
-    copy: 'Review profiles, past work, and reviews. Choose the contractor who feels right — we've already verified them.',
+    copy: "Review profiles, past work, and reviews. Choose the contractor who feels right - we've already verified them.",
   },
   {
     number: '05',
     title: 'Enjoy your project',
-    copy: 'Sit back while your space transforms. We'll be with you every step of the way to ensure a smooth renovation.',
+    copy: "Sit back while your space transforms. We'll be with you every step of the way to ensure a smooth renovation.",
   },
 ]
 
@@ -62,7 +62,7 @@ export default function StepCarousel() {
               key={step.number}
               onClick={() => setActiveStep(index)}
               className="flex items-center gap-2 group"
-              aria-label={`Go to step ${step.number}`}
+              aria-label={"Go to step " + step.number}
             >
               <span
                 className={[
@@ -88,7 +88,7 @@ export default function StepCarousel() {
         <div className="mt-4 h-0.5 bg-[#EEF1F4] rounded-full overflow-hidden max-w-xs">
           <div
             className="h-full bg-[#FC4C4C] rounded-full transition-all duration-[4000ms] ease-linear"
-            style={{ width: `${((activeStep + 1) / steps.length) * 100}%` }}
+            style={{ width: ((activeStep + 1) / steps.length * 100) + '%' }}
           />
         </div>
       </div>
