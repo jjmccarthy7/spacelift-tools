@@ -190,11 +190,12 @@ export default function PhoneMock({ step }: PhoneMockProps) {
         className="relative transition-transform hidden lg:block"
         style={{
           transformOrigin: 'bottom center',
-          transform: 'perspective(1600px) rotateY(-18deg) rotateX(2deg) rotateZ(-2deg) translateX(-12px) translateY(-10px)',
+          transformStyle: 'preserve-3d',
+          transform: 'perspective(1800px) rotateY(-14deg) rotateX(14deg) rotateZ(-1deg) translateX(-10px) translateY(-6px)',
         }}
       >
-        {/* Outer phone shell — light metallic frame */}
-        <div className="relative w-[340px] xl:w-[360px] rounded-[48px] bg-[#d7d4cf] p-[3px] shadow-[0_32px_80px_rgba(15,23,42,0.16)] ring-1 ring-black/8">
+        {/* Front shell — light metallic frame, sits above side edge */}
+        <div className="relative z-10 w-[340px] xl:w-[360px] rounded-[48px] bg-[#d7d4cf] p-[3px] shadow-[0_32px_80px_rgba(15,23,42,0.16)] ring-1 ring-black/8">
           {/* Metallic edge highlight */}
           <div className="absolute inset-[1px] rounded-[47px] pointer-events-none bg-gradient-to-br from-white/70 via-white/18 to-[#8f8a83]/18" />
           {/* Dynamic Island */}
@@ -217,6 +218,16 @@ export default function PhoneMock({ step }: PhoneMockProps) {
             </div>
           </div>
         </div>
+        {/* Right-side device edge — visible metallic hardware edge */}
+        <div
+          aria-hidden="true"
+          className="absolute top-[18px] bottom-[18px] right-[-10px] w-[14px] rounded-r-[18px] pointer-events-none"
+          style={{
+            background: 'linear-gradient(180deg, rgba(246,244,240,0.95) 0%, rgba(186,180,170,0.9) 45%, rgba(120,115,108,0.95) 100%)',
+            transform: 'translateZ(-1px) rotateY(0deg)',
+            boxShadow: 'inset 1px 0 0 rgba(255,255,255,0.45), inset -1px 0 0 rgba(0,0,0,0.08)',
+          }}
+        />
       </div>
       {/* Mobile / tablet: flat display, no 3D perspective */}
       <div className="relative lg:hidden">
