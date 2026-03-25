@@ -1,4 +1,5 @@
 'use client'
+import Image from 'next/image'
 import { Camera, MessageCircle, CheckCircle, Star } from 'lucide-react'
 
 interface PhoneMockProps {
@@ -174,86 +175,139 @@ export default function PhoneMock({ step }: PhoneMockProps) {
           zIndex: 0,
         }}
       />
-      {/* Inner halo */}
+
+      {/* ── DESKTOP: real iPhone frame + 3D lean ── */}
       <div
-        aria-hidden="true"
-        className="absolute pointer-events-none rounded-[52px]"
+        className="hidden lg:block relative"
         style={{
-          inset: '-16px',
-          background: 'radial-gradient(ellipse at 50% 55%, rgba(252,76,76,0.10) 0%, transparent 65%)',
-          filter: 'blur(16px)',
-          zIndex: 0,
-        }}
-      />
-      {/* Transform wrapper: 3D perspective tilt on desktop, flat on mobile */}
-      <div
-        className="relative transition-transform hidden lg:block"
-        style={{
+          filter: 'drop-shadow(0 40px 60px rgba(0,0,0,0.25))',
+          transform: 'perspective(1400px) rotateY(-18deg) rotateX(16deg) translateY(-40px)',
           transformOrigin: 'bottom center',
           transformStyle: 'preserve-3d',
-          transform: 'perspective(1800px) rotateY(-14deg) rotateX(14deg) rotateZ(-1deg) translateX(-10px) translateY(-6px)',
         }}
       >
-        {/* Front shell — light metallic frame, sits above side edge */}
-        <div className="relative z-10 w-[340px] xl:w-[360px] rounded-[48px] bg-[#d7d4cf] p-[3px] shadow-[0_32px_80px_rgba(15,23,42,0.16)] ring-1 ring-black/8">
-          {/* Metallic edge highlight */}
-          <div className="absolute inset-[1px] rounded-[47px] pointer-events-none bg-gradient-to-br from-white/70 via-white/18 to-[#8f8a83]/18" />
-          {/* Dynamic Island */}
-          <div className="absolute top-[13px] left-1/2 -translate-x-1/2 h-[24px] w-[112px] rounded-full bg-black z-20" />
-          {/* Inner screen wrapper */}
-          <div className="relative overflow-hidden rounded-[45px] bg-white">
-            {/* Screen header */}
-            <div className="flex-shrink-0 px-4 pt-[3.35rem] pb-2 border-b border-[#EEF1F4]">
-              <p className="text-xs font-bold text-[#141B24] text-center">
-                {screens[step]?.title || screens[0].title}
-              </p>
-            </div>
-            {/* Screen content — tall realistic aspect ratio */}
-            <div className="overflow-hidden lg:h-[620px] xl:h-[660px]">
-              <Screen />
-            </div>
-            {/* Home indicator bar */}
-            <div className="flex justify-center pb-2 pt-1">
-              <div className="w-24 h-1 bg-[#141B24]/20 rounded-full" />
-            </div>
-          </div>
-        </div>
-        {/* Right-side device edge — visible metallic hardware edge */}
+        {/* hero-phone: sized to frame aspect ratio — 1350:2760 ≈ 9:18.4 */}
         <div
-          aria-hidden="true"
-          className="absolute top-[18px] bottom-[18px] right-[-10px] w-[14px] rounded-r-[18px] pointer-events-none"
-          style={{
-            background: 'linear-gradient(180deg, rgba(246,244,240,0.95) 0%, rgba(186,180,170,0.9) 45%, rgba(120,115,108,0.95) 100%)',
-            transform: 'translateZ(-1px) rotateY(0deg)',
-            boxShadow: 'inset 1px 0 0 rgba(255,255,255,0.45), inset -1px 0 0 rgba(0,0,0,0.08)',
-          }}
-        />
-      </div>
-      {/* Mobile / tablet: flat display, no 3D perspective */}
-      <div className="relative lg:hidden">
-        {/* Outer phone shell — light metallic frame */}
-        <div className="relative w-[260px] md:w-[300px] rounded-[48px] bg-[#d7d4cf] p-[3px] shadow-[0_32px_80px_rgba(15,23,42,0.16)] ring-1 ring-black/8">
-          {/* Metallic edge highlight */}
-          <div className="absolute inset-[1px] rounded-[47px] pointer-events-none bg-gradient-to-br from-white/70 via-white/18 to-[#8f8a83]/18" />
-          {/* Dynamic Island */}
-          <div className="absolute top-[13px] left-1/2 -translate-x-1/2 h-[24px] w-[112px] rounded-full bg-black z-20" />
-          {/* Inner screen wrapper */}
-          <div className="relative overflow-hidden rounded-[45px] bg-white">
+          className="relative"
+          style={{ width: '360px', aspectRatio: '1350 / 2760' }}
+        >
+          {/* hero-phone-screen: sits under the frame, clipped to the screen window */}
+          <div
+            className="absolute overflow-hidden bg-white"
+            style={{
+              top: '7.8%',
+              left: '5.5%',
+              right: '5.5%',
+              bottom: '3.2%',
+              borderRadius: '38px',
+            }}
+          >
             {/* Screen header */}
-            <div className="flex-shrink-0 px-4 pt-[3.35rem] pb-2 border-b border-[#EEF1F4]">
+            <div className="flex-shrink-0 px-4 pt-10 pb-2 border-b border-[#EEF1F4]">
               <p className="text-xs font-bold text-[#141B24] text-center">
                 {screens[step]?.title || screens[0].title}
               </p>
             </div>
-            {/* Screen content — tall realistic aspect ratio */}
-            <div className="overflow-hidden h-[520px] md:h-[560px]">
+            {/* Screen content */}
+            <div className="overflow-y-auto" style={{ height: 'calc(100% - 52px)' }}>
               <Screen />
             </div>
-            {/* Home indicator bar */}
-            <div className="flex justify-center pb-2 pt-1">
-              <div className="w-24 h-1 bg-[#141B24]/20 rounded-full" />
+          </div>
+
+          {/* hero-phone-frame: real device frame PNG, sits above the screen */}
+          <Image
+            src="/iphone17-frame.png"
+            alt=""
+            aria-hidden="true"
+            fill
+            className="pointer-events-none select-none"
+            style={{ objectFit: 'contain', zIndex: 10 }}
+            priority
+          />
+        </div>
+      </div>
+
+      {/* ── TABLET: slight tilt, same frame ── */}
+      <div
+        className="hidden md:block lg:hidden relative"
+        style={{
+          filter: 'drop-shadow(0 24px 40px rgba(0,0,0,0.18))',
+          transform: 'perspective(1400px) rotateY(-8deg) rotateX(6deg) translateY(-10px)',
+          transformOrigin: 'bottom center',
+        }}
+      >
+        <div
+          className="relative"
+          style={{ width: '300px', aspectRatio: '1350 / 2760' }}
+        >
+          <div
+            className="absolute overflow-hidden bg-white"
+            style={{
+              top: '7.8%',
+              left: '5.5%',
+              right: '5.5%',
+              bottom: '3.2%',
+              borderRadius: '32px',
+            }}
+          >
+            <div className="flex-shrink-0 px-3 pt-8 pb-2 border-b border-[#EEF1F4]">
+              <p className="text-xs font-bold text-[#141B24] text-center">
+                {screens[step]?.title || screens[0].title}
+              </p>
+            </div>
+            <div className="overflow-y-auto" style={{ height: 'calc(100% - 46px)' }}>
+              <Screen />
             </div>
           </div>
+          <Image
+            src="/iphone17-frame.png"
+            alt=""
+            aria-hidden="true"
+            fill
+            className="pointer-events-none select-none"
+            style={{ objectFit: 'contain', zIndex: 10 }}
+            priority
+          />
+        </div>
+      </div>
+
+      {/* ── MOBILE: flat, no rotation ── */}
+      <div
+        className="block md:hidden relative"
+        style={{ filter: 'drop-shadow(0 16px 32px rgba(0,0,0,0.14))' }}
+      >
+        <div
+          className="relative"
+          style={{ width: '260px', aspectRatio: '1350 / 2760' }}
+        >
+          <div
+            className="absolute overflow-hidden bg-white"
+            style={{
+              top: '7.8%',
+              left: '5.5%',
+              right: '5.5%',
+              bottom: '3.2%',
+              borderRadius: '28px',
+            }}
+          >
+            <div className="flex-shrink-0 px-3 pt-7 pb-2 border-b border-[#EEF1F4]">
+              <p className="text-xs font-bold text-[#141B24] text-center">
+                {screens[step]?.title || screens[0].title}
+              </p>
+            </div>
+            <div className="overflow-y-auto" style={{ height: 'calc(100% - 42px)' }}>
+              <Screen />
+            </div>
+          </div>
+          <Image
+            src="/iphone17-frame.png"
+            alt=""
+            aria-hidden="true"
+            fill
+            className="pointer-events-none select-none"
+            style={{ objectFit: 'contain', zIndex: 10 }}
+            priority
+          />
         </div>
       </div>
     </div>
