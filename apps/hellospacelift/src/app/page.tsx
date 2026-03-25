@@ -76,8 +76,8 @@ export default function HomePage() {
         />
 
         <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 relative">
-          {/* Two-column hero layout: left = headline + carousel, right = phone */}
-          <div className="mt-16 lg:mt-12 flex flex-col lg:flex-row lg:items-start lg:justify-between gap-12 lg:gap-8">
+          {/* Hero content: left column for text, phone absolutely positioned on desktop */}
+          <div className="mt-16 lg:mt-12 flex flex-col lg:flex-row lg:items-start gap-12 lg:gap-8">
 
             {/* LEFT COLUMN: headline, subheadline, step carousel */}
             <div className="flex-1 min-w-0 max-w-[620px]">
@@ -95,11 +95,16 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* RIGHT COLUMN: phone mockup */}
-            <div className="flex-shrink-0 lg:w-[380px] xl:w-[400px] flex lg:justify-end">
+            {/* RIGHT COLUMN: tablet + mobile phone (lg: phone is absolutely positioned via PhoneMock) */}
+            <div className="flex-shrink-0 flex lg:hidden justify-center">
               <PhoneMock step={activeStep} />
             </div>
 
+          </div>
+
+          {/* DESKTOP: phone rendered absolutely — outside the flex row, inside relative container */}
+          <div className="hidden lg:block">
+            <PhoneMock step={activeStep} />
           </div>
         </div>
       </section>
