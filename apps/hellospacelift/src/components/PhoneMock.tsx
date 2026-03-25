@@ -161,28 +161,41 @@ const screens = [
 export default function PhoneMock({ step }: PhoneMockProps) {
   const Screen = screens[step]?.component || screens[0].component
   return (
-    <div className="relative flex-shrink-0">
-      {/* Outer glow: large soft bloom that creates depth behind the phone */}
+    /*
+     * Outer wrapper: extra bottom padding so the tilted phone has room to breathe
+     * and the bottom edge can bleed naturally below the hero section boundary.
+     * translateY(-60px) lifts the phone up; rotate(12deg) tilts it clockwise to
+     * match the reference. transform-origin bottom-left grounds the tilt at the
+     * base, just like the reference image.
+     */
+    <div
+      className="relative flex-shrink-0 pb-16"
+      style={{
+        transform: 'translateY(-60px) rotate(12deg)',
+        transformOrigin: 'bottom left',
+      }}
+    >
+      {/* Outer glow — large soft bloom, shifted down-left to follow the tilt */}
       <div
         aria-hidden="true"
         className="absolute pointer-events-none"
         style={{
           inset: '-40%',
           background:
-            'radial-gradient(circle at 55% 50%, rgba(252,76,76,0.18) 0%, rgba(162,123,252,0.12) 35%, transparent 65%)',
-          filter: 'blur(40px)',
+            'radial-gradient(ellipse 70% 60% at 40% 75%, rgba(252,76,76,0.20) 0%, rgba(162,123,252,0.12) 40%, transparent 70%)',
+          filter: 'blur(48px)',
           zIndex: 0,
         }}
       />
-      {/* Inner halo: tighter ring just outside the phone bezel */}
+      {/* Inner halo — tight ring just outside the bezel, following tilt direction */}
       <div
         aria-hidden="true"
         className="absolute pointer-events-none rounded-[48px]"
         style={{
-          inset: '-12px',
+          inset: '-14px',
           background:
-            'radial-gradient(ellipse at 50% 45%, rgba(252,76,76,0.10) 0%, rgba(255,255,255,0.0) 70%)',
-          filter: 'blur(12px)',
+            'radial-gradient(ellipse at 45% 60%, rgba(252,76,76,0.12) 0%, rgba(255,255,255,0.0) 65%)',
+          filter: 'blur(14px)',
           zIndex: 0,
         }}
       />
@@ -192,7 +205,7 @@ export default function PhoneMock({ step }: PhoneMockProps) {
         style={{
           zIndex: 1,
           boxShadow:
-            '0 32px 64px rgba(20,27,36,0.30), 0 8px 24px rgba(20,27,36,0.18), 0 2px 8px rgba(20,27,36,0.12)',
+            '0 40px 80px rgba(20,27,36,0.35), 0 16px 32px rgba(20,27,36,0.20), 0 4px 12px rgba(20,27,36,0.12)',
         }}
       >
         {/* Inner screen */}
