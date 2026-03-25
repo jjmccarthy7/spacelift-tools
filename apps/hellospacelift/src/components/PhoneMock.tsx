@@ -1,5 +1,5 @@
 'use client'
-import { Camera, MessageCircle, Users, CheckCircle, Star } from 'lucide-react'
+import { Camera, MessageCircle, CheckCircle, Star } from 'lucide-react'
 
 interface PhoneMockProps {
   step: number
@@ -162,65 +162,107 @@ export default function PhoneMock({ step }: PhoneMockProps) {
   const Screen = screens[step]?.component || screens[0].component
   return (
     /*
-     * Outer wrapper: extra bottom padding so the tilted phone has room to breathe
-     * and the bottom edge can bleed naturally below the hero section boundary.
-     * translateY(-60px) lifts the phone up; rotate(12deg) tilts it clockwise to
-     * match the reference. transform-origin bottom-left grounds the tilt at the
-     * base, just like the reference image.
+     * 3D perspective lean matching the reference:
+     * - perspective() on the wrapper creates the depth field
+     * - rotateY(-18deg) leans the bottom-right away from the viewer
+     *   while keeping the TOP EDGE perfectly horizontal/level
+     * - translateY(-80px) lifts the phone so its top sits just above
+     *   the H1 headline level
+     * - NO flat rotate() — that tilts the top edge which is wrong
      */
     <div
-      className="relative flex-shrink-0 pb-16"
-      style={{
-        transform: 'translateY(-60px) rotate(12deg)',
-        transformOrigin: 'bottom left',
-      }}
+      className="relative flex-shrink-0"
+      style={{ perspective: '900px' }}
     >
-      {/* Outer glow — large soft bloom, shifted down-left to follow the tilt */}
+      {/* Outer glow — large elliptical bloom pooling below and behind */}
       <div
         aria-hidden="true"
         className="absolute pointer-events-none"
         style={{
           inset: '-40%',
           background:
-            'radial-gradient(ellipse 70% 60% at 40% 75%, rgba(252,76,76,0.20) 0%, rgba(162,123,252,0.12) 40%, transparent 70%)',
-          filter: 'blur(48px)',
+            'radial-gradient(ellipse 60% 70% at 55% 80%, rgba(252,76,76,0.18) 0%, rgba(162,123,252,0.10) 45%, transparent 70%)',
+          filter: 'blur(52px)',
           zIndex: 0,
         }}
       />
-      {/* Inner halo — tight ring just outside the bezel, following tilt direction */}
+      {/* Inner halo — tighter ring behind the bezel */}
       <div
         aria-hidden="true"
-        className="absolute pointer-events-none rounded-[48px]"
+        className="absolute pointer-events-none rounded-[52px]"
         style={{
-          inset: '-14px',
+          inset: '-16px',
           background:
-            'radial-gradient(ellipse at 45% 60%, rgba(252,76,76,0.12) 0%, rgba(255,255,255,0.0) 65%)',
-          filter: 'blur(14px)',
+            'radial-gradient(ellipse at 50% 55%, rgba(252,76,76,0.10) 0%, transparent 65%)',
+          filter: 'blur(16px)',
           zIndex: 0,
         }}
       />
-      {/* Phone frame */}
+
+      {/*
+       * iPhone 17 / titanium-finish frame:
+       * - Light silver (#C8C8CC) brushed-metal sides, not black
+       * - Very thin bezels (p-[7px])
+       * - Dynamic Island pill (not a wide notch bar)
+       * - Subtle inner rim to simulate the aluminium band
+       * - rotateY(-18deg) applied here for the 3D lean
+       * - translateY(-80px) lifts it so top clears the H1
+       */}
       <div
-        className="relative w-[240px] md:w-[280px] h-[480px] md:h-[560px] bg-[#141B24] rounded-[40px] p-2.5"
+        className="relative w-[260px] md:w-[300px] h-[520px] md:h-[600px] rounded-[50px] p-[7px]"
         style={{
           zIndex: 1,
-          boxShadow:
-            '0 40px 80px rgba(20,27,36,0.35), 0 16px 32px rgba(20,27,36,0.20), 0 4px 12px rgba(20,27,36,0.12)',
+          background: 'linear-gradient(145deg, #D8D8DC 0%, #B8B8BE 40%, #C8C8CC 70%, #A8A8AE 100%)',
+          boxShadow: [
+            /* Main elevation shadow — pools below-right matching 3D lean */
+            '0 48px 96px rgba(20,27,36,0.28)',
+            '0 16px 40px rgba(20,27,36,0.16)',
+            '0 4px 12px rgba(20,27,36,0.10)',
+            /* Inner rim highlight on left/top edge */
+            'inset 1px 1px 0px rgba(255,255,255,0.55)',
+            'inset -1px -1px 0px rgba(0,0,0,0.08)',
+          ].join(', '),
+          transform: 'rotateY(-18deg) translateY(-80px)',
+          transformOrigin: 'center bottom',
         }}
       >
-        {/* Inner screen */}
-        <div className="w-full h-full bg-white rounded-[32px] overflow-hidden flex flex-col">
-          {/* Status bar with notch */}
-          <div className="flex-shrink-0 flex justify-center items-center pt-3 pb-1 px-4">
-            <div className="w-16 h-4 bg-[#141B24] rounded-full" />
+        {/* Subtle side-band highlight to simulate titanium brushed edge */}
+        <div
+          className="absolute inset-0 rounded-[50px] pointer-events-none"
+          style={{
+            background:
+              'linear-gradient(135deg, rgba(255,255,255,0.30) 0%, transparent 35%, transparent 65%, rgba(0,0,0,0.06) 100%)',
+          }}
+        />
+
+        {/* Screen glass — pure white with very slight warm tint */}
+        <div
+          className="w-full h-full rounded-[44px] overflow-hidden flex flex-col"
+          style={{ background: '#FFFFFF' }}
+        >
+          {/* Dynamic Island — small pill, not a wide bar */}
+          <div className="flex-shrink-0 flex justify-center items-center pt-3 pb-2 px-4">
+            <div
+              className="h-[22px] rounded-full bg-[#0A0A0A]"
+              style={{ width: '90px' }}
+            />
           </div>
+
           {/* Screen header */}
           <div className="flex-shrink-0 px-4 py-2 border-b border-[#EEF1F4]">
-            <p className="text-xs font-bold text-[#141B24] text-center">{screens[step]?.title || screens[0].title}</p>
+            <p className="text-xs font-bold text-[#141B24] text-center">
+              {screens[step]?.title || screens[0].title}
+            </p>
           </div>
+
           {/* Screen content */}
           <div className="flex-1 overflow-hidden">
             <Screen />
+          </div>
+
+          {/* Home indicator bar */}
+          <div className="flex-shrink-0 flex justify-center pb-2 pt-1">
+            <div className="w-24 h-1 bg-[#141B24]/20 rounded-full" />
           </div>
         </div>
       </div>
