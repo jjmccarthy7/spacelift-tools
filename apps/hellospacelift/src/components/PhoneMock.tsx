@@ -179,11 +179,11 @@ const screens = [
                                 className="hero-phone hidden lg:block"
                                 style={{
                                             position: 'absolute',
-                                            right: 0,
+                                            right: '40px',
                                             top: 0,
-                                            width: '420px',
-                                            transform: 'perspective(1800px) rotateY(-12deg) rotateX(12deg) translateY(-110px)',
-                                            filter: 'drop-shadow(0 50px 80px rgba(0,0,0,0.25))',
+                                            width: '460px',
+                                            transform: 'perspective(1400px) rotateY(-14deg) rotateX(12deg) translateY(-170px)',
+                                            filter: 'drop-shadow(0 60px 120px rgba(0,0,0,0.18))',
                                 }}
                               >
                         {/* .hero-phone-screen — app UI sits underneath the frame at z-index 1 */}
@@ -191,11 +191,11 @@ const screens = [
                                           className="hero-phone-screen"
                                           style={{
                                                         position: 'absolute',
-                                                        top: '5.2%',
-                                                        left: '8.2%',
-                                                        width: '83.6%',
-                                                        height: '88.2%',
-                                                        borderRadius: '30px',
+                                                        top: '4.5%',
+                                                        left: '6.5%',
+                                                        width: '87%',
+                                                        height: '91%',
+                                                        borderRadius: '32px',
                                                         overflow: 'hidden',
                                                         zIndex: 1,
                                                         background: 'white',
