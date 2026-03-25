@@ -20,7 +20,7 @@ export default function Footer() {
                                   <div>
                                               <p className="text-xs font-black uppercase tracking-widest text-[#8D9EB2] mb-6">
                                                             Connect With Us
-                                              </p>p>
+                                              </p>
                                               <ul className="space-y-3">
                                                 {socialLinks.map(({ label, href, Icon }) => (
                             <li key={label}>
@@ -32,30 +32,30 @@ export default function Footer() {
                                                                   >
                                                                   <Icon size={18} strokeWidth={1.25} />
                                                 {label}
-                                              </a>a>
-                            </li>li>
+                                              </a>
+                            </li>
                           ))}
-                                              </ul>ul>
-                                  </div>div>
+                                              </ul>
+                                  </div>
                         
                           {/* Contact Us */}
                                   <div>
                                               <p className="text-xs font-black uppercase tracking-widest text-[#8D9EB2] mb-6">
                                                             Contact Us
-                                              </p>p>
+                                              </p>
                                               <a
                                                               href="mailto:info@hellospacelift.com"
                                                               className="text-white font-semibold hover:text-[#FC4C4C] transition-colors duration-200"
                                                             >
                                                             info@hellospacelift.com
-                                              </a>a>
-                                  </div>div>
+                                              </a>
+                                  </div>
                         
                           {/* Terms & Conditions */}
                                   <div>
                                               <p className="text-xs font-black uppercase tracking-widest text-[#8D9EB2] mb-6">
                                                             Terms &amp; Conditions
-                                              </p>p>
+                                              </p>
                                               <ul className="space-y-3">
                                                             <li>
                                                                             <Link
@@ -63,12 +63,12 @@ export default function Footer() {
                                                                                                 className="text-white font-semibold hover:text-[#FC4C4C] transition-colors duration-200"
                                                                                               >
                                                                                               Privacy Policy
-                                                                            </Link>Link>
-                                                            </li>li>
-                                              </ul>ul>
-                                  </div>div>
-                        </div>div>
-                </div>div>
+                                                                            </Link>
+                                                            </li>
+                                              </ul>
+                                  </div>
+                        </div>
+                </div>
           
             {/* Full-bleed footer wordmark — centered, only descender tip crops at page edge */}
                 <div className="relative w-full" style={{ height: 'clamp(120px, 22vw, 320px)', marginBottom: '-2%' }}>
@@ -79,7 +79,7 @@ export default function Footer() {
                                     priority
                                     style={{ objectFit: 'cover', objectPosition: 'center bottom' }}
                                   />
-                </div>div>
-          </footer>footer>
+                </div>
+          </footer>
         )
-}</footer>
+}
