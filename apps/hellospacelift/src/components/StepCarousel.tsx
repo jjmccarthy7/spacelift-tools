@@ -1,7 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import PhoneMock from './PhoneMock'
+import { Dispatch, SetStateAction } from 'react'
 
 const steps = [
   {
@@ -31,75 +30,60 @@ const steps = [
   },
 ]
 
-export default function StepCarousel() {
-  const [activeStep, setActiveStep] = useState(0)
+interface StepCarouselProps {
+  activeStep: number
+  onStepChange: Dispatch<SetStateAction<number>>
+}
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveStep((prev) => (prev + 1) % steps.length)
-    }, 4000)
-    return () => clearInterval(interval)
-  }, [])
-
+export default function StepCarousel({ activeStep, onStepChange }: StepCarouselProps) {
   return (
-    /*
-     * items-center so the left text column and phone visual align
-     * vertically at their shared midpoint.
-     * overflow-visible ensures the lifted phone isn't clipped.
-     */
-    <div className="flex flex-col md:flex-row items-center justify-between gap-12 md:gap-16 overflow-visible">
-      {/* Left: step content */}
-      <div className="flex-1 max-w-xl">
-        {/* Step title & copy */}
-        <div className="min-h-[120px]">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#141B24] leading-tight tracking-tight mb-3 transition-all duration-300">
-            {steps[activeStep].title}
-          </h2>
-          <p className="text-base text-[#8D9EB2] leading-relaxed max-w-[55ch]">
-            {steps[activeStep].copy}
-          </p>
-        </div>
-
-        {/* Step indicator */}
-        <div className="flex items-center gap-2 mt-8">
-          {steps.map((step, index) => (
-            <button
-              key={step.number}
-              onClick={() => setActiveStep(index)}
-              className="flex items-center gap-2 group"
-              aria-label={"Go to step " + step.number}
-            >
-              <span
-                className={[
-                  'text-sm font-bold tabular-nums transition-all duration-200',
-                  index === activeStep
-                    ? 'text-[#141B24]'
-                    : 'text-[#8D9EB2] hover:text-[#141B24]',
-                ].join(' ')}
-              >
-                {step.number}
-              </span>
-              {index === activeStep && (
-                <span className="block w-4 h-0.5 bg-[#FC4C4C] rounded-full" />
-              )}
-              {index < steps.length - 1 && (
-                <span className="block w-3 h-px bg-[#8D9EB2]/50 rounded-full" />
-              )}
-            </button>
-          ))}
-        </div>
-
-        {/* Progress bar */}
-        <div className="mt-4 h-0.5 bg-[#EEF1F4] rounded-full overflow-hidden max-w-xs">
-          <div
-            className="h-full bg-[#FC4C4C] rounded-full transition-all duration-[4000ms] ease-linear"
-            style={{ width: ((activeStep + 1) / steps.length * 100) + '%' }}
-          />
-        </div>
+    <div className="max-w-xl">
+      {/* Step title & copy */}
+      <div className="min-h-[120px]">
+        <h2 className="text-3xl md:text-4xl font-bold text-[#141B24] leading-tight tracking-tight mb-3 transition-all duration-300">
+          {steps[activeStep].title}
+        </h2>
+        <p className="text-base text-[#8D9EB2] leading-relaxed max-w-[55ch]">
+          {steps[activeStep].copy}
+        </p>
       </div>
 
-      {/* Right: phone mockup — translateY(-80px) in PhoneMock lifts it above the row */}
-      <PhoneMock step={activeStep} />
+      {/* Step indicator */}
+      <div className="flex items-center gap-2 mt-8">
+        {steps.map((step, index) => (
+          <button
+            key={step.number}
+            onClick={() => onStepChange(index)}
+            className="flex items-center gap-2 group"
+            aria-label={"Go to step " + step.number}
+          >
+            <span
+              className={[
+                'text-sm font-bold tabular-nums transition-all duration-200',
+                index === activeStep
+                  ? 'text-[#141B24]'
+                  : 'text-[#8D9EB2] hover:text-[#141B24]',
+              ].join(' ')}
+            >
+              {step.number}
+            </span>
+            {index === activeStep && (
+              <span className="block w-4 h-0.5 bg-[#FC4C4C] rounded-full" />
+            )}
+            {index < steps.length - 1 && (
+              <span className="block w-3 h-px bg-[#8D9EB2]/50 rounded-full" />
+            )}
+          </button>
+        ))}
+      </div>
+
+      {/* Progress bar */}
+      <div className="mt-4 h-0.5 bg-[#EEF1F4] rounded-full overflow-hidden max-w-xs">
+        <div
+          className="h-full bg-[#FC4C4C] rounded-full transition-all duration-[4000ms] ease-linear"
+          style={{ width: ((activeStep + 1) / steps.length * 100) + '%' }}
+        />
+      </div>
     </div>
   )
 }
