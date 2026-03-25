@@ -70,14 +70,14 @@ export default function Footer() {
                         </div>
                 </div>
           
-            {/* Full-bleed footer wordmark — centered, only descender tip crops at page edge */}
-                <div className="relative w-full" style={{ height: 'clamp(120px, 22vw, 320px)', marginBottom: '-2%' }}>
+            {/* Full-bleed footer wordmark — full word visible with ample breathing room */}
+                        <div className="relative w-full" style={{ height: 'clamp(240px, 32vw, 460px)' }}>
                         <Image
                                     src="/spacelift-logo-white.png"
                                     alt="Spacelift"
                                     fill
                                     priority
-                                    style={{ objectFit: 'cover', objectPosition: 'center bottom' }}
+                                                style={{ objectFit: 'contain', objectPosition: 'center center' }}
                                   />
                 </div>
           </footer>
