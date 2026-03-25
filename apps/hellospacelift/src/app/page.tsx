@@ -1,4 +1,8 @@
+'use client'
+
+import { useState, useEffect } from 'react'
 import StepCarousel from '@/components/StepCarousel'
+import PhoneMock from '@/components/PhoneMock'
 import ProjectCard from '@/components/ProjectCard'
 import ReviewCard from '@/components/ReviewCard'
 
@@ -36,12 +40,23 @@ const reviews = [
   },
 ]
 
+const STEP_COUNT = 5
+
 export default function HomePage() {
+  const [activeStep, setActiveStep] = useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveStep((prev) => (prev + 1) % STEP_COUNT)
+    }, 4000)
+    return () => clearInterval(interval)
+  }, [])
+
   return (
     <>
       {/* HERO SECTION overflow-visible so the tilted phone bottom can bleed below the section boundary,
-          matching the reference design. The section itself clips via the page scroll context rather than
-          cutting off the phone. */}
+          matching the reference design. The section itself clips via the page scroll context rather
+          than cutting off the phone. */}
       <section
         className="py-32 lg:py-40 relative"
         style={{
@@ -61,19 +76,30 @@ export default function HomePage() {
         />
 
         <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 relative">
-          {/* Headline */}
-          <div className="max-w-2xl">
-            <h1 className="text-5xl md:text-6xl lg:text-[72px] font-extrabold text-[#141B24] leading-[1.05] tracking-[-0.02em]">
-              Love where<br />you live.
-            </h1>
-            <p className="mt-6 text-lg text-slate-500 leading-relaxed max-w-xl">
-              Renovate your space in five simple steps.
-            </p>
-          </div>
+          {/* Two-column hero layout: left = headline + carousel, right = phone */}
+          <div className="mt-16 lg:mt-12 flex flex-col lg:flex-row lg:items-start lg:justify-between gap-12 lg:gap-8">
 
-          {/* Step carousel with phone */}
-          <div className="mt-16">
-            <StepCarousel />
+            {/* LEFT COLUMN: headline, subheadline, step carousel */}
+            <div className="flex-1 min-w-0 max-w-[620px]">
+              {/* Headline */}
+              <h1 className="text-5xl md:text-6xl lg:text-[72px] font-extrabold text-[#141B24] leading-[1.05] tracking-[-0.02em]">
+                Love where<br />you live.
+              </h1>
+              <p className="mt-6 text-lg text-slate-500 leading-relaxed max-w-xl">
+                Renovate your space in five simple steps.
+              </p>
+
+              {/* Step carousel — left-side content only */}
+              <div className="mt-12">
+                <StepCarousel activeStep={activeStep} onStepChange={setActiveStep} />
+              </div>
+            </div>
+
+            {/* RIGHT COLUMN: phone mockup */}
+            <div className="flex-shrink-0 lg:w-[380px] xl:w-[400px] flex lg:justify-end">
+              <PhoneMock step={activeStep} />
+            </div>
+
           </div>
         </div>
       </section>
