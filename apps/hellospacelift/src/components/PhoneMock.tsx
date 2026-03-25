@@ -2,8 +2,8 @@
 import Image from 'next/image'
 import { Camera, MessageCircle, CheckCircle, Star } from 'lucide-react'
 
-// Real iPhone frame hosted in repo docs/designdocs/assets/
-const IPHONE_FRAME_URL = 'https://raw.githubusercontent.com/jjmccarthy7/spacelift-tools/main/docs/designdocs/assets/iPhone17-frame.png'
+// iPhone frame asset served from Next.js public/ directory
+const IPHONE_FRAME_URL = '/iPhone17-frame.png'
 
 interface PhoneMockProps {
     step: number
@@ -181,8 +181,8 @@ const screens = [
                                             position: 'absolute',
                                             right: 0,
                                             top: 0,
-                                            width: '460px',
-                                            transform: 'perspective(1400px) rotateY(-18deg) rotateX(18deg) translateY(-140px)',
+                                            width: '420px',
+                                            transform: 'perspective(1800px) rotateY(-12deg) rotateX(12deg) translateY(-110px)',
                                             filter: 'drop-shadow(0 50px 80px rgba(0,0,0,0.25))',
                                 }}
                               >
@@ -191,11 +191,11 @@ const screens = [
                                           className="hero-phone-screen"
                                           style={{
                                                         position: 'absolute',
-                                                        top: '4.5%',
-                                                        left: '6.5%',
-                                                        width: '87%',
-                                                        height: '91%',
-                                                        borderRadius: '32px',
+                                                        top: '5.2%',
+                                                        left: '8.2%',
+                                                        width: '83.6%',
+                                                        height: '88.2%',
+                                                        borderRadius: '30px',
                                                         overflow: 'hidden',
                                                         zIndex: 1,
                                                         background: 'white',
