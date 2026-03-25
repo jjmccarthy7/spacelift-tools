@@ -181,8 +181,8 @@ const screens = [
                                             position: 'absolute',
                                             right: 0,
                                             top: 0,
-                                            width: '390px',
-                                            transform: 'perspective(2200px) rotateY(-18deg) rotateX(16deg) translateY(-118px)',
+                                            width: '343px',
+                                            transform: 'perspective(1600px) rotateY(-16deg) rotateX(10deg) translateY(-150px)',
                                             filter: 'drop-shadow(0 46px 90px rgba(0,0,0,0.16))',
                                 }}
                               >
