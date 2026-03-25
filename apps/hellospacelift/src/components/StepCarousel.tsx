@@ -47,7 +47,7 @@ export default function StepCarousel() {
      * vertically at their shared midpoint.
      * overflow-visible ensures the lifted phone isn't clipped.
      */
-    <div className="flex flex-col md:flex-row items-center justify-between gap-12 md:gap-16 overflow-visible">
+    <div className="flex flex-col md:flex-row items-center justify-between gap-12 md:gap-16 lg:gap-10 overflow-visible">
       {/* Left: step content */}
       <div className="flex-1 max-w-xl">
         {/* Step title & copy */}
