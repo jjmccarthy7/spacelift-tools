@@ -12,7 +12,7 @@ const screens = [
     title: 'Your space',
     component: () => (
       <div className="flex flex-col gap-3 p-4">
-        <div className="bg-[#EEF1F4] rounded-2xl h-32 flex items-center justify-center">
+        <div className="bg-[#EEF1F4] rounded-2xl h-32 flex items-center justify-cener">
           <div className="text-center">
             <Camera size={28} strokeWidth={1.25} className="text-[#8D9EB2] mx-auto mb-2" />
             <p className="text-xs text-[#8D9EB2] font-medium">Add photos of your space</p>
@@ -188,22 +188,22 @@ export default function PhoneMock({ step }: PhoneMockProps) {
       />
 
       {/* Transform wrapper: desktop size, position, tilt */}
-      <div className="relative lg:-translate-x-10 lg:translate-y-8 lg:rotate-[14deg] transition-transform">
+      <div className="relative lg:-translate-x-6 lg:-translate-y-6 lg:rotate-[11deg] transition-transform">
 
         {/* Outer phone shell */}
-        <div className="relative w-[260px] md:w-[300px] lg:w-[420px] rounded-[46px] bg-[#1f1f1f] p-[5px] shadow-[0_40px_120px_rgba(15,23,42,0.22)] ring-1 ring-black/10">
+        <div className="relative w-[260px] md:w-[300px] lg:w-[420px] rounded-[48px] bg-[#d7d4cf] p-[3px] shadow-[0_32px_80px_rgba(15,23,42,0.16)] ring-1 ring-black/8">
 
           {/* Metallic edge highlight */}
-          <div className="absolute inset-[1px] rounded-[45px] pointer-events-none bg-gradient-to-b from-white/18 via-white/4 to-black/8" />
+          <div className="absolute inset-[1px] rounded-[47px] pointer-events-none bg-gradient-to-br from-white/70 via-white/18 to-[#8f8a83]/18" />
 
           {/* Dynamic Island */}
-          <div className="absolute top-[14px] left-1/2 -translate-x-1/2 h-[26px] w-[120px] rounded-full bg-black z-20" />
+          <div className="absolute top-[13px] left-1/2 -translate-x-1/2 h-[24px] w-[112px] rounded-full bg-black z-20" />
 
           {/* Inner screen wrapper */}
-          <div className="relative overflow-hidden rounded-[40px] bg-white">
+          <div className="relative overflow-hidden rounded-[45px] bg-white">
 
             {/* Screen header */}
-            <div className="flex-shrink-0 px-4 pt-14 pb-2 border-b border-[#EEF1F4]">
+            <div className="flex-shrink-0 px-4 pt-[3.35rem] pb-2 border-b border-[#EEF1F4]">
               <p className="text-xs font-bold text-[#141B24] text-center">
                 {screens[step]?.title || screens[0].title}
               </p>
