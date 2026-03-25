@@ -39,12 +39,11 @@ const reviews = [
 export default function HomePage() {
   return (
     <>
-      {/* HERO SECTION
-          overflow-visible so the tilted phone bottom can bleed below the section
-          boundary, matching the reference design. The section itself clips via
-          the page scroll context rather than cutting off the phone. */}
+      {/* HERO SECTION overflow-visible so the tilted phone bottom can bleed below the section boundary,
+          matching the reference design. The section itself clips via the page scroll context rather than
+          cutting off the phone. */}
       <section
-        className="pt-16 relative"
+        className="py-32 lg:py-40 relative"
         style={{
           background:
             'radial-gradient(ellipse 80% 90% at 75% 60%, rgba(252,76,76,0.10) 0%, rgba(162,123,252,0.07) 30%, rgba(247,248,250,0) 70%), #F7F8FA',
@@ -60,13 +59,14 @@ export default function HomePage() {
             filter: 'blur(48px)',
           }}
         />
-        <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-20 pt-20 pb-24 relative">
+
+        <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 relative">
           {/* Headline */}
-          <div className="max-w-2xl mb-12 md:mb-0">
-            <h1 className="text-6xl md:text-7xl lg:text-8xl font-black text-[#141B24] leading-[1.05] tracking-tight mb-4">
+          <div className="max-w-2xl">
+            <h1 className="text-5xl md:text-6xl lg:text-[72px] font-extrabold text-[#141B24] leading-[1.05] tracking-[-0.02em]">
               Love where<br />you live.
             </h1>
-            <p className="text-xl md:text-2xl text-[#8D9EB2] font-light leading-relaxed">
+            <p className="mt-6 text-lg text-slate-500 leading-relaxed max-w-xl">
               Renovate your space in five simple steps.
             </p>
           </div>
