@@ -1,5 +1,4 @@
 'use client'
-
 import { useEffect, useState } from 'react'
 import PhoneMock from './PhoneMock'
 
@@ -42,8 +41,14 @@ export default function StepCarousel() {
   }, [])
 
   return (
-    <div className="flex flex-col md:flex-row items-center justify-between gap-12 md:gap-16">
-      {/* Left: step content */}
+    /*
+     * items-start so the phone top can sit above the left column text.
+     * The phone's own translateY(-80px) lifts it up relative to its
+     * natural position in the flex row, clearing above the H1.
+     * overflow-visible ensures the lifted phone isn't clipped.
+     */
+    <div className="flex flex-col md:flex-row items-start justify-between gap-12 md:gap-16 overflow-visible">
+      {/* Left: step content — sits naturally at the top of the row */}
       <div className="flex-1 max-w-xl">
         {/* Step title & copy */}
         <div className="min-h-[120px]">
@@ -93,7 +98,7 @@ export default function StepCarousel() {
         </div>
       </div>
 
-      {/* Right: phone mockup */}
+      {/* Right: phone mockup — translateY(-80px) in PhoneMock lifts it above the row */}
       <PhoneMock step={activeStep} />
     </div>
   )
