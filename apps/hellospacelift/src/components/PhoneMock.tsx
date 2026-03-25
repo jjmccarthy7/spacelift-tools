@@ -161,20 +161,8 @@ const screens = [
 export default function PhoneMock({ step }: PhoneMockProps) {
   const Screen = screens[step]?.component || screens[0].component
   return (
-    /*
-     * 3D perspective lean matching the reference:
-     * - perspective() on the wrapper creates the depth field
-     * - rotateY(-18deg) leans the bottom-right away from the viewer
-     *   while keeping the TOP EDGE perfectly horizontal/level
-     * - translateY(-80px) lifts the phone so its top sits just above
-     *   the H1 headline level
-     * - NO flat rotate() — that tilts the top edge which is wrong
-     */
-    <div
-      className="relative flex-shrink-0"
-      style={{ perspective: '900px' }}
-    >
-      {/* Outer glow — large elliptical bloom pooling below and behind */}
+    <div className="relative flex-shrink-0">
+      {/* Outer glow */}
       <div
         aria-hidden="true"
         className="absolute pointer-events-none"
@@ -186,7 +174,7 @@ export default function PhoneMock({ step }: PhoneMockProps) {
           zIndex: 0,
         }}
       />
-      {/* Inner halo — tighter ring behind the bezel */}
+      {/* Inner halo */}
       <div
         aria-hidden="true"
         className="absolute pointer-events-none rounded-[52px]"
@@ -199,70 +187,34 @@ export default function PhoneMock({ step }: PhoneMockProps) {
         }}
       />
 
-      {/*
-       * iPhone 17 / titanium-finish frame:
-       * - Light silver (#C8C8CC) brushed-metal sides, not black
-       * - Very thin bezels (p-[7px])
-       * - Dynamic Island pill (not a wide notch bar)
-       * - Subtle inner rim to simulate the aluminium band
-       * - rotateY(-18deg) applied here for the 3D lean
-       * - translateY(-80px) lifts it so top clears the H1
-       */}
-      <div
-        className="relative w-[260px] md:w-[300px] h-[520px] md:h-[600px] rounded-[50px] p-[7px]"
-        style={{
-          zIndex: 1,
-          background: 'linear-gradient(145deg, #D8D8DC 0%, #B8B8BE 40%, #C8C8CC 70%, #A8A8AE 100%)',
-          boxShadow: [
-            /* Main elevation shadow — pools below-right matching 3D lean */
-            '0 48px 96px rgba(20,27,36,0.28)',
-            '0 16px 40px rgba(20,27,36,0.16)',
-            '0 4px 12px rgba(20,27,36,0.10)',
-            /* Inner rim highlight on left/top edge */
-            'inset 1px 1px 0px rgba(255,255,255,0.55)',
-            'inset -1px -1px 0px rgba(0,0,0,0.08)',
-          ].join(', '),
-          transform: 'rotateY(-18deg) translateY(-80px)',
-          transformOrigin: 'center bottom',
-        }}
-      >
-        {/* Subtle side-band highlight to simulate titanium brushed edge */}
-        <div
-          className="absolute inset-0 rounded-[50px] pointer-events-none"
-          style={{
-            background:
-              'linear-gradient(135deg, rgba(255,255,255,0.30) 0%, transparent 35%, transparent 65%, rgba(0,0,0,0.06) 100%)',
-          }}
-        />
+      {/* Transform wrapper: position, tilt */}
+      <div className="relative lg:-translate-x-4 lg:-translate-y-10 lg:rotate-[8deg] transition-transform">
+        {/* Outer phone shell — light metallic frame */}
+        <div className="relative w-[260px] md:w-[300px] lg:w-[340px] xl:w-[360px] rounded-[48px] bg-[#d7d4cf] p-[3px] shadow-[0_32px_80px_rgba(15,23,42,0.16)] ring-1 ring-black/8">
+          {/* Metallic edge highlight */}
+          <div className="absolute inset-[1px] rounded-[47px] pointer-events-none bg-gradient-to-br from-white/70 via-white/18 to-[#8f8a83]/18" />
 
-        {/* Screen glass — pure white with very slight warm tint */}
-        <div
-          className="w-full h-full rounded-[44px] overflow-hidden flex flex-col"
-          style={{ background: '#FFFFFF' }}
-        >
-          {/* Dynamic Island — small pill, not a wide bar */}
-          <div className="flex-shrink-0 flex justify-center items-center pt-3 pb-2 px-4">
-            <div
-              className="h-[22px] rounded-full bg-[#0A0A0A]"
-              style={{ width: '90px' }}
-            />
-          </div>
+          {/* Dynamic Island */}
+          <div className="absolute top-[13px] left-1/2 -translate-x-1/2 h-[24px] w-[112px] rounded-full bg-black z-20" />
 
-          {/* Screen header */}
-          <div className="flex-shrink-0 px-4 py-2 border-b border-[#EEF1F4]">
-            <p className="text-xs font-bold text-[#141B24] text-center">
-              {screens[step]?.title || screens[0].title}
-            </p>
-          </div>
+          {/* Inner screen wrapper */}
+          <div className="relative overflow-hidden rounded-[45px] bg-white">
+            {/* Screen header */}
+            <div className="flex-shrink-0 px-4 pt-[3.35rem] pb-2 border-b border-[#EEF1F4]">
+              <p className="text-xs font-bold text-[#141B24] text-center">
+                {screens[step]?.title || screens[0].title}
+              </p>
+            </div>
 
-          {/* Screen content */}
-          <div className="flex-1 overflow-hidden">
-            <Screen />
-          </div>
+            {/* Screen content — tall realistic aspect ratio */}
+            <div className="overflow-hidden h-[520px] md:h-[560px] lg:h-[620px] xl:h-[660px]">
+              <Screen />
+            </div>
 
-          {/* Home indicator bar */}
-          <div className="flex-shrink-0 flex justify-center pb-2 pt-1">
-            <div className="w-24 h-1 bg-[#141B24]/20 rounded-full" />
+            {/* Home indicator bar */}
+            <div className="flex justify-center pb-2 pt-1">
+              <div className="w-24 h-1 bg-[#141B24]/20 rounded-full" />
+            </div>
           </div>
         </div>
       </div>
