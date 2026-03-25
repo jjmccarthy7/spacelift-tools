@@ -1,5 +1,4 @@
 'use client'
-
 import { Camera, MessageCircle, Users, CheckCircle, Star } from 'lucide-react'
 
 interface PhoneMockProps {
@@ -44,11 +43,11 @@ const screens = [
           <div className="w-8 h-8 rounded-full bg-[#FC4C4C] flex items-center justify-center text-white text-xs font-bold">S</div>
           <div>
             <p className="text-xs font-semibold text-[#141B24]">Spacelift Advisor</p>
-            <p className="text-[10px] text-[#0ED096]">● Online now</p>
+            <p className="text-[10px] text-[#0ED096]">Online now</p>
           </div>
         </div>
         <div className="bg-[#EEF1F4] rounded-2xl rounded-tl-sm p-3 max-w-[85%]">
-          <p className="text-xs text-[#141B24]">Hi! I've reviewed your project. I have a few questions to find your best matches.</p>
+          <p className="text-xs text-[#141B24]">Hi! I have reviewed your project and have a few questions to find your best matches.</p>
         </div>
         <div className="bg-[#FC4C4C] rounded-2xl rounded-tr-sm p-3 max-w-[85%] ml-auto">
           <p className="text-xs text-white">That sounds great! When can we start?</p>
@@ -88,7 +87,7 @@ const screens = [
                 {c.best && <span className="text-[9px] bg-[#FC4C4C] text-white px-1.5 py-0.5 rounded-full font-semibold flex-shrink-0">Best Fit</span>}
               </div>
               <p className="text-[10px] text-[#8D9EB2] truncate">{c.company}</p>
-              <p className="text-[10px] text-[#0ED096] font-medium">✓ VERIFIED</p>
+              <p className="text-[10px] text-[#0ED096] font-medium">VERIFIED</p>
             </div>
           </div>
         ))}
@@ -161,11 +160,41 @@ const screens = [
 
 export default function PhoneMock({ step }: PhoneMockProps) {
   const Screen = screens[step]?.component || screens[0].component
-
   return (
     <div className="relative flex-shrink-0">
+      {/* Outer glow: large soft bloom that creates depth behind the phone */}
+      <div
+        aria-hidden="true"
+        className="absolute pointer-events-none"
+        style={{
+          inset: '-40%',
+          background:
+            'radial-gradient(circle at 55% 50%, rgba(252,76,76,0.18) 0%, rgba(162,123,252,0.12) 35%, transparent 65%)',
+          filter: 'blur(40px)',
+          zIndex: 0,
+        }}
+      />
+      {/* Inner halo: tighter ring just outside the phone bezel */}
+      <div
+        aria-hidden="true"
+        className="absolute pointer-events-none rounded-[48px]"
+        style={{
+          inset: '-12px',
+          background:
+            'radial-gradient(ellipse at 50% 45%, rgba(252,76,76,0.10) 0%, rgba(255,255,255,0.0) 70%)',
+          filter: 'blur(12px)',
+          zIndex: 0,
+        }}
+      />
       {/* Phone frame */}
-      <div className="relative w-[240px] md:w-[280px] h-[480px] md:h-[560px] bg-[#141B24] rounded-[40px] p-2.5 shadow-2xl">
+      <div
+        className="relative w-[240px] md:w-[280px] h-[480px] md:h-[560px] bg-[#141B24] rounded-[40px] p-2.5"
+        style={{
+          zIndex: 1,
+          boxShadow:
+            '0 32px 64px rgba(20,27,36,0.30), 0 8px 24px rgba(20,27,36,0.18), 0 2px 8px rgba(20,27,36,0.12)',
+        }}
+      >
         {/* Inner screen */}
         <div className="w-full h-full bg-white rounded-[32px] overflow-hidden flex flex-col">
           {/* Status bar with notch */}
@@ -182,8 +211,6 @@ export default function PhoneMock({ step }: PhoneMockProps) {
           </div>
         </div>
       </div>
-      {/* Glow effect */}
-      <div className="absolute inset-0 rounded-[40px] bg-[#FC4C4C]/10 blur-2xl -z-10 scale-110" />
     </div>
   )
 }
