@@ -39,15 +39,18 @@ const reviews = [
 export default function HomePage() {
   return (
     <>
-      {/* HERO SECTION */}
+      {/* HERO SECTION
+          overflow-visible so the tilted phone bottom can bleed below the section
+          boundary, matching the reference design. The section itself clips via
+          the page scroll context rather than cutting off the phone. */}
       <section
-        className="pt-16 relative overflow-hidden"
+        className="pt-16 relative"
         style={{
           background:
             'radial-gradient(ellipse 80% 90% at 75% 60%, rgba(252,76,76,0.10) 0%, rgba(162,123,252,0.07) 30%, rgba(247,248,250,0) 70%), #F7F8FA',
         }}
       >
-        {/* Depth layer: soft bloom behind phone */}
+        {/* Depth layer: soft bloom behind phone position */}
         <div
           aria-hidden="true"
           className="pointer-events-none absolute right-[8%] top-[10%] w-[520px] h-[520px] rounded-full"
