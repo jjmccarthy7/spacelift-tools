@@ -160,6 +160,7 @@ const screens = [
 
 export default function PhoneMock({ step }: PhoneMockProps) {
   const Screen = screens[step]?.component || screens[0].component
+
   return (
     <div className="relative flex-shrink-0">
       {/* Outer glow */}
@@ -168,8 +169,7 @@ export default function PhoneMock({ step }: PhoneMockProps) {
         className="absolute pointer-events-none"
         style={{
           inset: '-40%',
-          background:
-            'radial-gradient(ellipse 60% 70% at 55% 80%, rgba(252,76,76,0.18) 0%, rgba(162,123,252,0.10) 45%, transparent 70%)',
+          background: 'radial-gradient(ellipse 60% 70% at 55% 80%, rgba(252,76,76,0.18) 0%, rgba(162,123,252,0.10) 45%, transparent 70%)',
           filter: 'blur(52px)',
           zIndex: 0,
         }}
@@ -180,23 +180,25 @@ export default function PhoneMock({ step }: PhoneMockProps) {
         className="absolute pointer-events-none rounded-[52px]"
         style={{
           inset: '-16px',
-          background:
-            'radial-gradient(ellipse at 50% 55%, rgba(252,76,76,0.10) 0%, transparent 65%)',
+          background: 'radial-gradient(ellipse at 50% 55%, rgba(252,76,76,0.10) 0%, transparent 65%)',
           filter: 'blur(16px)',
           zIndex: 0,
         }}
       />
-
-      {/* Transform wrapper: position, tilt */}
-      <div className="relative lg:-translate-x-4 lg:-translate-y-10 lg:rotate-[8deg] transition-transform">
+      {/* Transform wrapper: 3D perspective tilt on desktop, flat on mobile */}
+      <div
+        className="relative transition-transform hidden lg:block"
+        style={{
+          transformOrigin: 'bottom center',
+          transform: 'perspective(1600px) rotateY(-18deg) rotateX(2deg) rotateZ(-2deg) translateX(-12px) translateY(-10px)',
+        }}
+      >
         {/* Outer phone shell — light metallic frame */}
-        <div className="relative w-[260px] md:w-[300px] lg:w-[340px] xl:w-[360px] rounded-[48px] bg-[#d7d4cf] p-[3px] shadow-[0_32px_80px_rgba(15,23,42,0.16)] ring-1 ring-black/8">
+        <div className="relative w-[340px] xl:w-[360px] rounded-[48px] bg-[#d7d4cf] p-[3px] shadow-[0_32px_80px_rgba(15,23,42,0.16)] ring-1 ring-black/8">
           {/* Metallic edge highlight */}
           <div className="absolute inset-[1px] rounded-[47px] pointer-events-none bg-gradient-to-br from-white/70 via-white/18 to-[#8f8a83]/18" />
-
           {/* Dynamic Island */}
           <div className="absolute top-[13px] left-1/2 -translate-x-1/2 h-[24px] w-[112px] rounded-full bg-black z-20" />
-
           {/* Inner screen wrapper */}
           <div className="relative overflow-hidden rounded-[45px] bg-white">
             {/* Screen header */}
@@ -205,12 +207,37 @@ export default function PhoneMock({ step }: PhoneMockProps) {
                 {screens[step]?.title || screens[0].title}
               </p>
             </div>
-
             {/* Screen content — tall realistic aspect ratio */}
-            <div className="overflow-hidden h-[520px] md:h-[560px] lg:h-[620px] xl:h-[660px]">
+            <div className="overflow-hidden lg:h-[620px] xl:h-[660px]">
               <Screen />
             </div>
-
+            {/* Home indicator bar */}
+            <div className="flex justify-center pb-2 pt-1">
+              <div className="w-24 h-1 bg-[#141B24]/20 rounded-full" />
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* Mobile / tablet: flat display, no 3D perspective */}
+      <div className="relative lg:hidden">
+        {/* Outer phone shell — light metallic frame */}
+        <div className="relative w-[260px] md:w-[300px] rounded-[48px] bg-[#d7d4cf] p-[3px] shadow-[0_32px_80px_rgba(15,23,42,0.16)] ring-1 ring-black/8">
+          {/* Metallic edge highlight */}
+          <div className="absolute inset-[1px] rounded-[47px] pointer-events-none bg-gradient-to-br from-white/70 via-white/18 to-[#8f8a83]/18" />
+          {/* Dynamic Island */}
+          <div className="absolute top-[13px] left-1/2 -translate-x-1/2 h-[24px] w-[112px] rounded-full bg-black z-20" />
+          {/* Inner screen wrapper */}
+          <div className="relative overflow-hidden rounded-[45px] bg-white">
+            {/* Screen header */}
+            <div className="flex-shrink-0 px-4 pt-[3.35rem] pb-2 border-b border-[#EEF1F4]">
+              <p className="text-xs font-bold text-[#141B24] text-center">
+                {screens[step]?.title || screens[0].title}
+              </p>
+            </div>
+            {/* Screen content — tall realistic aspect ratio */}
+            <div className="overflow-hidden h-[520px] md:h-[560px]">
+              <Screen />
+            </div>
             {/* Home indicator bar */}
             <div className="flex justify-center pb-2 pt-1">
               <div className="w-24 h-1 bg-[#141B24]/20 rounded-full" />
