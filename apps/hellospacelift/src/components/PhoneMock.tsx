@@ -2,6 +2,9 @@
 import Image from 'next/image'
 import { Camera, MessageCircle, CheckCircle, Star } from 'lucide-react'
 
+// Real iPhone frame hosted in repo docs/designdocs/assets/
+const IPHONE_FRAME_URL = 'https://raw.githubusercontent.com/jjmccarthy7/spacelift-tools/main/docs/designdocs/assets/iPhone17-frame.png'
+
 interface PhoneMockProps {
   step: number
 }
@@ -163,153 +166,152 @@ export default function PhoneMock({ step }: PhoneMockProps) {
   const Screen = screens[step]?.component || screens[0].component
 
   return (
-    <div className="relative flex-shrink-0">
-      {/* Outer glow */}
-      <div
-        aria-hidden="true"
-        className="absolute pointer-events-none"
-        style={{
-          inset: '-40%',
-          background: 'radial-gradient(ellipse 60% 70% at 55% 80%, rgba(252,76,76,0.18) 0%, rgba(162,123,252,0.10) 45%, transparent 70%)',
-          filter: 'blur(52px)',
-          zIndex: 0,
-        }}
-      />
+    <>
+      {/*
+       * .hero-phone
+       * Desktop: absolute, right-0, top-0, 460px wide, 3D transform on container only
+       * Tablet:  relative, 300px, reduced rotation
+       * Mobile:  relative, 260px, flat
+       */}
 
-      {/* ── DESKTOP: real iPhone frame + 3D lean ── */}
+      {/* ── DESKTOP lg+ ── */}
       <div
-        className="hidden lg:block relative"
+        className="hero-phone hidden lg:block"
         style={{
+          position: 'absolute',
+          right: 0,
+          top: 0,
+          width: '460px',
+          transform: 'perspective(1400px) rotateY(-18deg) rotateX(18deg) translateY(-140px)',
+          transformOrigin: 'top right',
           filter: 'drop-shadow(0 40px 60px rgba(0,0,0,0.25))',
-          transform: 'perspective(1400px) rotateY(-18deg) rotateX(16deg) translateY(-40px)',
-          transformOrigin: 'bottom center',
-          transformStyle: 'preserve-3d',
         }}
       >
-        {/* hero-phone: sized to frame aspect ratio — 1350:2760 ≈ 9:18.4 */}
+        {/* .hero-phone-screen — app UI sits underneath the frame at z-index 1 */}
         <div
-          className="relative"
-          style={{ width: '360px', aspectRatio: '1350 / 2760' }}
+          className="hero-phone-screen"
+          style={{
+            position: 'absolute',
+            top: '4.5%',
+            left: '6.5%',
+            width: '87%',
+            height: '91%',
+            borderRadius: '32px',
+            overflow: 'hidden',
+            zIndex: 1,
+            background: 'white',
+          }}
         >
-          {/* hero-phone-screen: sits under the frame, clipped to the screen window */}
-          <div
-            className="absolute overflow-hidden bg-white"
-            style={{
-              top: '7.8%',
-              left: '5.5%',
-              right: '5.5%',
-              bottom: '3.2%',
-              borderRadius: '38px',
-            }}
-          >
-            {/* Screen header */}
-            <div className="flex-shrink-0 px-4 pt-10 pb-2 border-b border-[#EEF1F4]">
-              <p className="text-xs font-bold text-[#141B24] text-center">
-                {screens[step]?.title || screens[0].title}
-              </p>
-            </div>
-            {/* Screen content */}
-            <div className="overflow-y-auto" style={{ height: 'calc(100% - 52px)' }}>
-              <Screen />
-            </div>
+          {/* Screen content — fills the device window */}
+          <div className="overflow-y-auto h-full">
+            <Screen />
           </div>
+        </div>
 
-          {/* hero-phone-frame: real device frame PNG, sits above the screen */}
+        {/* .hero-phone-frame — real device PNG rendered above screen at z-index 2 */}
+        <div
+          className="hero-phone-frame"
+          style={{
+            position: 'relative',
+            width: '100%',
+            zIndex: 2,
+            pointerEvents: 'none',
+          }}
+        >
           <Image
-            src="/iphone17-frame.png"
+            src={IPHONE_FRAME_URL}
             alt=""
             aria-hidden="true"
-            fill
-            className="pointer-events-none select-none"
-            style={{ objectFit: 'contain', zIndex: 10 }}
+            width={1350}
+            height={2760}
+            className="w-full h-auto select-none"
+            style={{ display: 'block' }}
             priority
+            unoptimized
           />
         </div>
       </div>
 
-      {/* ── TABLET: slight tilt, same frame ── */}
+      {/* ── TABLET md (below lg) ── */}
       <div
         className="hidden md:block lg:hidden relative"
         style={{
+          width: '300px',
+          transform: 'perspective(1400px) rotateY(-9deg) rotateX(8deg) translateY(-20px)',
+          transformOrigin: 'top center',
           filter: 'drop-shadow(0 24px 40px rgba(0,0,0,0.18))',
-          transform: 'perspective(1400px) rotateY(-8deg) rotateX(6deg) translateY(-10px)',
-          transformOrigin: 'bottom center',
         }}
       >
         <div
-          className="relative"
-          style={{ width: '300px', aspectRatio: '1350 / 2760' }}
+          style={{
+            position: 'absolute',
+            top: '4.5%',
+            left: '6.5%',
+            width: '87%',
+            height: '91%',
+            borderRadius: '28px',
+            overflow: 'hidden',
+            zIndex: 1,
+            background: 'white',
+          }}
         >
-          <div
-            className="absolute overflow-hidden bg-white"
-            style={{
-              top: '7.8%',
-              left: '5.5%',
-              right: '5.5%',
-              bottom: '3.2%',
-              borderRadius: '32px',
-            }}
-          >
-            <div className="flex-shrink-0 px-3 pt-8 pb-2 border-b border-[#EEF1F4]">
-              <p className="text-xs font-bold text-[#141B24] text-center">
-                {screens[step]?.title || screens[0].title}
-              </p>
-            </div>
-            <div className="overflow-y-auto" style={{ height: 'calc(100% - 46px)' }}>
-              <Screen />
-            </div>
+          <div className="overflow-y-auto h-full">
+            <Screen />
           </div>
+        </div>
+        <div style={{ position: 'relative', width: '100%', zIndex: 2, pointerEvents: 'none' }}>
           <Image
-            src="/iphone17-frame.png"
+            src={IPHONE_FRAME_URL}
             alt=""
             aria-hidden="true"
-            fill
-            className="pointer-events-none select-none"
-            style={{ objectFit: 'contain', zIndex: 10 }}
+            width={1350}
+            height={2760}
+            className="w-full h-auto select-none"
+            style={{ display: 'block' }}
             priority
+            unoptimized
           />
         </div>
       </div>
 
-      {/* ── MOBILE: flat, no rotation ── */}
+      {/* ── MOBILE (below md) ── */}
       <div
         className="block md:hidden relative"
-        style={{ filter: 'drop-shadow(0 16px 32px rgba(0,0,0,0.14))' }}
+        style={{
+          width: '260px',
+          filter: 'drop-shadow(0 16px 32px rgba(0,0,0,0.14))',
+        }}
       >
         <div
-          className="relative"
-          style={{ width: '260px', aspectRatio: '1350 / 2760' }}
+          style={{
+            position: 'absolute',
+            top: '4.5%',
+            left: '6.5%',
+            width: '87%',
+            height: '91%',
+            borderRadius: '24px',
+            overflow: 'hidden',
+            zIndex: 1,
+            background: 'white',
+          }}
         >
-          <div
-            className="absolute overflow-hidden bg-white"
-            style={{
-              top: '7.8%',
-              left: '5.5%',
-              right: '5.5%',
-              bottom: '3.2%',
-              borderRadius: '28px',
-            }}
-          >
-            <div className="flex-shrink-0 px-3 pt-7 pb-2 border-b border-[#EEF1F4]">
-              <p className="text-xs font-bold text-[#141B24] text-center">
-                {screens[step]?.title || screens[0].title}
-              </p>
-            </div>
-            <div className="overflow-y-auto" style={{ height: 'calc(100% - 42px)' }}>
-              <Screen />
-            </div>
+          <div className="overflow-y-auto h-full">
+            <Screen />
           </div>
+        </div>
+        <div style={{ position: 'relative', width: '100%', zIndex: 2, pointerEvents: 'none' }}>
           <Image
-            src="/iphone17-frame.png"
+            src={IPHONE_FRAME_URL}
             alt=""
             aria-hidden="true"
-            fill
-            className="pointer-events-none select-none"
-            style={{ objectFit: 'contain', zIndex: 10 }}
-            priority
+            width={1350}
+            height={2760}
+            className="w-full h-auto select-none"
+            style={{ display: 'block' }}
+            unoptimized
           />
         </div>
       </div>
-    </div>
+    </>
   )
 }
