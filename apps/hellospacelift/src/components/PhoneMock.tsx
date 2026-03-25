@@ -128,7 +128,7 @@ const screens = [
                         </div>
                         <button className="w-full bg-[#FC4C4C] text-white text-xs font-semibold py-3 rounded-full hover:bg-[#CA3D3D] transition-colors">
                                   Choose Maria
-                        </button>button>
+                        </button>
                 </div>
               ),
   },
