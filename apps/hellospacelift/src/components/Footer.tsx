@@ -77,7 +77,7 @@ export default function Footer() {
                                     alt="Spacelift"
                                     fill
                                     priority
-                                    style={{ objectFit: 'contain', objectPosition: 'center bottom' }}
+                                    style={{ objectFit: 'cover', objectPosition: 'center bottom' }}
                                   />
                 </div>div>
           </footer>footer>
