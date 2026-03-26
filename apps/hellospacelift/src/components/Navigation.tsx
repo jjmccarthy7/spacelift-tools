@@ -1,6 +1,5 @@
 'use client'
 
-import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
@@ -28,12 +27,16 @@ export default function Navigation() {
           className="flex items-center hover:opacity-80 transition-opacity duration-200"
           aria-label="Spacelift home"
         >
-          <Image
-            src="/spacelift-logo.png"
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/spacelift-logo.svg"
             alt="Spacelift"
-            width={120}
-            height={31}
-            priority
+            style={{
+              width: '120px',
+              height: 'auto',
+              display: 'block',
+              filter: 'brightness(0) saturate(100%) invert(42%) sepia(93%) saturate(538%) hue-rotate(315deg) brightness(107%)',
+            }}
           />
         </Link>
 
