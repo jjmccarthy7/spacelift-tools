@@ -179,7 +179,7 @@ const screens = [
                                 className="hero-phone hidden lg:block"
                                 style={{
                                             position: 'absolute',
-                                            right: '72px',
+                                            right: '168px',
                                             top: 0,
                                             width: '290px',
                                             transform: 'perspective(1550px) rotateY(-10deg) rotateX(16deg) rotateZ(4deg) translateY(-92px)',
