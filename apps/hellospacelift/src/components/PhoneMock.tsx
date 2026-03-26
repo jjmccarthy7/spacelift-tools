@@ -182,7 +182,7 @@ const screens = [
                                             right: '72px',
                                             top: 0,
                                             width: '290px',
-                                            transform: 'perspective(1550px) rotateY(-14deg) rotateX(16deg) translateY(-92px)',
+                                            transform: 'perspective(1550px) rotateY(-8deg) rotateX(16deg) translateY(-92px)',
                                             filter: 'drop-shadow(0 46px 90px rgba(0,0,0,0.16))',
                                             transformOrigin: 'bottom center',
                                 }}
