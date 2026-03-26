@@ -48,27 +48,18 @@ export default function StepCarousel({ activeStep, onStepChange }: StepCarouselP
         </p>
       </div>
 
-      {/* Step indicator */}
-      <div className="flex items-center gap-5 mt-8">
-        {steps.map((step, index) => (
-          <button
-            key={step.number}
-            onClick={() => onStepChange(index)}
-            className="flex flex-col items-center group"
-            aria-label={"Go to step " + step.number}
-          >
-            <span
-              className={[
-                'text-sm tabular-nums transition-all duration-200 tracking-[0.04em]',
-                index === activeStep
-                  ? 'font-bold text-[#141B24]'
-                  : 'font-medium text-[#A4B1C1] hover:text-[#141B24]',
-              ].join(' ')}
-            >
-              {step.number}
-            </span>
-            <span className={['block w-full h-[2px] mt-0.5 rounded-full', index === activeStep ? 'bg-[#FC4C4C]' : 'bg-transparent'].join(' ')} />
-          </button>
+      {/* Step indicator — pill/dot */}
+      <div className="flex items-center gap-3 mt-8">
+        {steps.map((_, index) => (
+          <div
+            key={index}
+            style={{
+              width: index === activeStep ? '24px' : '8px',
+              height: '8px',
+              borderRadius: '999px',
+              backgroundColor: index === activeStep ? '#FC4C4C' : '#BBC5D1',
+            }}
+          />
         ))}
       </div>
 
