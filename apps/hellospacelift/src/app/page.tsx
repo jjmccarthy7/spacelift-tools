@@ -70,7 +70,7 @@ export default function HomePage() {
           className="pointer-events-none absolute right-[8%] top-[10%] w-[520px] h-[520px] rounded-full"
           style={{
             background:
-              'radial-gradient(circle, rgba(252,76,76,0.13) 0%, rgba(162,123,252,0.08) 40%, transparent 70%)',
+              'radial-gradient(circle, rgba(255,255,255,0.55) 0%, rgba(240,240,242,0.35) 30%, rgba(220,224,230,0.18) 55%, rgba(247,248,250,0) 75%)',
             filter: 'blur(48px)',
           }}
         />
