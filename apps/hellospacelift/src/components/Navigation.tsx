@@ -18,7 +18,7 @@ export default function Navigation() {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-[#EEF1F4]">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white">
       <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-20 h-16 flex items-center justify-between">
 
         {/* Logo — canonical asset from docs/designdocs/assets/spacelift-logo.png */}
@@ -101,6 +101,9 @@ export default function Navigation() {
           </a>
         </div>
       )}
-    </nav>
+    
+      {/* Nav divider — 70% wide, centered, #D9DEE3 */}
+      <div style={{ position: 'absolute', bottom: 0, left: '15%', width: '70%', height: '1px', background: '#D9DEE3' }} />
+  </nav>
   )
 }
