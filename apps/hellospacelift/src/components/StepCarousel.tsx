@@ -67,20 +67,11 @@ export default function StepCarousel({ activeStep, onStepChange }: StepCarouselP
             >
               {step.number}
             </span>
-            {index === activeStep && (
-              <span className="block w-full h-[2px] bg-[#FC4C4C] mt-0.5 rounded-full" />
-            )}
+            <span className={['block w-full h-[2px] mt-0.5 rounded-full', index === activeStep ? 'bg-[#FC4C4C]' : 'bg-transparent'].join(' ')} />
           </button>
         ))}
       </div>
 
-      {/* Progress bar */}
-      <div className="mt-4 h-0.5 bg-[#EEF1F4] rounded-full overflow-hidden max-w-xs">
-        <div
-          className="h-full bg-[#FC4C4C] rounded-full transition-all duration-[4000ms] ease-linear"
-          style={{ width: ((activeStep + 1) / steps.length * 100) + '%' }}
-        />
-      </div>
     </div>
   )
 }
