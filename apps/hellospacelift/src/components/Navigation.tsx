@@ -18,7 +18,7 @@ export default function Navigation() {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-[#EEF1F4]">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#EEF1F4]">
       <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-20 h-16 flex items-center justify-between">
 
         {/* Logo — canonical asset from docs/designdocs/assets/spacelift-logo.png */}
@@ -77,7 +77,7 @@ export default function Navigation() {
 
       {/* Mobile menu overlay */}
       {mobileOpen && (
-        <div className="md:hidden bg-white border-t border-[#EEF1F4] px-6 py-6 flex flex-col gap-4">
+        <div className="md:hidden bg-[#EEF1F4] border-t border-[#D9DEE3] px-6 py-6 flex flex-col gap-4">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -101,6 +101,9 @@ export default function Navigation() {
           </a>
         </div>
       )}
-    </nav>
+    
+      {/* Nav divider — 70% wide, centered, #D9DEE3 */}
+      <div style={{ position: 'absolute', bottom: 0, left: '15%', width: '70%', height: '1px', background: '#D9DEE3' }} />
+  </nav>
   )
 }
