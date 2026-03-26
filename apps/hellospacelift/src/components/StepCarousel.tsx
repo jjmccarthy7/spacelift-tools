@@ -43,7 +43,7 @@ export default function StepCarousel({ activeStep, onStepChange }: StepCarouselP
         <h2 className="text-3xl md:text-4xl font-bold text-[#141B24] leading-tight tracking-tight mb-3 transition-all duration-300">
           {steps[activeStep].title}
         </h2>
-        <p className="text-base text-[#8D9EB2] leading-relaxed max-w-[55ch]">
+        <p className="text-base text-[#141B24] leading-relaxed max-w-[55ch]">
           {steps[activeStep].copy}
         </p>
       </div>
