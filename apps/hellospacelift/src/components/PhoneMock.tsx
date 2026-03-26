@@ -179,10 +179,10 @@ const screens = [
                                 className="hero-phone hidden lg:block"
                                 style={{
                                             position: 'absolute',
-                                            right: '72px',
+                                            left: '50%',
                                             top: 0,
                                             width: '290px',
-                                            transform: 'perspective(1550px) rotateY(-10deg) rotateX(16deg) rotateZ(4deg) translateY(-92px)',
+                                            transform: 'translateX(-50%) perspective(1550px) rotateY(-10deg) rotateX(16deg) rotateZ(4deg) translateY(-92px)',
                                             filter: 'drop-shadow(0 46px 90px rgba(0,0,0,0.16))',
                                             transformOrigin: 'bottom center',
                                 }}
