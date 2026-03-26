@@ -61,7 +61,7 @@ export default function HomePage() {
         className="py-32 lg:py-40 relative"
         style={{
           background:
-            'radial-gradient(ellipse 80% 90% at 75% 60%, rgba(255,255,255,0.55) 0%, rgba(236,239,243,0.35) 35%, rgba(247,248,250,0) 70%), #F7F8FA',
+            'radial-gradient(ellipse 80% 90% at 75% 60%, rgba(255,255,255,0.55) 0%, rgba(236,239,243,0.35) 35%, rgba(238,241,244,0) 70%), #EEF1F4',
         }}
       >
         {/* Depth layer: soft bloom behind phone position */}
