@@ -40,10 +40,10 @@ export default function StepCarousel({ activeStep, onStepChange }: StepCarouselP
     <div className="max-w-xl">
       {/* Step title & copy */}
       <div className="min-h-[120px]">
-        <h2 className="text-3xl md:text-4xl font-bold text-[#141B24] leading-tight tracking-tight mb-3 transition-all duration-300">
+        <h2 className="text-3xl md:text-4xl font-bold text-[#5F6062] leading-tight tracking-tight mb-3 transition-all duration-300">
           {steps[activeStep].title}
         </h2>
-        <p className="text-base text-[#8D9EB2] leading-relaxed max-w-[55ch]">
+        <p className="text-base text-[#5F6062] leading-relaxed max-w-[55ch]">
           {steps[activeStep].copy}
         </p>
       </div>
@@ -61,8 +61,8 @@ export default function StepCarousel({ activeStep, onStepChange }: StepCarouselP
               className={[
                 'text-sm font-bold tabular-nums transition-all duration-200',
                 index === activeStep
-                  ? 'text-[#141B24]'
-                  : 'text-[#8D9EB2] hover:text-[#141B24]',
+                  ? 'text-[#5F6062]'
+                  : 'text-[#5F6062]/60 hover:text-[#5F6062]',
               ].join(' ')}
             >
               {step.number}
