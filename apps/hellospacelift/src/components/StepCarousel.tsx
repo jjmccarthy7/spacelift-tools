@@ -40,6 +40,9 @@ export default function StepCarousel({ activeStep, onStepChange }: StepCarouselP
     <div className="max-w-xl">
       {/* Step title & copy */}
       <div className="min-h-[120px]">
+        <p className="text-xs font-black uppercase tracking-widest text-[#FC4C4C] mb-3">
+          Step {activeStep + 1}
+        </p>
         <h2 className="text-3xl md:text-4xl font-bold text-[#141B24] leading-tight tracking-tight mb-3 transition-all duration-300">
           {steps[activeStep].title}
         </h2>
@@ -48,27 +51,18 @@ export default function StepCarousel({ activeStep, onStepChange }: StepCarouselP
         </p>
       </div>
 
-      {/* Step indicator */}
-      <div className="flex items-center gap-5 mt-8">
-        {steps.map((step, index) => (
-          <button
-            key={step.number}
-            onClick={() => onStepChange(index)}
-            className="flex flex-col items-center group"
-            aria-label={"Go to step " + step.number}
-          >
-            <span
-              className={[
-                'text-sm tabular-nums transition-all duration-200 tracking-[0.04em]',
-                index === activeStep
-                  ? 'font-bold text-[#141B24]'
-                  : 'font-medium text-[#A4B1C1] hover:text-[#141B24]',
-              ].join(' ')}
-            >
-              {step.number}
-            </span>
-            <span className={['block w-full h-[2px] mt-0.5 rounded-full', index === activeStep ? 'bg-[#FC4C4C]' : 'bg-transparent'].join(' ')} />
-          </button>
+      {/* Step indicator — pill/dot */}
+      <div className="flex items-center gap-3 mt-8">
+        {steps.map((_, index) => (
+          <div
+            key={index}
+            style={{
+              width: index === activeStep ? '24px' : '8px',
+              height: '8px',
+              borderRadius: '999px',
+              backgroundColor: index === activeStep ? '#FC4C4C' : '#BBC5D1',
+            }}
+          />
         ))}
       </div>
 

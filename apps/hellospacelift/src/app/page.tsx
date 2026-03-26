@@ -85,12 +85,12 @@ export default function HomePage() {
               <h1 className="text-5xl md:text-6xl lg:text-[72px] font-extrabold text-[#141B24] leading-[1.05] tracking-[-0.02em]">
                 Love where you live.
               </h1>
-              <p className="mt-6 text-[30px] text-[#141B24] leading-relaxed max-w-xl">
+              <p className="mt-5 text-[30px] text-[#141B24] leading-relaxed max-w-xl">
                 Renovate your space in five simple steps.
               </p>
 
               {/* Step carousel — left-side content only */}
-              <div className="mt-12">
+              <div className="mt-[80px]">
                 <StepCarousel activeStep={activeStep} onStepChange={setActiveStep} />
               </div>
             </div>
