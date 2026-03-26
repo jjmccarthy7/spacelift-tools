@@ -32,7 +32,7 @@ export default function Navigation() {
             src="/spacelift-logo.svg"
             alt="Spacelift"
             width={120}
-            height={31}
+            height={26}
             priority
           />
         </Link>
