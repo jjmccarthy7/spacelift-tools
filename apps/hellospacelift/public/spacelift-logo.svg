@@ -1,7 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100" width="400" height="100">
-  <style>
-    .sp { font-family: Arial Black, Arial, sans-serif; font-weight: 900; font-size: 80px; fill: #FC4C4C; }
-    .lt { font-family: Arial Black, Arial, sans-serif; font-weight: 900; font-size: 80px; fill: #FC4C4C; letter-spacing: -1px; }
-  </style>
-  <text x="0" y="78" class="sp">space</text><text x="238" y="78" class="lt">lift</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 88">
+  <text
+    x="0"
+    y="78"
+    font-family="Arial Black, Arial, sans-serif"
+    font-weight="900"
+    font-size="80"
+    fill="#FC4C4C"
+    textLength="400"
+    lengthAdjust="spacingAndGlyphs"
+  >spacelift</text>
 </svg>
