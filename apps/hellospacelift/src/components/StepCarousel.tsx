@@ -49,41 +49,29 @@ export default function StepCarousel({ activeStep, onStepChange }: StepCarouselP
       </div>
 
       {/* Step indicator */}
-      <div className="flex items-center gap-2 mt-8">
+      <div className="flex items-center gap-5 mt-8">
         {steps.map((step, index) => (
           <button
             key={step.number}
             onClick={() => onStepChange(index)}
-            className="flex items-center gap-2 group"
+            className="flex flex-col items-center group"
             aria-label={"Go to step " + step.number}
           >
             <span
               className={[
-                'text-sm font-bold tabular-nums transition-all duration-200',
+                'text-sm tabular-nums transition-all duration-200 tracking-[0.04em]',
                 index === activeStep
-                  ? 'text-[#141B24]'
-                  : 'text-[#8D9EB2] hover:text-[#141B24]',
+                  ? 'font-bold text-[#141B24]'
+                  : 'font-medium text-[#A4B1C1] hover:text-[#141B24]',
               ].join(' ')}
             >
               {step.number}
             </span>
-            {index === activeStep && (
-              <span className="block w-4 h-0.5 bg-[#FC4C4C] rounded-full" />
-            )}
-            {index < steps.length - 1 && (
-              <span className="block w-3 h-px bg-[#8D9EB2]/50 rounded-full" />
-            )}
+            <span className={['block w-full h-[2px] mt-0.5 rounded-full', index === activeStep ? 'bg-[#FC4C4C]' : 'bg-transparent'].join(' ')} />
           </button>
         ))}
       </div>
 
-      {/* Progress bar */}
-      <div className="mt-4 h-0.5 bg-[#EEF1F4] rounded-full overflow-hidden max-w-xs">
-        <div
-          className="h-full bg-[#FC4C4C] rounded-full transition-all duration-[4000ms] ease-linear"
-          style={{ width: ((activeStep + 1) / steps.length * 100) + '%' }}
-        />
-      </div>
     </div>
   )
 }
