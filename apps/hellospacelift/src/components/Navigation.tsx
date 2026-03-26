@@ -29,7 +29,7 @@ export default function Navigation() {
           aria-label="Spacelift home"
         >
           <Image
-            src="/spacelift-logo.png"
+            src="/spacelift-logo.svg"
             alt="Spacelift"
             width={120}
             height={31}
