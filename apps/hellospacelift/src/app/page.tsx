@@ -83,7 +83,7 @@ export default function HomePage() {
             <div className="flex-1 min-w-0 max-w-[620px]">
               {/* Headline */}
               <h1 className="text-5xl md:text-6xl lg:text-[72px] font-extrabold text-[#141B24] leading-[1.05] tracking-[-0.02em]">
-                Love where<br />you live.
+                Love where you live.
               </h1>
               <p className="mt-6 text-lg text-slate-500 leading-relaxed max-w-xl">
                 Renovate your space in five simple steps.
