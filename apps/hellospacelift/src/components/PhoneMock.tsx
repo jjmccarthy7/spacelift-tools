@@ -179,11 +179,12 @@ const screens = [
                                 className="hero-phone hidden lg:block"
                                 style={{
                                             position: 'absolute',
-                                            right: 0,
+                                            right: '72px',
                                             top: 0,
-                                            width: '343px',
-                                            transform: 'perspective(1600px) rotateY(-16deg) rotateX(10deg) translateY(-150px)',
+                                            width: '290px',
+                                            transform: 'perspective(1550px) rotateY(-14deg) rotateX(16deg) translateY(-92px)',
                                             filter: 'drop-shadow(0 46px 90px rgba(0,0,0,0.16))',
+                                            transformOrigin: 'bottom center',
                                 }}
                               >
                         {/* .hero-phone-screen — app UI sits underneath the frame at z-index 1 */}
@@ -229,6 +230,23 @@ const screens = [
                                                       unoptimized
                                                     />
                               </div>
+
+                  {/* Ground shadow — blurred ellipse beneath device base */}
+                  <div
+                    style={{
+                      position: 'absolute',
+                      bottom: '-18px',
+                      left: '50%',
+                      transform: 'translateX(-50%)',
+                      width: '220px',
+                      height: '36px',
+                      background: 'rgba(20,27,36,0.16)',
+                      filter: 'blur(18px)',
+                      borderRadius: '50%',
+                      zIndex: 0,
+                      pointerEvents: 'none',
+                    }}
+                  />
                       </div>
                 
                   {/* ── TABLET md (below lg) ── */}
