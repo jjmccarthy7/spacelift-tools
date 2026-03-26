@@ -40,6 +40,9 @@ export default function StepCarousel({ activeStep, onStepChange }: StepCarouselP
     <div className="max-w-xl">
       {/* Step title & copy */}
       <div className="min-h-[120px]">
+        <p className="text-xs font-black uppercase tracking-widest text-[#FC4C4C] mb-3">
+          Step {activeStep + 1}
+        </p>
         <h2 className="text-3xl md:text-4xl font-bold text-[#141B24] leading-tight tracking-tight mb-3 transition-all duration-300">
           {steps[activeStep].title}
         </h2>
