@@ -113,10 +113,10 @@ export default function HomePage() {
               Renovation should feel within reach.
             </h2>
             <p className="text-lg text-[#8D9EB2] leading-relaxed max-w-2xl mb-6">
-              Homes matter. Theyâre where mornings begin, where dinners stretch long after the food is gone, where life unfolds in a thousand small moments.
+              Homes matter. They're where mornings begin, where dinners stretch long after the food is gone, where life unfolds in a thousand small moments.
             </p>
             <p className="text-lg text-[#8D9EB2] leading-relaxed max-w-2xl mb-12">
-              Too many people live in spaces that donât quite work â not because they donât dream of something better, but because renovation has always felt too complicated to begin. Thatâs exactly what Spacelift is here to change.
+              Too many people live in spaces that don't quite work — not because they don't dream of something better, but because renovation has always felt too complicated to begin. That's exactly what Spacelift is here to change.
             </p>
             <Link
               href="/get-started"
