@@ -33,7 +33,7 @@ export default function ProjectsPage() {
 
       <section className="bg-[#EEF1F4] py-20 md:py-28">
         <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-20">
-          <span className="text-xs font-black tracking-widest uppercase text-[#FC4C4C] mb-6 block">Real results</span>
+          <span className="text-xs font-black tracking-widest uppercase text-[#3B86E1] mb-6 block">Real results</span>
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-[#141B24] leading-[1.05] tracking-tight mb-6 max-w-3xl">
             Homes transformed by Spacelift.
           </h1>

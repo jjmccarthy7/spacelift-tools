@@ -14,7 +14,7 @@ export default function ReviewsPage() {
     <div className="pt-16">
       <section className="bg-[#F7F8FA] py-24">
         <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-20">
-          <p className="text-xs font-black uppercase tracking-widest text-[#FC4C4C] mb-4">Reviews</p>
+          <p className="text-xs font-black uppercase tracking-widest text-[#3B86E1] mb-4">Reviews</p>
           <h1 className="text-5xl md:text-6xl font-black text-[#141B24] leading-tight tracking-tight mb-6 max-w-2xl">
             Homeowners love us.
           </h1>

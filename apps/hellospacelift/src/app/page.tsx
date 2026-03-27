@@ -1,34 +1,31 @@
 'use client'
 
 import Link from 'next/link'
-import { ArrowRight, Smartphone, MessageCircle, HardHat } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 
 const howItWorks = [
   {
     step: '01',
-    icon: Smartphone,
     title: 'Explore your ideas',
-    description: 'Describe your project, upload photos, and get a real sense of scope and cost — all before talking to anyone.',
+    description: 'Use our app to show us your space, describe the changes you want, and instantly see ballpark estimates.',
   },
   {
     step: '02',
-    icon: MessageCircle,
     title: 'Talk with a Spacelift Advisor',
     description: 'Our advisors help you find clarity. Ask questions, get honest guidance, and move forward with confidence.',
   },
   {
     step: '03',
-    icon: HardHat,
     title: 'Build with local Spacelift Pros',
-    description: 'We match you with vetted local professionals who do great work. They bring your project to life.',
+    description: 'We recommend trusted local professionals from our network who are the best fit for you and your project.',
   },
 ]
 
 const projects = [
-  { name: 'Modern Kitchen Overhaul', location: 'Austin, TX', type: 'Kitchen', budget: '$48,500', status: 'Completed', emoji: '🍳' },
-  { name: 'Primary Bath Spa Retreat', location: 'Denver, CO', type: 'Bathroom', budget: '$32,000', status: 'Completed', emoji: '🛛' },
-  { name: 'Open Floor Plan Conversion', location: 'Chicago, IL', type: 'Structural', budget: '$55,200', status: 'In Progress', emoji: '🏗️' },
-  { name: 'Backyard Deck & Pergola', location: 'Seattle, WA', type: 'Outdoor', budget: '$18,900', status: 'Completed', emoji: '🌿' },
+  { name: 'Modern Kitchen Overhaul', location: 'Austin, TX', type: 'Kitchen', budget: '$48,500', status: 'Completed', emoji: 'ð³' },
+  { name: 'Primary Bath Spa Retreat', location: 'Denver, CO', type: 'Bathroom', budget: '$32,000', status: 'Completed', emoji: 'ð' },
+  { name: 'Open Floor Plan Conversion', location: 'Chicago, IL', type: 'Structural', budget: '$55,200', status: 'In Progress', emoji: 'ðï¸' },
+  { name: 'Backyard Deck & Pergola', location: 'Seattle, WA', type: 'Outdoor', budget: '$18,900', status: 'Completed', emoji: 'ð¿' },
 ]
 
 export default function HomePage() {
@@ -38,13 +35,18 @@ export default function HomePage() {
       <section className="relative min-h-screen flex flex-col">
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1800&q=85&auto=format&fit=crop"
+            src="/hero-kitchen.png"
             alt="Beautiful renovated home interior"
             className="w-full h-full object-cover object-center"
           />
           <div
             className="absolute inset-0"
             style={{ background: 'linear-gradient(rgba(0,0,0,0.38) 0%, rgba(0,0,0,0.08) 55%, rgba(0,0,0,0.04) 100%)' }}
+          />
+          {/* Left-side scrim: improves H1/H2/CTA contrast without darkening the full image */}
+          <div
+            className="absolute inset-0"
+            style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.25) 30%, rgba(0,0,0,0) 55%)' }}
           />
         </div>
         <div className="relative z-10 flex-1 flex items-center">
@@ -83,18 +85,16 @@ export default function HomePage() {
       <section className="bg-[#EEF1F4] py-24 md:py-32">
         <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-20">
           <div className="mb-16">
-            <span className="text-xs font-black tracking-widest uppercase text-[#FC4C4C]">Renovation Made Approachable</span>
+            <span className="text-xs font-black tracking-widest uppercase text-[#3B86E1]">Renovation Made Approachable</span>
             <h2 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-black text-[#141B24] leading-[1.1] tracking-tight max-w-2xl">
               Your renovation, in three simple steps
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {howItWorks.map(({ step, icon: Icon, title, description }) => (
-              <div key={step} className="bg-white rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300">
-                <div className="flex items-center gap-3 mb-6">
-                  <span className="text-xs font-black tracking-widest text-[#FC4C4C]">{step}</span>
-                  <div className="w-px h-4 bg-[#EEF1F4]" />
-                  <Icon size={20} strokeWidth={1.25} className="text-[#141B24]" />
+            {howItWorks.map(({ step, title, description }) => (
+              <div key={step} className="bg-white rounded-[32px] p-8 shadow hover:shadow-lg transition-shadow duration-300">
+                <div className="mb-3">
+                  <span className="text-5xl font-black leading-none text-[#3B86E1]">{step}</span>
                 </div>
                 <h3 className="text-xl font-bold text-[#141B24] mb-3">{title}</h3>
                 <p className="text-[#8D9EB2] text-base leading-relaxed">{description}</p>
@@ -108,15 +108,15 @@ export default function HomePage() {
       <section className="bg-[#141B24] py-24 md:py-32">
         <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-20">
           <div className="max-w-3xl">
-            <span className="text-xs font-black tracking-widest uppercase text-[#FC4C4C] mb-6 block">Our promise</span>
+            <span className="text-xs font-black tracking-widest uppercase text-[#3B86E1] mb-6 block">Our promise</span>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.1] tracking-tight mb-8">
               Renovation should feel within reach.
             </h2>
             <p className="text-lg text-[#8D9EB2] leading-relaxed max-w-2xl mb-6">
-              Homes matter. They’re where mornings begin, where dinners stretch long after the food is gone, where life unfolds in a thousand small moments.
+              Homes matter. They're where mornings begin, where dinners stretch long after the food is gone, where life unfolds in a thousand small moments.
             </p>
             <p className="text-lg text-[#8D9EB2] leading-relaxed max-w-2xl mb-12">
-              Too many people live in spaces that don’t quite work — not because they don’t dream of something better, but because renovation has always felt too complicated to begin. That’s exactly what Spacelift is here to change.
+              Too many people live in spaces that don't quite work — not because they don't dream of something better, but because renovation has always felt too complicated to begin. That's exactly what Spacelift is here to change.
             </p>
             <Link
               href="/get-started"
@@ -134,7 +134,7 @@ export default function HomePage() {
         <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-20">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
             <div>
-              <span className="text-xs font-black tracking-widest uppercase text-[#FC4C4C]">Real results</span>
+              <span className="text-xs font-black tracking-widest uppercase text-[#3B86E1]">Real results</span>
               <h2 className="mt-4 text-4xl md:text-5xl font-black text-[#141B24] leading-[1.1] tracking-tight">
                 Homes transformed.
               </h2>

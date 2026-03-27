@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ArrowRight, Smartphone, MessageCircle, HardHat, CheckCircle } from 'lucide-react'
+import { ArrowRight, CheckCircle } from 'lucide-react'
 
 const problems = [
   'You have ideas but no idea where to start.',
@@ -12,19 +12,16 @@ const problems = [
 const howItWorks = [
   {
     step: '01',
-    icon: Smartphone,
     title: 'Explore with the app',
     description: 'Describe your project, upload photos of your space, and get a real sense of what’s possible — scope, style, and cost — all before you talk to anyone.',
   },
   {
     step: '02',
-    icon: MessageCircle,
     title: 'Talk to a Spacelift Advisor',
     description: 'Our advisors are renovation experts, not salespeople. They’ll help you understand your options, ask the right questions, and build a plan you feel confident in.',
   },
   {
     step: '03',
-    icon: HardHat,
     title: 'Build with local Spacelift Pros',
     description: 'We match you with vetted local professionals who are the right fit for your project. They’ll do the work. You’ll love the result.',
   },
@@ -66,7 +63,7 @@ export default function HomeownersPage() {
         <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <span className="text-xs font-black tracking-widest uppercase text-[#FC4C4C] mb-6 block">Sound familiar?</span>
+              <span className="text-xs font-black tracking-widest uppercase text-[#3B86E1] mb-6 block">Sound familiar?</span>
               <h2 className="text-4xl md:text-5xl font-black text-white leading-[1.1] tracking-tight mb-8">
                 Those ideas have been sitting there long enough.
               </h2>
@@ -92,18 +89,16 @@ export default function HomeownersPage() {
       <section className="bg-[#EEF1F4] py-24 md:py-32">
         <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-20">
           <div className="mb-16">
-            <span className="text-xs font-black tracking-widest uppercase text-[#FC4C4C]">How it works</span>
+            <span className="text-xs font-black tracking-widest uppercase text-[#3B86E1]">How it works</span>
             <h2 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-black text-[#141B24] leading-[1.1] tracking-tight max-w-2xl">
               Three steps to a space you love.
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {howItWorks.map(({ step, icon: Icon, title, description }) => (
-              <div key={step} className="bg-white rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300">
-                <div className="flex items-center gap-3 mb-6">
-                  <span className="text-xs font-black tracking-widest text-[#FC4C4C]">{step}</span>
-                  <div className="w-px h-4 bg-[#EEF1F4]" />
-                  <Icon size={20} strokeWidth={1.25} className="text-[#141B24]" />
+            {howItWorks.map(({ step, title, description }) => (
+              <div key={step} className="bg-white rounded-[32px] p-8 shadow-sm hover:shadow-md transition-shadow duration-300">
+                <div className="mb-3">
+                  <span className="text-5xl font-black leading-none text-[#3B86E1]">{step}</span>
                 </div>
                 <h3 className="text-xl font-bold text-[#141B24] mb-3">{title}</h3>
                 <p className="text-[#8D9EB2] text-base leading-relaxed">{description}</p>
@@ -117,7 +112,7 @@ export default function HomeownersPage() {
         <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-20">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
             <div>
-              <span className="text-xs font-black tracking-widest uppercase text-[#FC4C4C]">Real results</span>
+              <span className="text-xs font-black tracking-widest uppercase text-[#3B86E1]">Real results</span>
               <h2 className="mt-4 text-4xl md:text-5xl font-black text-[#141B24] leading-[1.1] tracking-tight">
                 Spaces our homeowners love.
               </h2>
