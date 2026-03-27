@@ -85,7 +85,7 @@ export default function HomePage() {
       <section className="bg-[#EEF1F4] py-24 md:py-32">
         <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-20">
           <div className="mb-16">
-            <span className="text-xs font-black tracking-widest uppercase text-[#FC4C4C]">Renovation Made Approachable</span>
+            <span className="text-xs font-black tracking-widest uppercase text-[#3B86E1]">Renovation Made Approachable</span>
             <h2 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-black text-[#141B24] leading-[1.1] tracking-tight max-w-2xl">
               Your renovation, in three simple steps
             </h2>
@@ -108,7 +108,7 @@ export default function HomePage() {
       <section className="bg-[#141B24] py-24 md:py-32">
         <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-20">
           <div className="max-w-3xl">
-            <span className="text-xs font-black tracking-widest uppercase text-[#FC4C4C] mb-6 block">Our promise</span>
+            <span className="text-xs font-black tracking-widest uppercase text-[#3B86E1] mb-6 block">Our promise</span>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.1] tracking-tight mb-8">
               Renovation should feel within reach.
             </h2>
@@ -134,7 +134,7 @@ export default function HomePage() {
         <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-20">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
             <div>
-              <span className="text-xs font-black tracking-widest uppercase text-[#FC4C4C]">Real results</span>
+              <span className="text-xs font-black tracking-widest uppercase text-[#3B86E1]">Real results</span>
               <h2 className="mt-4 text-4xl md:text-5xl font-black text-[#141B24] leading-[1.1] tracking-tight">
                 Homes transformed.
               </h2>
