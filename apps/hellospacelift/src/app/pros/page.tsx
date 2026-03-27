@@ -1,36 +1,144 @@
+import Link from 'next/link'
+import { ArrowRight, Users, TrendingUp, Shield, Star, CheckCircle, Wrench } from 'lucide-react'
+
+const whyJoin = [
+  {
+    icon: Users,
+    title: 'A steady pipeline of real projects',
+    description: 'We connect you with homeowners who are ready to move forward — not just browsing. Less time chasing leads, more time doing great work.',
+  },
+  {
+    icon: TrendingUp,
+    title: 'Grow your business',
+    description: 'Spacelift Pros grow through reputation. Great work earns great reviews, which earns more referrals. We amplify what you already do well.',
+  },
+  {
+    icon: Shield,
+    title: 'Backed by Spacelift advisors',
+    description: 'Our advisors prepare homeowners before they meet you — so projects start with clarity, not confusion.',
+  },
+  {
+    icon: Star,
+    title: 'Build your reputation',
+    description: 'Your Spacelift profile showcases your completed projects and reviews. It becomes a portfolio that works for you.',
+  },
+]
+
+const whatWeLookFor = [
+  'Licensed and insured in your state',
+  'Minimum 3 years of professional experience',
+  'Strong track record of on-time, on-budget delivery',
+  'Excellent communication with homeowners',
+  'Pride in craftsmanship — not just completion',
+  'Commitment to the Spacelift standard of care',
+]
+
 export default function ProsPage() {
   return (
     <div className="pt-16">
-      <section className="bg-[#F7F8FA] py-24 md:py-32">
-        <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-20">
-          <p className="text-xs font-black uppercase tracking-widest text-[#FC4C4C] mb-4">For Pros</p>
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-[#141B24] leading-[1.05] tracking-tight mb-6 max-w-3xl">
-            Grow your renovation business.
-          </h1>
-          <p className="text-xl text-[#8D9EB2] leading-relaxed max-w-lg mb-10">
-            Join the Spacelift network and get connected with qualified homeowners who are ready to renovate. No cold calling. No bidding wars.
-          </p>
-          <a href="#" className="inline-block bg-[#FC4C4C] text-white font-semibold px-8 py-4 rounded-full hover:bg-[#CA3D3D] transition-colors duration-200">
-            Apply to join
-          </a>
+
+      <section className="bg-[#141B24] min-h-[80vh] flex items-center">
+        <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-20 py-24 md:py-32">
+          <div className="max-w-3xl">
+            <span className="inline-block text-xs font-black tracking-widest uppercase text-[#FC4C4C] mb-6">
+              For Pros
+            </span>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white leading-[1.05] tracking-tight mb-8">
+              Great renovations come from great people.
+            </h1>
+            <p className="text-lg md:text-xl text-[#8D9EB2] leading-relaxed max-w-xl mb-12">
+              Spacelift Pros are the craftspeople, contractors, and specialists who make renovation real. We’re building a network of the best in the business. If that’s you — we want to talk.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link href="#apply" className="inline-flex items-center justify-center gap-2 bg-[#FC4C4C] text-white font-semibold px-8 py-4 rounded-full hover:bg-[#CA3D3D] transition-colors duration-200 text-base">
+                Apply to become a Spacelift Pro <ArrowRight size={18} strokeWidth={1.25} />
+              </Link>
+              <Link href="#talk" className="inline-flex items-center justify-center gap-2 border border-white/30 text-white font-semibold px-8 py-4 rounded-full hover:border-white hover:bg-white/5 transition-colors duration-200 text-base">
+                Talk with our team
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
-      <section className="py-24 bg-white">
+
+      <section id="why" className="bg-white py-24 md:py-32">
         <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-20">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { title: 'Qualified leads', desc: 'Every homeowner has already been vetted and has a real project with a real budget.' },
-              { title: 'No bidding wars', desc: 'We match you to projects where you are the right fit, not just the cheapest bid.' },
-              { title: 'Grow your reputation', desc: 'Build a verified profile with reviews that showcase your best work.' },
-            ].map(item => (
-              <div key={item.title} className="bg-[#F7F8FA] rounded-3xl p-8">
-                <h3 className="text-lg font-bold text-[#141B24] mb-3">{item.title}</h3>
-                <p className="text-sm text-[#8D9EB2] leading-relaxed">{item.desc}</p>
+          <div className="mb-16">
+            <span className="text-xs font-black tracking-widest uppercase text-[#FC4C4C]">Why Spacelift</span>
+            <h2 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-black text-[#141B24] leading-[1.1] tracking-tight max-w-2xl">
+              Built to support the people who build.
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {whyJoin.map(({ icon: Icon, title, description }) => (
+              <div key={title} className="bg-[#EEF1F4] rounded-3xl p-8 hover:shadow-md transition-shadow duration-300">
+                <div className="w-10 h-10 rounded-2xl bg-white flex items-center justify-center mb-6">
+                  <Icon size={20} strokeWidth={1.25} className="text-[#FC4C4C]" />
+                </div>
+                <h3 className="text-xl font-bold text-[#141B24] mb-3">{title}</h3>
+                <p className="text-[#8D9EB2] text-base leading-relaxed">{description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
+
+      <section className="bg-[#EEF1F4] py-24 md:py-32">
+        <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <span className="text-xs font-black tracking-widest uppercase text-[#FC4C4C] mb-6 block">Our standard</span>
+              <h2 className="text-4xl md:text-5xl font-black text-[#141B24] leading-[1.1] tracking-tight mb-8">
+                We don’t work with just anyone.
+              </h2>
+              <p className="text-lg text-[#8D9EB2] leading-relaxed mb-8">
+                Spacelift homeowners are trusting us to send them the right people. That’s a responsibility we take seriously. Our Pro partners meet a high bar — because our homeowners deserve nothing less.
+              </p>
+              <div className="flex items-center gap-3">
+                <Wrench size={18} strokeWidth={1.25} className="text-[#FC4C4C]" />
+                <span className="text-sm font-semibold text-[#141B24]">Vetted. Verified. Trusted.</span>
+              </div>
+            </div>
+            <div className="space-y-4">
+              {whatWeLookFor.map((item, i) => (
+                <div key={i} className="flex items-start gap-4 bg-white rounded-2xl px-6 py-5">
+                  <CheckCircle size={20} strokeWidth={1.25} className="text-[#0ED096] mt-0.5 flex-shrink-0" />
+                  <p className="text-[#141B24] text-base font-medium">{item}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="apply" className="bg-[#141B24] py-24 md:py-32">
+        <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <span className="text-xs font-black tracking-widest uppercase text-[#FC4C4C] mb-6 block">Join the network</span>
+              <h2 className="text-4xl md:text-5xl font-black text-white leading-[1.1] tracking-tight mb-6">
+                Ready to become a Spacelift Pro?
+              </h2>
+              <p className="text-lg text-[#8D9EB2] leading-relaxed mb-10">
+                Apply to join our network of trusted renovation professionals. We review every application personally and will be in touch within 5 business days.
+              </p>
+              <Link href="#apply" className="inline-flex items-center justify-center gap-2 bg-[#FC4C4C] text-white font-semibold px-8 py-4 rounded-full hover:bg-[#CA3D3D] transition-colors duration-200 text-base">
+                Apply now <ArrowRight size={18} strokeWidth={1.25} />
+              </Link>
+            </div>
+            <div id="talk" className="bg-white/5 rounded-3xl p-8 border border-white/10">
+              <h3 className="text-xl font-bold text-white mb-3">Prefer to talk first?</h3>
+              <p className="text-[#8D9EB2] text-base leading-relaxed mb-8">
+                We’re happy to answer questions about the program, what it means to be a Spacelift Pro, and whether it’s a good fit for your business.
+              </p>
+              <Link href="#talk" className="inline-flex items-center gap-2 border border-white/30 text-white font-semibold px-6 py-3 rounded-full hover:border-white hover:bg-white/5 transition-colors duration-200 text-sm">
+                Talk with our team <ArrowRight size={16} strokeWidth={1.25} />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
     </div>
   )
 }
