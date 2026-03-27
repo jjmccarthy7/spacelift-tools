@@ -17,15 +17,15 @@ const howItWorks = [
   {
     step: '03',
     title: 'Build with local Spacelift Pros',
-    description: 'We recommend trusted local professionals from our network who we believe are the best fit for you and your project.',
+    description: 'We recommend trusted local professionals from our network who are the best fit for you and your project.',
   },
 ]
 
 const projects = [
-  { name: 'Modern Kitchen Overhaul', location: 'Austin, TX', type: 'Kitchen', budget: '$48,500', status: 'Completed', emoji: '🍳' },
-  { name: 'Primary Bath Spa Retreat', location: 'Denver, CO', type: 'Bathroom', budget: '$32,000', status: 'Completed', emoji: '🛛' },
-  { name: 'Open Floor Plan Conversion', location: 'Chicago, IL', type: 'Structural', budget: '$55,200', status: 'In Progress', emoji: '🏗️' },
-  { name: 'Backyard Deck & Pergola', location: 'Seattle, WA', type: 'Outdoor', budget: '$18,900', status: 'Completed', emoji: '🌿' },
+  { name: 'Modern Kitchen Overhaul', location: 'Austin, TX', type: 'Kitchen', budget: '$48,500', status: 'Completed', emoji: 'ð³' },
+  { name: 'Primary Bath Spa Retreat', location: 'Denver, CO', type: 'Bathroom', budget: '$32,000', status: 'Completed', emoji: 'ð' },
+  { name: 'Open Floor Plan Conversion', location: 'Chicago, IL', type: 'Structural', budget: '$55,200', status: 'In Progress', emoji: 'ðï¸' },
+  { name: 'Backyard Deck & Pergola', location: 'Seattle, WA', type: 'Outdoor', budget: '$18,900', status: 'Completed', emoji: 'ð¿' },
 ]
 
 export default function HomePage() {
@@ -92,7 +92,7 @@ export default function HomePage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {howItWorks.map(({ step, title, description }) => (
-              <div key={step} className="bg-white rounded-[32px] p-8 shadow-sm hover:shadow-md transition-shadow duration-300">
+              <div key={step} className="bg-white rounded-[32px] p-8 shadow hover:shadow-lg transition-shadow duration-300">
                 <div className="mb-3">
                   <span className="text-5xl font-black leading-none text-[#3B86E1]">{step}</span>
                 </div>
@@ -113,10 +113,10 @@ export default function HomePage() {
               Renovation should feel within reach.
             </h2>
             <p className="text-lg text-[#8D9EB2] leading-relaxed max-w-2xl mb-6">
-              Homes matter. They’re where mornings begin, where dinners stretch long after the food is gone, where life unfolds in a thousand small moments.
+              Homes matter. Theyâre where mornings begin, where dinners stretch long after the food is gone, where life unfolds in a thousand small moments.
             </p>
             <p className="text-lg text-[#8D9EB2] leading-relaxed max-w-2xl mb-12">
-              Too many people live in spaces that don’t quite work — not because they don’t dream of something better, but because renovation has always felt too complicated to begin. That’s exactly what Spacelift is here to change.
+              Too many people live in spaces that donât quite work â not because they donât dream of something better, but because renovation has always felt too complicated to begin. Thatâs exactly what Spacelift is here to change.
             </p>
             <Link
               href="/get-started"
