@@ -1,85 +1,82 @@
 import Link from 'next/link'
-import Image from 'next/image'
 import { Instagram, Youtube, Facebook, Linkedin } from 'lucide-react'
-
-const socialLinks = [
-  { label: 'Instagram', href: 'https://instagram.com/hellospacelift', Icon: Instagram },
-  { label: 'YouTube', href: 'https://youtube.com/@hellospacelift', Icon: Youtube },
-  { label: 'Facebook', href: 'https://facebook.com/hellospacelift', Icon: Facebook },
-  { label: 'LinkedIn', href: 'https://linkedin.com/company/hellospacelift', Icon: Linkedin },
-  ]
 
 export default function Footer() {
     return (
-          <footer className="bg-[#141B24] text-white overflow-hidden">
-            {/* Footer links content — constrained width */}
-                <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-20 pt-16 pb-12">
-                  {/* Three column grid */}
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-                          {/* Connect With Us */}
-                                  <div>
-                                              <p className="text-xs font-black uppercase tracking-widest text-[#8D9EB2] mb-6">
-                                                            Connect With Us
-                                              </p>
-                                              <ul className="space-y-3">
-                                                {socialLinks.map(({ label, href, Icon }) => (
-                            <li key={label}>
-                                              <a
-                                                                    href={href}
-                                                                    target="_blank"
-                                                                    rel="noopener noreferrer"
-                                                                    className="flex items-center gap-3 text-white font-semibold hover:text-[#FC4C4C] transition-colors duration-200"
-                                                                  >
-                                                                  <Icon size={18} strokeWidth={1.25} />
-                                                {label}
-                                              </a>
-                            </li>
-                          ))}
-                                              </ul>
-                                  </div>
+          <footer className="bg-[#141B24] text-white">
+                <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-20 py-16 md:py-20">
+                
+                  {/* Top row: logo + tagline + social */}
+                        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-10 pb-12 border-b border-white/10">
+                                  <div className="max-w-xs">
+                                              <span className="text-[#FC4C4C] font-black text-2xl tracking-tight" style={{ fontFamily: 'var(--font-primary)' }}>
+                                                            spacelift
+                                              </span>span>
+                                              <p className="mt-3 text-[#8D9EB2] text-sm leading-relaxed">
+                                                            Life is better when you love where you live. We make renovation more approachable for everyone.
+                                              </p>p>
+                                  </div>div>
                         
-                          {/* Contact Us */}
+                                  <div className="flex items-center gap-5">
+                                              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-[#8D9EB2] hover:text-white transition-colors duration-200" aria-label="Instagram">
+                                                            <Instagram size={20} strokeWidth={1.25} />
+                                              </a>a>
+                                              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="text-[#8D9EB2] hover:text-white transition-colors duration-200" aria-label="YouTube">
+                                                            <Youtube size={20} strokeWidth={1.25} />
+                                              </a>a>
+                                              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-[#8D9EB2] hover:text-white transition-colors duration-200" aria-label="Facebook">
+                                                            <Facebook size={20} strokeWidth={1.25} />
+                                              </a>a>
+                                              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-[#8D9EB2] hover:text-white transition-colors duration-200" aria-label="LinkedIn">
+                                                            <Linkedin size={20} strokeWidth={1.25} />
+                                              </a>a>
+                                  </div>div>
+                        </div>div>
+                
+                  {/* Nav columns */}
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 py-12 border-b border-white/10">
                                   <div>
-                                              <p className="text-xs font-black uppercase tracking-widest text-[#8D9EB2] mb-6">
-                                                            Contact Us
-                                              </p>
-                                              <a
-                                                              href="mailto:info@hellospacelift.com"
-                                                              className="text-white font-semibold hover:text-[#FC4C4C] transition-colors duration-200"
-                                                            >
-                                                            info@hellospacelift.com
-                                              </a>
-                                  </div>
-                        
-                          {/* Terms & Conditions */}
-                                  <div>
-                                              <p className="text-xs font-black uppercase tracking-widest text-[#8D9EB2] mb-6">
-                                                            Terms &amp; Conditions
-                                              </p>
+                                              <h4 className="text-xs font-black tracking-widest uppercase text-white mb-4">Homeowners</h4>h4>
                                               <ul className="space-y-3">
-                                                            <li>
-                                                                            <Link
-                                                                                                href="/privacy"
-                                                                                                className="text-white font-semibold hover:text-[#FC4C4C] transition-colors duration-200"
-                                                                                              >
-                                                                                              Privacy Policy
-                                                                            </Link>
-                                                            </li>
-                                              </ul>
-                                  </div>
-                        </div>
-                </div>
-          
-            {/* Full-bleed footer wordmark — centered, only descender tip crops at page edge */}
-                        <div className="relative w-full" style={{ height: 'clamp(120px, 22vw, 320px)', marginBottom: '-2%' }}>
-                        <Image
-                                    src="/spacelift-logo-white.png"
-                                    alt="Spacelift"
-                                    fill
-                                    priority
-                                                style={{ objectFit: 'cover', objectPosition: 'center bottom' }}
-                                  />
-                </div>
-          </footer>
+                                                            <li><Link href="/homeowners" className="text-sm text-[#8D9EB2] hover:text-white transition-colors duration-200">How It Works</Link>Link></li>li>
+                                                            <li><Link href="/projects" className="text-sm text-[#8D9EB2] hover:text-white transition-colors duration-200">Projects</Link>Link></li>li>
+                                                            <li><Link href="/get-started" className="text-sm text-[#8D9EB2] hover:text-white transition-colors duration-200">Get Started</Link>Link></li>li>
+                                              </ul>ul>
+                                  </div>div>
+                                  <div>
+                                              <h4 className="text-xs font-black tracking-widest uppercase text-white mb-4">For Pros</h4>h4>
+                                              <ul className="space-y-3">
+                                                            <li><Link href="/pros" className="text-sm text-[#8D9EB2] hover:text-white transition-colors duration-200">Become a Pro</Link>Link></li>li>
+                                                            <li><Link href="/pros#why" className="text-sm text-[#8D9EB2] hover:text-white transition-colors duration-200">Why Spacelift</Link>Link></li>li>
+                                                            <li><Link href="/pros#apply" className="text-sm text-[#8D9EB2] hover:text-white transition-colors duration-200">Apply Now</Link>Link></li>li>
+                                              </ul>ul>
+                                  </div>div>
+                                  <div>
+                                              <h4 className="text-xs font-black tracking-widest uppercase text-white mb-4">Company</h4>h4>
+                                              <ul className="space-y-3">
+                                                            <li><Link href="/" className="text-sm text-[#8D9EB2] hover:text-white transition-colors duration-200">About</Link>Link></li>li>
+                                                            <li><a href="mailto:info@hellospacelift.com" className="text-sm text-[#8D9EB2] hover:text-white transition-colors duration-200">Contact</a>a></li>li>
+                                              </ul>ul>
+                                  </div>div>
+                                  <div>
+                                              <h4 className="text-xs font-black tracking-widest uppercase text-white mb-4">Legal</h4>h4>
+                                              <ul className="space-y-3">
+                                                            <li><Link href="/privacy" className="text-sm text-[#8D9EB2] hover:text-white transition-colors duration-200">Privacy Policy</Link>Link></li>li>
+                                                            <li><Link href="/privacy" className="text-sm text-[#8D9EB2] hover:text-white transition-colors duration-200">Terms of Service</Link>Link></li>li>
+                                              </ul>ul>
+                                  </div>div>
+                        </div>div>
+                
+                  {/* Bottom row */}
+                        <div className="pt-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                                  <p className="text-xs text-[#8D9EB2]">
+                                              &copy; {new Date().getFullYear()} Spacelift. All rights reserved.
+                                  </p>p>
+                                  <p className="text-xs text-[#8D9EB2]">
+                                              <a href="mailto:info@hellospacelift.com" className="hover:text-white transition-colors duration-200">info@hellospacelift.com</a>a>
+                                  </p>p>
+                        </div>div>
+                </div>div>
+          </footer>footer>
         )
-}
+}</footer>
