@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ArrowRight, Smartphone, MessageCircle, HardHat, CheckCircle } from 'lucide-react'
+import { ArrowRight, CheckCircle } from 'lucide-react'
 
 const problems = [
   'You have ideas but no idea where to start.',
@@ -12,19 +12,16 @@ const problems = [
 const howItWorks = [
   {
     step: '01',
-    icon: Smartphone,
     title: 'Explore with the app',
     description: 'Describe your project, upload photos of your space, and get a real sense of what’s possible — scope, style, and cost — all before you talk to anyone.',
   },
   {
     step: '02',
-    icon: MessageCircle,
     title: 'Talk to a Spacelift Advisor',
     description: 'Our advisors are renovation experts, not salespeople. They’ll help you understand your options, ask the right questions, and build a plan you feel confident in.',
   },
   {
     step: '03',
-    icon: HardHat,
     title: 'Build with local Spacelift Pros',
     description: 'We match you with vetted local professionals who are the right fit for your project. They’ll do the work. You’ll love the result.',
   },
@@ -98,12 +95,10 @@ export default function HomeownersPage() {
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {howItWorks.map(({ step, icon: Icon, title, description }) => (
-              <div key={step} className="bg-white rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300">
-                <div className="flex items-center gap-3 mb-6">
+            {howItWorks.map(({ step, title, description }) => (
+              <div key={step} className="bg-white rounded-[32px] p-8 shadow-sm hover:shadow-md transition-shadow duration-300">
+                <div className="mb-6">
                   <span className="text-xs font-black tracking-widest text-[#FC4C4C]">{step}</span>
-                  <div className="w-px h-4 bg-[#EEF1F4]" />
-                  <Icon size={20} strokeWidth={1.25} className="text-[#141B24]" />
                 </div>
                 <h3 className="text-xl font-bold text-[#141B24] mb-3">{title}</h3>
                 <p className="text-[#8D9EB2] text-base leading-relaxed">{description}</p>
