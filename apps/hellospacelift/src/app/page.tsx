@@ -153,7 +153,8 @@ export default function HomePage() {
       {/* Real Results — Projects Teaser */}
       <section className="bg-white py-24 md:py-32">
         <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-20">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+          {/* mb-12 = 48px gap between heading row and card grid (was mb-16 = 64px) */}
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
             <div>
               <span className="text-xs font-black tracking-widest uppercase text-[#3B86E1]">
                 Real results
@@ -162,11 +163,15 @@ export default function HomePage() {
                 Homes transformed by Spacelift.
               </h2>
             </div>
+            {/* Arrow nudges right on hover */}
             <Link
               href="/projects"
-              className="inline-flex items-center gap-2 text-[#141B24] font-semibold hover:text-[#FC4C4C] transition-colors duration-200 text-sm"
+              className="inline-flex items-center gap-2 text-[#141B24] font-semibold hover:text-[#FC4C4C] transition-colors duration-200 text-sm group/link"
             >
-              View all projects <ArrowRight size={16} strokeWidth={1.25} />
+              View all projects{' '}
+              <span className="transition-transform duration-150 ease-out group-hover/link:translate-x-[3px]">
+                <ArrowRight size={16} strokeWidth={1.25} />
+              </span>
             </Link>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
