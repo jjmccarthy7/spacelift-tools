@@ -1,3 +1,5 @@
+'use client'
+
 import Link from 'next/link'
 import { ArrowRight, Smartphone, MessageCircle, HardHat } from 'lucide-react'
 
@@ -5,13 +7,13 @@ const howItWorks = [
   {
     step: '01',
     icon: Smartphone,
-    title: 'Explore with the app',
+    title: 'Explore your ideas',
     description: 'Describe your project, upload photos, and get a real sense of scope and cost — all before talking to anyone.',
   },
   {
     step: '02',
     icon: MessageCircle,
-    title: 'Talk to a Spacelift Advisor',
+    title: 'Talk with a Spacelift Advisor',
     description: 'Our advisors help you find clarity. Ask questions, get honest guidance, and move forward with confidence.',
   },
   {
@@ -24,45 +26,66 @@ const howItWorks = [
 
 const projects = [
   { name: 'Modern Kitchen Overhaul', location: 'Austin, TX', type: 'Kitchen', budget: '$48,500', status: 'Completed', emoji: '🍳' },
-  { name: 'Primary Bath Spa Retreat', location: 'Denver, CO', type: 'Bathroom', budget: '$32,000', status: 'Completed', emoji: '🛁' },
+  { name: 'Primary Bath Spa Retreat', location: 'Denver, CO', type: 'Bathroom', budget: '$32,000', status: 'Completed', emoji: '🛛' },
   { name: 'Open Floor Plan Conversion', location: 'Chicago, IL', type: 'Structural', budget: '$55,200', status: 'In Progress', emoji: '🏗️' },
   { name: 'Backyard Deck & Pergola', location: 'Seattle, WA', type: 'Outdoor', budget: '$18,900', status: 'Completed', emoji: '🌿' },
 ]
 
 export default function HomePage() {
   return (
-    <div className="pt-16">
-
-      <section className="bg-white min-h-[88vh] flex items-center">
-        <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-20 py-24 md:py-32">
-          <div className="max-w-3xl">
-            <span className="inline-block text-xs font-black tracking-widest uppercase text-[#FC4C4C] mb-6">
-              Love where you live
-            </span>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-[#141B24] leading-[1.05] tracking-tight mb-8">
-              Your home should feel like home.
-            </h1>
-            <p className="text-lg md:text-xl text-[#8D9EB2] leading-relaxed max-w-xl mb-12">
-              Most people dream about improving their space. Spacelift makes it possible — with the tools, advisors, and trusted local professionals to bring your project to life.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/get-started" className="inline-flex items-center justify-center gap-2 bg-[#FC4C4C] text-white font-semibold px-8 py-4 rounded-full hover:bg-[#CA3D3D] transition-colors duration-200 text-base">
-                Get Started <ArrowRight size={18} strokeWidth={1.25} />
-              </Link>
-              <Link href="/homeowners" className="inline-flex items-center justify-center gap-2 border border-[#141B24] text-[#141B24] font-semibold px-8 py-4 rounded-full hover:bg-[#141B24] hover:text-white transition-colors duration-200 text-base">
-                How it works
-              </Link>
+    <div>
+      {/* Hero */}
+      <section className="relative min-h-screen flex flex-col">
+        <div className="absolute inset-0 z-0">
+          <img
+            src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1800&q=85&auto=format&fit=crop"
+            alt="Beautiful renovated home interior"
+            className="w-full h-full object-cover object-center"
+          />
+          <div
+            className="absolute inset-0"
+            style={{ background: 'linear-gradient(rgba(0,0,0,0.38) 0%, rgba(0,0,0,0.08) 55%, rgba(0,0,0,0.04) 100%)' }}
+          />
+        </div>
+        <div className="relative z-10 flex-1 flex items-center">
+          <div className="max-w-[1280px] w-full mx-auto px-6 md:px-12 lg:px-20 pt-32 pb-24 md:pt-40 md:pb-32">
+            <div className="max-w-2xl">
+              <h1
+                className="text-5xl md:text-7xl lg:text-8xl font-black text-white leading-[1.05] tracking-tight mb-6"
+                style={{ fontFamily: 'var(--font-primary)' }}
+              >
+                Give your home a Spacelift.
+              </h1>
+              <p className="text-lg md:text-xl text-white/80 leading-relaxed max-w-xl mb-10">
+                Explore your ideas, talk with a Spacelift Advisor, and work with local Spacelift Pros to bring your renovation to life.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link
+                  href="/get-started"
+                  className="inline-flex items-center justify-center gap-2 bg-[#141B24] text-white font-semibold px-8 py-4 rounded-full hover:bg-[#1e2a38] transition-colors duration-200 text-base"
+                >
+                  Get Started
+                  <ArrowRight size={18} strokeWidth={1.25} />
+                </Link>
+                <Link
+                  href="/homeowners"
+                  className="inline-flex items-center justify-center gap-2 border border-white text-white font-semibold px-8 py-4 rounded-full hover:bg-white hover:text-[#141B24] transition-colors duration-200 text-base"
+                >
+                  How It Works
+                </Link>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
+      {/* How It Works */}
       <section className="bg-[#EEF1F4] py-24 md:py-32">
         <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-20">
           <div className="mb-16">
-            <span className="text-xs font-black tracking-widest uppercase text-[#FC4C4C]">How it works</span>
+            <span className="text-xs font-black tracking-widest uppercase text-[#FC4C4C]">Renovation Made Approachable</span>
             <h2 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-black text-[#141B24] leading-[1.1] tracking-tight max-w-2xl">
-              Three steps to a space you love.
+              Your renovation, in three simple steps
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -81,6 +104,7 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Brand Promise */}
       <section className="bg-[#141B24] py-24 md:py-32">
         <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-20">
           <div className="max-w-3xl">
@@ -94,13 +118,18 @@ export default function HomePage() {
             <p className="text-lg text-[#8D9EB2] leading-relaxed max-w-2xl mb-12">
               Too many people live in spaces that don’t quite work — not because they don’t dream of something better, but because renovation has always felt too complicated to begin. That’s exactly what Spacelift is here to change.
             </p>
-            <Link href="/get-started" className="inline-flex items-center gap-2 bg-[#FC4C4C] text-white font-semibold px-8 py-4 rounded-full hover:bg-[#CA3D3D] transition-colors duration-200 text-base">
-              Start your renovation <ArrowRight size={18} strokeWidth={1.25} />
+            <Link
+              href="/get-started"
+              className="inline-flex items-center gap-2 bg-[#FC4C4C] text-white font-semibold px-8 py-4 rounded-full hover:bg-[#CA3D3D] transition-colors duration-200 text-base"
+            >
+              Start your renovation
+              <ArrowRight size={18} strokeWidth={1.25} />
             </Link>
           </div>
         </div>
       </section>
 
+      {/* Projects Teaser */}
       <section className="bg-white py-24 md:py-32">
         <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-20">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
@@ -111,7 +140,8 @@ export default function HomePage() {
               </h2>
             </div>
             <Link href="/projects" className="inline-flex items-center gap-2 text-[#141B24] font-semibold hover:text-[#FC4C4C] transition-colors duration-200 text-sm">
-              View all projects <ArrowRight size={16} strokeWidth={1.25} />
+              View all projects
+              <ArrowRight size={16} strokeWidth={1.25} />
             </Link>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -132,7 +162,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
     </div>
   )
 }
