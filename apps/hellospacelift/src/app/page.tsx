@@ -8,7 +8,7 @@ const howItWorks = [
     step: '01',
     icon: Smartphone,
     title: 'Explore your ideas',
-    description: 'Describe your project, upload photos, and get a real sense of scope and cost — all before talking to anyone.',
+    description: 'Describe your project, upload potos, and get a real sense of scope and cost — all before talking to anyone.',
   },
   {
     step: '02',
@@ -45,6 +45,11 @@ export default function HomePage() {
           <div
             className="absolute inset-0"
             style={{ background: 'linear-gradient(rgba(0,0,0,0.38) 0%, rgba(0,0,0,0.08) 55%, rgba(0,0,0,0.04) 100%)' }}
+          />
+          {/* Left-side scrim: improves H1/H2/CTA contrast without darkening the full image */}
+          <div
+            className="absolute inset-0"
+            style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.25) 30%, rgba(0,0,0,0) 55%)' }}
           />
         </div>
         <div className="relative z-10 flex-1 flex items-center">
