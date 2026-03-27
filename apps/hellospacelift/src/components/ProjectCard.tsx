@@ -8,14 +8,22 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ photo, roomType, location }: ProjectCardProps) {
   return (
-    <div className="bg-white rounded-[32px] overflow-hidden shadow hover:shadow-lg transition-shadow duration-300 group">
-      {/* Image — 4:3 aspect ratio, fills card width */}
-      <div className="relative w-full overflow-hidden" style={{ aspectRatio: '4/3' }}>
+    <div
+      className="bg-white overflow-hidden shadow group
+        hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(0,0,0,0.12)]
+        transition-[transform,box-shadow] duration-200 ease-out"
+      style={{ borderRadius: '24px' }}
+    >
+      {/* Image — 4:3 aspect ratio, 26px top radius */}
+      <div
+        className="relative w-full overflow-hidden"
+        style={{ aspectRatio: '4/3', borderRadius: '26px 26px 0 0' }}
+      >
         <Image
           src={photo}
           alt={`${roomType} renovation in ${location}`}
           fill
-          className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+          className="object-cover transition-transform duration-200 ease-out group-hover:scale-[1.03]"
           sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
         />
       </div>
