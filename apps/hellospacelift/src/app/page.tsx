@@ -38,7 +38,7 @@ export default function HomePage() {
       <section className="relative min-h-screen flex flex-col">
         <div className="absolute inset-0 z-0">
           <img
-            src="/docs/designdocs/assets/Homepage Hero Blue Kitchen.png"
+            src="/hero-kitchen.png"
             alt="Beautiful renovated home interior"
             className="w-full h-full object-cover object-center"
           />
