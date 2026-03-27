@@ -93,8 +93,8 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {howItWorks.map(({ step, title, description }) => (
               <div key={step} className="bg-white rounded-[32px] p-8 shadow-sm hover:shadow-md transition-shadow duration-300">
-                <div className="mb-6">
-                  <span className="text-xs font-black tracking-widest text-[#FC4C4C]">{step}</span>
+                <div className="mb-3">
+                  <span className="text-5xl font-black leading-none text-[#3B86E1]">{step}</span>
                 </div>
                 <h3 className="text-xl font-bold text-[#141B24] mb-3">{title}</h3>
                 <p className="text-[#8D9EB2] text-base leading-relaxed">{description}</p>
