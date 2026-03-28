@@ -11,7 +11,7 @@ const howItWorks = [
     title: 'Explore your ideas',
     description: 'Use our app to show us your space, describe the changes you want, and instantly see ballpark estimates.',
   },
-  {
+{
     step: '02',
     title: 'Talk with a Spacelift Advisor',
     description: 'Our advisors help you find clarity. Ask questions, get honest guidance, and move forward with confidence.',
@@ -46,7 +46,7 @@ export default function HomePage() {
                 Explore your ideas, talk with a Spacelift Advisor, and work with local Spacelift Pros to bring your renovation to life.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/get-started" className="inline-flex items-center justify-center gap-2 bg-[#141B24] text-white font-semibold px-8 py-4 rounded-full hover:bg-[#1e2a38] transition-colors duration-200 text-base">
+                <Link href="/get-started" className="inline-flex items-center jstify-center gap-2 bg-[#141B24] text-white font-semibold px-8 py-4 rounded-full border border-white hover:bg-[#1e2a38] transition-colors duration-200 text-base">
                   Get Started
                   <ArrowRight size={18} strokeWidth={1.25} />
                 </Link>
