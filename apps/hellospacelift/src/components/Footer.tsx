@@ -8,7 +8,7 @@ export default function Footer() {
         {/* Top row: logo + tagline + social */}
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8 mb-12">
           <div className="max-w-xs">
-            <span className="text-[#FC4C4C] font-black text-xl trcking-tight block mb-2" style={{ fontFamily: 'var(--font-primary)' }}>
+            <span className="text-white font-black text-xl tcking-tight block mb-2" style={{ fontFamily: 'var(--font-primary)' }}>
               spacelift
             </span>
             <p className="text-sm text-[#8D9EB2] leading-relaxed">
@@ -60,38 +60,3 @@ export default function Footer() {
             <ul className="flex flex-col gap-2">
               <li><Link href="/pros" className="text-sm text-[#8D9EB2] hover:text-white transition-colors duration-200">Why Spacelift</Link></li>
               <li><Link href="/pros#apply" className="text-sm text-[#8D9EB2] hover:text-white transition-colors duration-200">Apply to Join</Link></li>
-              <li><Link href="/pros#talk" className="text-sm text-[#8D9EB2] hover:text-white transition-colors duration-200">Talk to Our Team</Link></li>
-            </ul>
-          </div>
-          <div>
-            <p className="text-xs font-black uppercase tracking-widest text-white mb-4">Company</p>
-            <ul className="flex flex-col gap-2">
-              <li><Link href="/" className="text-sm text-[#8D9EB2] hover:text-white transition-colors duration-200">About</Link></li>
-              <li><Link href="/" className="text-sm text-[#8D9EB2] hover:text-white transition-colors duration-200">Blog</Link></li>
-              <li><Link href="/" className="text-sm text-[#8D9EB2] hover:text-white transition-colors duration-200">Careers</Link></li>
-            </ul>
-          </div>
-          <div>
-            <p className="text-xs font-black uppercase tracking-widest text-white mb-4">Get the App</p>
-            <ul className="flex flex-col gap-2">
-              <li><a href="#" className="text-sm text-[#8D9EB2] hover:text-white transition-colors duration-200">iOS App Store</a></li>
-              <li><a href="#" className="text-sm text-[#8D9EB2] hover:text-white transition-colors duration-200">Google Play</a></li>
-            </ul>
-          </div>
-        </div>
-
-        {/* Bottom row */}
-        <div className="border-t border-[#8D9EB2]/20 pt-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-          <p className="text-xs text-[#8D9EB2]">
-            {new Date().getFullYear()} Spacelift. All rights reserved.
-          </p>
-          <div className="flex items-center gap-6">
-            <Link href="/" className="text-xs text-[#8D9EB2] hover:text-white transition-colors duration-200">Privacy Policy</Link>
-            <Link href="/" className="text-xs text-[#8D9EB2] hover:text-white transition-colors duration-200">Terms of Service</Link>
-          </div>
-        </div>
-
-      </div>
-    </footer>
-  )
-}
