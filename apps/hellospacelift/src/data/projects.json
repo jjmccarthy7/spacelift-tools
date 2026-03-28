@@ -1,0 +1,122 @@
+[
+    {
+          "id": "living-room-piedmont-01",
+          "room_type": "Living Room",
+          "city": "Piedmont",
+          "state": "CA",
+          "location_display": "Piedmont, CA",
+          "after_image": "/projects/living-room-piedmont-01.jpg",
+          "featured": true,
+          "active": true
+    },
+    {
+          "id": "kitchen-san-francisco-01",
+          "room_type": "Kitchen",
+          "city": "San Francisco",
+          "state": "CA",
+          "location_display": "San Francisco, CA",
+          "after_image": "/projects/kitchen-san-francisco-01.jpg",
+          "featured": true,
+          "active": true
+    },
+    {
+          "id": "living-room-san-francisco-01",
+          "room_type": "Living Room",
+          "city": "San Francisco",
+          "state": "CA",
+          "location_display": "San Francisco, CA",
+          "after_image": "/projects/living-room-san-francisco-01.jpg",
+          "featured": true,
+          "active": true
+    },
+    {
+          "id": "bedroom-san-francisco-01",
+          "room_type": "Bedroom",
+          "city": "San Francisco",
+          "state": "CA",
+          "location_display": "San Francisco, CA",
+          "after_image": "/projects/bedroom-san-francisco-01.jpg",
+          "featured": true,
+          "active": true
+    },
+    {
+          "id": "living-room-san-francisco-02",
+          "room_type": "Living Room",
+          "city": "San Francisco",
+          "state": "CA",
+          "location_display": "San Francisco, CA",
+          "after_image": "/projects/living-room-san-francisco-02.jpg",
+          "featured": true,
+          "active": true
+    },
+    {
+          "id": "bedroom-san-francisco-02",
+          "room_type": "Bedroom",
+          "city": "San Francisco",
+          "state": "CA",
+          "location_display": "San Francisco, CA",
+          "after_image": "/projects/bedroom-san-francisco-02.jpg",
+          "featured": true,
+          "active": true
+    },
+    {
+          "id": "office-atherton-01",
+          "room_type": "Office",
+          "city": "Atherton",
+          "state": "CA",
+          "location_display": "Atherton, CA",
+          "after_image": "/projects/office-atherton-01.jpg",
+          "featured": true,
+          "active": true
+    },
+    {
+          "id": "kitchen-belmont-01",
+          "room_type": "Kitchen",
+          "city": "Belmont",
+          "state": "CA",
+          "location_display": "Belmont, CA",
+          "after_image": "/projects/kitchen-belmont-01.jpg",
+          "featured": true,
+          "active": true
+    },
+    {
+          "id": "backyard-san-mateo-01",
+          "room_type": "Backyard",
+          "city": "San Mateo",
+          "state": "CA",
+          "location_display": "San Mateo, CA",
+          "after_image": "/projects/backyard-san-mateo-01.jpg",
+          "featured": true,
+          "active": true
+    },
+    {
+          "id": "kitchen-san-mateo-01",
+          "room_type": "Kitchen",
+          "city": "San Mateo",
+          "state": "CA",
+          "location_display": "San Mateo, CA",
+          "after_image": "/projects/kitchen-san-mateo-01.jpg",
+          "featured": true,
+          "active": true
+    },
+    {
+          "id": "bathroom-oakland-01",
+          "room_type": "Bathroom",
+          "city": "Oakland",
+          "state": "CA",
+          "location_display": "Oakland, CA",
+          "after_image": "/projects/bathroom-oakland-01.jpg",
+          "featured": true,
+          "active": true
+    },
+    {
+          "id": "bathroom-oakland-02",
+          "room_type": "Bathroom",
+          "city": "Oakland",
+          "state": "CA",
+          "location_display": "Oakland, CA",
+          "after_image": "/projects/bathroom-oakland-02.jpg",
+          "featured": true,
+          "active": true
+    }
+]
