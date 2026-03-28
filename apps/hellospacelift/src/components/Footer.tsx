@@ -60,3 +60,35 @@ export default function Footer() {
             <ul className="flex flex-col gap-2">
               <li><Link href="/pros" className="text-sm text-[#8D9EB2] hover:text-white transition-colors duration-200">Why Spacelift</Link></li>
               <li><Link href="/pros#apply" className="text-sm text-[#8D9EB2] hover:text-white transition-colors duration-200">Apply to Join</Link></li>
+            </ul>
+          </div>
+          <div>
+            <p className="text-xs font-black uppercase tracking-widest text-white mb-4">Company</p>
+            <ul className="flex flex-col gap-2">
+              <li><Link href="/about" className="text-sm text-[#8D9EB2] hover:text-white transition-colors duration-200">About Us</Link></li>
+              <li><Link href="/reviews" className="text-sm text-[#8D9EB2] hover:text-white transition-colors duration-200">Reviews</Link></li>
+              <li><a href="mailto:info@hellospacelift.com" className="text-sm text-[#8D9EB2] hover:text-white transition-colors duration-200">Contact Us</a></li>
+            </ul>
+          </div>
+          <div>
+            <p className="text-xs font-black uppercase tracking-widest text-white mb-4">Get the App</p>
+            <ul className="flex flex-col gap-2">
+              <li><Link href="/download" className="text-sm text-[#8D9EB2] hover:text-white transition-colors duration-200">iOS Download</Link></li>
+              <li><Link href="/download" className="text-sm text-[#8D9EB2] hover:text-white transition-colors duration-200">Android Download</Link></li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Bottom bar */}
+        <div className="border-t border-[#ffffff1a] pt-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+          <p className="text-xs text-[#8D9EB2]">&copy; 2026 Spacelift. All rights reserved.</p>
+          <div className="flex gap-6">
+            <Link href="/terms" className="text-xs text-[#8D9EB2] hover:text-white transition-colors duration-200">Terms &amp; Conditions</Link>
+            <Link href="/privacy" className="text-xs text-[#8D9EB2] hover:text-white transition-colors duration-200">Privacy Policy</Link>
+          </div>
+        </div>
+
+      </div>
+    </footer>
+  )
+}
