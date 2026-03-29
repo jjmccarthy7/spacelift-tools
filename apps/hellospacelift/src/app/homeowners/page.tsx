@@ -9,7 +9,6 @@ const problems = [
   'You\u2019ve heard renovation horror stories.',
   'You don\u2019t know who to trust.',
   'The costs feel unpredictable and scary.',
-  'That project has been on the list for years.',
 ]
 
 const featuredProjects = projectsData.filter((p) => p.active).slice(0, 6)
