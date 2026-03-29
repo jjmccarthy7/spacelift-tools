@@ -1,30 +1,13 @@
 import Link from 'next/link'
 import { ArrowRight, CheckCircle } from 'lucide-react'
+import HowItWorksSteps from '@/components/HowItWorksSteps'
 
 const problems = [
   'You have ideas but no idea where to start.',
-  'You’ve heard renovation horror stories.',
-  'You don’t know who to trust.',
+  'You\u2019ve heard renovation horror stories.',
+  'You don\u2019t know who to trust.',
   'The costs feel unpredictable and scary.',
   'That project has been on the list for years.',
-]
-
-const howItWorks = [
-  {
-    step: '01',
-    title: 'Explore with the app',
-    description: 'Describe your project, upload photos of your space, and get a real sense of what’s possible — scope, style, and cost — all before you talk to anyone.',
-  },
-  {
-    step: '02',
-    title: 'Talk to a Spacelift Advisor',
-    description: 'Our advisors are renovation experts, not salespeople. They’ll help you understand your options, ask the right questions, and build a plan you feel confident in.',
-  },
-  {
-    step: '03',
-    title: 'Build with local Spacelift Pros',
-    description: 'We match you with vetted local professionals who are the right fit for your project. They’ll do the work. You’ll love the result.',
-  },
 ]
 
 const projects = [
@@ -47,10 +30,10 @@ export default function HomeownersPage() {
               For homeowners
             </span>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-[#141B24] leading-[1.05] tracking-tight mb-8">
-              The space you’ve imagined is closer than you think.
+              The space you&apos;ve imagined is closer than you think.
             </h1>
             <p className="text-lg md:text-xl text-[#8D9EB2] leading-relaxed max-w-xl mb-12">
-              Renovation doesn’t have to be overwhelming. Spacelift guides you from the first idea all the way through to a finished space you love.
+              Renovation doesn&apos;t have to be overwhelming. Spacelift guides you from the first idea all the way through to a finished space you love.
             </p>
             <Link href="/get-started" className="inline-flex items-center justify-center gap-2 bg-[#FC4C4C] text-white font-semibold px-8 py-4 rounded-full hover:bg-[#CA3D3D] transition-colors duration-200 text-base">
               Get Started <ArrowRight size={18} strokeWidth={1.25} />
@@ -68,7 +51,7 @@ export default function HomeownersPage() {
                 Those ideas have been sitting there long enough.
               </h2>
               <p className="text-lg text-[#8D9EB2] leading-relaxed mb-10">
-                So many people live in spaces that don’t quite work. Not because they don’t want something better — but because renovation has always felt too hard to begin. We built Spacelift to change that.
+                So many people live in spaces that don&apos;t quite work. Not because they don&apos;t want something better — but because renovation has always felt too hard to begin. We built Spacelift to change that.
               </p>
               <Link href="/get-started" className="inline-flex items-center gap-2 bg-[#FC4C4C] text-white font-semibold px-8 py-4 rounded-full hover:bg-[#CA3D3D] transition-colors duration-200 text-base">
                 Start today <ArrowRight size={18} strokeWidth={1.25} />
@@ -94,17 +77,7 @@ export default function HomeownersPage() {
               Three steps to a space you love.
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {howItWorks.map(({ step, title, description }) => (
-              <div key={step} className="bg-white rounded-[32px] p-8 shadow-sm hover:shadow-md transition-shadow duration-300">
-                <div className="mb-3">
-                  <span className="text-5xl font-black leading-none text-[#3B86E1]">{step}</span>
-                </div>
-                <h3 className="text-xl font-bold text-[#141B24] mb-3">{title}</h3>
-                <p className="text-[#8D9EB2] text-base leading-relaxed">{description}</p>
-              </div>
-            ))}
-          </div>
+          <HowItWorksSteps />
         </div>
       </section>
 
@@ -147,7 +120,7 @@ export default function HomeownersPage() {
             Give your home a Spacelift.
           </h2>
           <p className="text-lg text-white/80 leading-relaxed max-w-xl mx-auto mb-12">
-            Every great renovation starts with a simple question: do I love the place I live? If the answer isn’t yes — let’s change that.
+            Every great renovation starts with a simple question: do I love the place I live? If the answer isn&apos;t yes — let&apos;s change that.
           </p>
           <Link href="/get-started" className="inline-flex items-center justify-center gap-2 bg-white text-[#FC4C4C] font-semibold px-8 py-4 rounded-full hover:bg-[#EEF1F4] transition-colors duration-200 text-base">
             Get Started <ArrowRight size={18} strokeWidth={1.25} />
