@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import { ArrowRight, CheckCircle } from 'lucide-react'
 import HowItWorksSteps from '@/components/HowItWorksSteps'
+import ProjectCard from '@/components/ProjectCard'
+import projectsData from '@/data/projects.json'
 
 const problems = [
   'You have ideas but no idea where to start.',
@@ -10,14 +12,7 @@ const problems = [
   'That project has been on the list for years.',
 ]
 
-const projects = [
-  { name: 'Modern Kitchen Overhaul', location: 'Austin, TX', type: 'Kitchen', budget: '$48,500', status: 'Completed', emoji: '🍳' },
-  { name: 'Primary Bath Spa Retreat', location: 'Denver, CO', type: 'Bathroom', budget: '$32,000', status: 'Completed', emoji: '🛁' },
-  { name: 'Open Floor Plan Conversion', location: 'Chicago, IL', type: 'Structural', budget: '$55,200', status: 'In Progress', emoji: '🏗️' },
-  { name: 'Backyard Deck & Pergola', location: 'Seattle, WA', type: 'Outdoor', budget: '$18,900', status: 'Completed', emoji: '🌿' },
-  { name: 'Primary Suite Addition', location: 'Nashville, TN', type: 'Addition', budget: '$72,000', status: 'Completed', emoji: '🛏️' },
-  { name: 'Basement Finishing', location: 'Minneapolis, MN', type: 'Basement', budget: '$41,200', status: 'Completed', emoji: '🏠' },
-]
+const featuredProjects = projectsData.filter((p) => p.active).slice(0, 6)
 
 export default function HomeownersPage() {
   return (
@@ -95,19 +90,13 @@ export default function HomeownersPage() {
             </Link>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projects.map((project) => (
-              <div key={project.name} className="bg-[#EEF1F4] rounded-3xl p-6 hover:shadow-md transition-shadow duration-300">
-                <div className="text-4xl mb-5">{project.emoji}</div>
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-xs font-semibold text-[#8D9EB2]">{project.type}</span>
-                  <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${project.status === 'Completed' ? 'bg-[#0ED096]/15 text-[#0ED096]' : 'bg-[#3B86E1]/15 text-[#3B86E1]'}`}>
-                    {project.status}
-                  </span>
-                </div>
-                <h3 className="text-base font-bold text-[#141B24] mb-1">{project.name}</h3>
-                <p className="text-sm text-[#8D9EB2] mb-3">{project.location}</p>
-                <p className="text-lg font-black text-[#141B24]">{project.budget}</p>
-              </div>
+            {featuredProjects.map((project) => (
+              <ProjectCard
+                key={project.id}
+                photo={project.after_image}
+                roomType={project.room_type}
+                location={project.location_display}
+              />
             ))}
           </div>
         </div>
