@@ -3,25 +3,8 @@
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import ProjectCard from '@/components/ProjectCard'
+import HowItWorksSteps from '@/components/HowItWorksSteps'
 import projectsData from '@/data/projects.json'
-
-const howItWorks = [
-  {
-    step: '01',
-    title: 'Explore your ideas',
-    description: 'Use our app to show us your space, describe the changes you want, and instantly see ballpark estimates.',
-  },
-{
-    step: '02',
-    title: 'Talk with a Spacelift Advisor',
-    description: 'Our advisors help you find clarity. Ask questions, get honest guidance, and move forward with confidence.',
-  },
-  {
-    step: '03',
-    title: 'Build with local Spacelift Pros',
-    description: 'We recommend trusted local professionals from our network who are the best fit for you and your project.',
-  },
-]
 
 const featuredProjects = projectsData
   .filter((p) => p.featured && p.active)
@@ -46,9 +29,8 @@ export default function HomePage() {
                 Explore your ideas, talk with a Spacelift Advisor, and work with local Spacelift Pros to bring your renovation to life.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/get-started" className="inline-flex items-center jstify-center gap-2 bg-[#141B24] text-white font-semibold px-8 py-4 rounded-full border border-white hover:bg-[#1e2a38] transition-colors duration-200 text-base">
-                  Get Started
-                  <ArrowRight size={18} strokeWidth={1.25} />
+                <Link href="/get-started" className="inline-flex items-center justify-center gap-2 bg-[#141B24] text-white font-semibold px-8 py-4 rounded-full border border-white hover:bg-[#1e2a38] transition-colors duration-200 text-base">
+                  Get Started <ArrowRight size={18} strokeWidth={1.25} />
                 </Link>
                 <Link href="/homeowners" className="inline-flex items-center justify-center gap-2 border border-white text-white font-semibold px-8 py-4 rounded-full hover:bg-white hover:text-[#141B24] transition-colors duration-200 text-base">
                   How It Works
@@ -69,17 +51,7 @@ export default function HomePage() {
               Your renovation, in three simple steps
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {howItWorks.map(({ step, title, description }) => (
-              <div key={step} className="bg-white rounded-[32px] p-8 shadow hover:shadow-lg transition-shadow duration-300">
-                <div className="mb-3">
-                  <span className="text-5xl font-black leading-none text-[#3B86E1]">{step}</span>
-                </div>
-                <h3 className="text-xl font-bold text-[#141B24] mb-3">{title}</h3>
-                <p className="text-[#8D9EB2] text-base leading-relaxed">{description}</p>
-              </div>
-            ))}
-          </div>
+          <HowItWorksSteps />
         </div>
       </section>
 
@@ -99,8 +71,7 @@ export default function HomePage() {
               Too many people live in spaces that don&apos;t quite work — not because they don&apos;t dream of something better, but because renovation has always felt too complicated to begin. That&apos;s exactly what Spacelift is here to change.
             </p>
             <Link href="/get-started" className="inline-flex items-center gap-2 bg-[#FC4C4C] text-white font-semibold px-8 py-4 rounded-full hover:bg-[#CA3D3D] transition-colors duration-200 text-base">
-              Start your renovation
-              <ArrowRight size={18} strokeWidth={1.25} />
+              Start your renovation <ArrowRight size={18} strokeWidth={1.25} />
             </Link>
           </div>
         </div>
