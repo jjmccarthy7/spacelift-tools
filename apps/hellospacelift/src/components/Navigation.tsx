@@ -18,21 +18,33 @@ export default function Navigation() {
   const [scrolled, setScrolled] = useState(false)
 
   const isHome = pathname === '/'
+  const isHomeowners = pathname === '/homeowners'
+  // Pages whose hero sits flush against the top of the viewport
+  const isHeroPage = isHome || isHomeowners
 
   useEffect(() => {
-    if (!isHome) return
+    if (!isHeroPage) return
     const handleScroll = () => { setScrolled(window.scrollY > 40) }
     window.addEventListener('scroll', handleScroll, { passive: true })
     handleScroll()
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [isHome])
+  }, [isHeroPage])
 
-  const isTransparent = isHome && !scrolled && !mobileOpen
+  const isTransparent = isHeroPage && !scrolled && !mobileOpen
+
+  // Homepage hero is dark (photo bg) → white text when transparent
+  // Homeowners hero is light (graph-paper bg) → dark text when transparent
+  const isLightHero = isHomeowners
+
   const navBg = isTransparent ? 'bg-transparent border-transparent' : 'bg-white border-[#EEF1F4]'
-  const logoColor = isTransparent ? 'text-white' : 'text-[#141B24]'
-  const linkColor = isTransparent ? 'text-white/90 hover:text-white/70' : 'text-[#141B24] hover:text-[#141B24]/70'
-  const ctaBg = isTransparent ? 'bg-white text-[#141B24] hover:bg-white/90' : 'bg-[#141B24] text-white hover:bg-[#1e2a38]'
-  const menuIconColor = isTransparent ? 'text-white' : 'text-[#141B24]'
+  const logoColor = isTransparent && !isLightHero ? 'text-white' : 'text-[#141B24]'
+  const linkColor = isTransparent && !isLightHero
+    ? 'text-white/90 hover:text-white/70'
+    : 'text-[#141B24] hover:text-[#141B24]/70'
+  const ctaBg = isTransparent && !isLightHero
+    ? 'bg-white text-[#141B24] hover:bg-white/90'
+    : 'bg-[#141B24] text-white hover:bg-[#1e2a38]'
+  const menuIconColor = isTransparent && !isLightHero ? 'text-white' : 'text-[#141B24]'
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 border-b transition-all duration-300 ${navBg}`}>
@@ -52,7 +64,7 @@ export default function Navigation() {
               href={link.href}
               className={`text-sm font-medium transition-colors duration-300 ${
                 pathname === link.href
-                  ? isTransparent ? 'text-white' : 'text-[#FC4C4C]'
+                  ? isTransparent && !isLightHero ? 'text-white' : 'text-[#FC4C4C]'
                   : linkColor
               }`}
             >
