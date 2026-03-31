@@ -40,14 +40,14 @@ export default function ProsPage() {
       <section className="bg-[#141B24] min-h-[80vh] flex items-center">
         <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-20 py-24 md:py-32">
           <div className="max-w-3xl">
-            <span className="inline-block text-xs font-black tracking-widest uppercase text-[#FC4C4C] mb-6">
-              For Pros
+            <span className="inline-block text-xs font-black tracking-widest uppercase text-[#3B86E1] mb-6">
+              For Renovation Professionals
             </span>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white leading-[1.05] tracking-tight mb-8">
-              Great renovations come from great people.
+              Great renovations start with great partners.
             </h1>
             <p className="text-lg md:text-xl text-[#8D9EB2] leading-relaxed max-w-xl mb-12">
-              Spacelift Pros are the craftspeople, contractors, and specialists who make renovation real. We’re building a network of the best in the business. If that’s you — we want to talk.
+              Our partners are local professionals we know well and trust to deliver exceptional experiences with beautiful results.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="#apply" className="inline-flex items-center justify-center gap-2 bg-[#FC4C4C] text-white font-semibold px-8 py-4 rounded-full hover:bg-[#CA3D3D] transition-colors duration-200 text-base">
