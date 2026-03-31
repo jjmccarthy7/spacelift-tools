@@ -25,10 +25,10 @@ export default function HomeownersPage() {
           className="absolute inset-0 z-0 pointer-events-none"
           style={{
             backgroundImage: [
-              'linear-gradient(rgba(59,134,225,0.065) 1px, transparent 1px)',
-              'linear-gradient(90deg, rgba(59,134,225,0.065) 1px, transparent 1px)',
-              'linear-gradient(rgba(59,134,225,0.028) 1px, transparent 1px)',
-              'linear-gradient(90deg, rgba(59,134,225,0.028) 1px, transparent 1px)',
+              'linear-gradient(rgba(59,134,225,0.115) 1px, transparent 1px)',
+              'linear-gradient(90deg, rgba(59,134,225,0.115) 1px, transparent 1px)',
+              'linear-gradient(rgba(59,134,225,0.078) 1px, transparent 1px)',
+              'linear-gradient(90deg, rgba(59,134,225,0.078) 1px, transparent 1px)',
             ].join(','),
             backgroundSize: '200px 200px, 200px 200px, 40px 40px, 40px 40px',
           }}
@@ -165,8 +165,8 @@ export default function HomeownersPage() {
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.1] tracking-tight mb-8 max-w-2xl mx-auto">
             Give your home a Spacelift.
           </h2>
-          <p className="text-lg text-white/80 leading-relaxed max-w-xl mx-auto mb-12">
-            Every great renovation starts with a simple question: do I love the place I live? If the answer isn&apos;t yes — let&apos;s change that.
+          <p className="text-lg text-white/80 leading-relaxed max-w-3xl mx-auto mb-12">
+            Every great renovation starts with a simple question: do I love the place I live?<br />If the answer isn&apos;t yes — let&apos;s change that.
           </p>
           <Link href="/get-started" className="inline-flex items-center justify-center gap-2 bg-white text-[#FC4C4C] font-semibold px-8 py-4 rounded-full hover:bg-[#EEF1F4] transition-colors duration-200 text-base">
             Get Started <ArrowRight size={18} strokeWidth={1.25} />
