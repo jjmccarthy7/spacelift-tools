@@ -124,7 +124,7 @@ export default function ProsPage() {
               Apply to join <ArrowRight size={18} strokeWidth={1.25} />
             </Link>
             <p className="mt-6 text-[#8D9EB2] text-sm">
-              Prefer to talk first?{‘ ‘}
+              Prefer to talk first?{" "}
               <Link href="#talk" className="text-white/70 hover:text-white underline underline-offset-2 transition-colors duration-200">
                 Talk with our team →
               </Link>
