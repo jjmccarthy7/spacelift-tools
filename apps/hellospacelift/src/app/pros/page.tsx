@@ -28,7 +28,6 @@ const whatWeLookFor = [
   'Licensed and insured in your state',
   'Minimum 3 years of professional experience',
   'Strong track record of on-time, on-budget delivery',
-  'Excellent communication with homeowners',
   'Pride in craftsmanship — not just completion',
   'Commitment to the Spacelift standard of care',
 ]
@@ -89,10 +88,10 @@ export default function ProsPage() {
             <div>
               <span className="text-xs font-black tracking-widest uppercase text-[#3B86E1] mb-6 block">Our standard</span>
               <h2 className="text-4xl md:text-5xl font-black text-[#141B24] leading-[1.1] tracking-tight mb-8">
-                We don’t work with just anyone.
+                We don’t work with<br />just anyone.
               </h2>
               <p className="text-lg text-[#8D9EB2] leading-relaxed mb-8">
-                Spacelift homeowners are trusting us to send them the right people. That’s a responsibility we take seriously. Our Pro partners meet a high bar — because our homeowners deserve nothing less.
+                Spacelift homeowners trust us to send them the right people. That’s a responsibility we take seriously. Our Pro partners meet a high bar — because our homeowners deserve nothing less.
               </p>
               <div className="flex items-center gap-3">
                 <Wrench size={18} strokeWidth={1.25} className="text-[#FC4C4C]" />
