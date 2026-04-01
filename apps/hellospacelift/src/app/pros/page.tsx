@@ -4,23 +4,23 @@ import { ArrowRight, Users, TrendingUp, Shield, Star, CheckCircle, Wrench } from
 const whyJoin = [
   {
     icon: Users,
-    title: 'A steady pipeline of real projects',
-    description: 'We connect you with homeowners who are ready to move forward — not just browsing. Less time chasing leads, more time doing great work.',
+    title: 'Serious Homeowners',
+    description: 'Every homeowner we introduce has already worked with a Spacelift Advisor to clarify their ideas, priorities, and expectations. You\'re meeting people who are ready to renovate — not just gathering quotes.',
   },
   {
     icon: TrendingUp,
-    title: 'Grow your business',
-    description: 'Spacelift Pros grow through reputation. Great work earns great reviews, which earns more referrals. We amplify what you already do well.',
+    title: 'Warm Introductions',
+    description: 'Spacelift introductions are based on fit. We introduce a maximum of three partners to each project, so you\'re meeting homeowners through a thoughtful referral — not competing with a crowd.',
   },
   {
     icon: Shield,
-    title: 'Backed by Spacelift advisors',
-    description: 'Our advisors prepare homeowners before they meet you — so projects start with clarity, not confusion.',
+    title: 'Steady Project Pipeline',
+    description: 'Spacelift is designed to create a steady flow of renovation opportunities — so when you\'re ready for your next project, there are homeowners ready to meet you.',
   },
   {
     icon: Star,
-    title: 'Build your reputation',
-    description: 'Your Spacelift profile showcases your completed projects and reviews. It becomes a portfolio that works for you.',
+    title: 'Continuous Feedback',
+    description: 'After every project, we ask both the homeowner and the contractor for feedback. This helps us continuously ensure we\'re introducing the right clients to the right partners.',
   },
 ]
 
