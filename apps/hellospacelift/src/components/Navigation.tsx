@@ -19,8 +19,9 @@ export default function Navigation() {
 
   const isHome = pathname === '/'
   const isHomeowners = pathname === '/homeowners'
+  const isGetStarted = pathname === '/get-started'
   // Pages whose hero sits flush against the top of the viewport
-  const isHeroPage = isHome || isHomeowners
+  const isHeroPage = isHome || isHomeowners || isGetStarted
 
   useEffect(() => {
     if (!isHeroPage) return
@@ -33,8 +34,8 @@ export default function Navigation() {
   const isTransparent = isHeroPage && !scrolled && !mobileOpen
 
   // Homepage hero is dark (photo bg) → white text when transparent
-  // Homeowners hero is light (graph-paper bg) → dark text when transparent
-  const isLightHero = isHomeowners
+  // Homeowners + Get Started heroes are light (graph-paper bg) → dark text when transparent
+  const isLightHero = isHomeowners || isGetStarted
 
   const navBg = isTransparent ? 'bg-transparent border-transparent' : 'bg-white border-[#EEF1F4]'
   const logoColor = isTransparent && !isLightHero ? 'text-white' : 'text-[#141B24]'
