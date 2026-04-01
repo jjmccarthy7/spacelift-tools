@@ -76,7 +76,7 @@ export default function HomeownersPage() {
             <div className="hidden lg:flex justify-center">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/GetStartedScreen.png"
+                src="/camera-screen-with-bezel.png"
                 alt="Spacelift app on iPhone"
                 style={{
                   width: '346px',
