@@ -22,7 +22,7 @@ export default function GetStartedPage() {
             Love where you live.
           </h1>
           <p className="text-lg md:text-xl text-[#8D9EB2] leading-relaxed max-w-xl">
-            Start by exploring your ideas in the Spacelift app, or talk with a Spacelift Advisor about your project. Choose what feels right for you.
+            Start by exploring your ideas in the Spacelift app, or talk with a Spacelift Advisor. Choose the path that feels right for you.
           </p>
         </div>
       </section>
@@ -33,12 +33,12 @@ export default function GetStartedPage() {
 
             <div className="bg-[#141B24] rounded-3xl p-10 md:p-12 flex flex-col">
               <div className="mb-3">
-                <span className="text-5xl font-black leading-none text-[#3B86E1]">01</span>
+                <span className="text-6xl font-black leading-none text-[#3B86E1]">01</span>
               </div>
               <h2 className="text-3xl md:text-4xl font-black text-white leading-[1.1] tracking-tight mb-6">
                 Get the Spacelift app.
               </h2>
-              <p className="text-[#8D9EB2] text-lg leading-relaxed mb-10 flex-grow">
+              <p className="text-[#8D9EB2] text-lg leading-relaxed mb-14 flex-grow">
                 Explore the possibilities by taking a video of your space and describing the changes you want to make. The app instantly gives you a real sense of scope and cost before you talk to anyone. Then book time with a Spacelift Advisor whenever you&apos;re ready.
               </p>
               <div className="space-y-4">
@@ -49,13 +49,13 @@ export default function GetStartedPage() {
 
             <div className="bg-white rounded-3xl p-10 md:p-12 flex flex-col border border-[#EEF1F4]">
               <div className="mb-3">
-                <span className="text-5xl font-black leading-none text-[#3B86E1]">02</span>
+                <span className="text-6xl font-black leading-none text-[#3B86E1]">02</span>
               </div>
               <h2 className="text-3xl md:text-4xl font-black text-[#141B24] leading-[1.1] tracking-tight mb-6">
                 Talk to a Spacelift Advisor.
               </h2>
               <p className="text-[#8D9EB2] text-lg leading-relaxed mb-10 flex-grow">
-                Not sure where to start? That&apos;s exactly what our advisors are here for. They&apos;re renovation experts — not salespeople — and a conversation with them is free, honest, and genuinely useful.
+                Not sure where to start? That&apos;s exactly what our advisors are here for. They&apos;re renovation experts — not salespeople — and the conversation is free, honest, and genuinely useful.
               </p>
               <div className="space-y-4">
                 <p className="text-xs font-semibold text-[#8D9EB2] uppercase tracking-widest">What to expect</p>
