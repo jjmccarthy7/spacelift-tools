@@ -110,7 +110,7 @@ export default function ProsPage() {
         </div>
       </section>
 
-      <section id="apply" className="bg-[#141B24] py-24 md:py-32">
+      <section id="apply" className="bg-[#141B24] pt-24 md:pt-32 pb-16 md:pb-20">
         <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-20">
           <div className="max-w-2xl">
             <span className="text-xs font-black tracking-widest uppercase text-[#3B86E1] mb-6 block">Join the network</span>
@@ -124,12 +124,13 @@ export default function ProsPage() {
               Apply to join <ArrowRight size={18} strokeWidth={1.25} />
             </Link>
             <p className="mt-6 text-[#8D9EB2] text-sm">
-              Prefer to talk first?{" "}
+              Prefer to talk first?{"  "}
               <Link href="#talk" className="text-white/70 hover:text-white underline underline-offset-2 transition-colors duration-200">
-                Talk with our team →
+                Book time with our team
               </Link>
             </p>
           </div>
+          <hr className="mt-16 md:mt-20 border-0 h-px bg-white/10" />
         </div>
       </section>
 
