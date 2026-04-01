@@ -109,11 +109,11 @@ export default function GetStartedPage() {
       {/* ── Closing ──────────────────────────────────────────────────────────── */}
       <section className="bg-white py-20 md:py-28">
         <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-20 text-center">
-          <h2 className="text-3xl md:text-4xl font-black text-[#141B24] leading-[1.1] tracking-tight mb-3 max-w-lg mx-auto">
-            Every great renovation starts with a simple question.
+          <h2 className="text-3xl md:text-4xl font-black text-[#141B24] leading-[1.1] tracking-tight mb-2 max-w-lg mx-auto">
+            Every great renovation starts with<br className="hidden md:block" /> a simple question.
           </h2>
-          <p className="text-lg text-[#FC4C4C] font-black mb-5">Do I love the place I live?</p>
-          <p className="text-xl text-[#8D9EB2] leading-relaxed max-w-xl mx-auto">
+          <p className="text-2xl text-[#FC4C4C] font-black mb-3">Do I love the place I live?</p>
+          <p className="text-lg text-[#545F6B] leading-relaxed max-w-xl mx-auto">
             At Spacelift, we believe you should. And that you can. Because life is better when you love where you live.
           </p>
         </div>
