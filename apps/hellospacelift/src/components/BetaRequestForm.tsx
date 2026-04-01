@@ -1,17 +1,17 @@
 'use client'
 
-import { Suspense, useState } from 'react'
+import { useState } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import { ArrowRight } from 'lucide-react'
 
-function BetaRequestFormInner() {
+export default function BetaRequestForm() {
   const searchParams = useSearchParams()
   const router = useRouter()
   const [email, setEmail] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
 
-  // Success state lives in the URL — survives reloads
+  // Success state lives in the URL — readable on SSR and survives hard refresh
   const submitted = searchParams.get('app-request') === 'success'
 
   if (submitted) {
@@ -27,8 +27,8 @@ function BetaRequestFormInner() {
     setLoading(true)
     setError('')
     try {
-      // POST to the static netlify-forms.html file — Netlify's CDN intercepts
-      // submissions to static assets, not to SSR Lambda routes.
+      // POST to the static netlify-forms.html — Netlify's CDN intercepts static
+      // asset requests, not SSR Lambda routes, so this is required for form capture.
       await fetch('/netlify-forms.html', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -70,13 +70,5 @@ function BetaRequestFormInner() {
       </div>
       {error && <p className="text-red-400 text-sm pl-2">{error}</p>}
     </form>
-  )
-}
-
-export default function BetaRequestForm() {
-  return (
-    <Suspense fallback={null}>
-      <BetaRequestFormInner />
-    </Suspense>
   )
 }
