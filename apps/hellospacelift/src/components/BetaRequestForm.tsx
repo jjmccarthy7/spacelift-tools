@@ -1,11 +1,9 @@
 'use client'
 
 import { Suspense, useState, useEffect } from 'react'
-import { useRouter } from 'next/navigation'
 import { ArrowRight } from 'lucide-react'
 
 function BetaRequestFormInner() {
-  const router = useRouter()
   const [submitted, setSubmitted] = useState(false)
   const [email, setEmail] = useState('')
   const [loading, setLoading] = useState(false)
@@ -39,7 +37,9 @@ function BetaRequestFormInner() {
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams({ 'form-name': 'app-request', email }).toString(),
       })
-      router.push('/get-started?app-request=success')
+      // Update URL without navigation so there's no scroll-to-top
+      window.history.replaceState(null, '', '/get-started?app-request=success')
+      setSubmitted(true)
     } catch {
       setError('Something went wrong. Please try again.')
       setLoading(false)
