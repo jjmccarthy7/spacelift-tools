@@ -112,28 +112,23 @@ export default function ProsPage() {
 
       <section id="apply" className="bg-[#141B24] py-24 md:py-32">
         <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <span className="text-xs font-black tracking-widest uppercase text-[#3B86E1] mb-6 block">Join the network</span>
-              <h2 className="text-4xl md:text-5xl font-black text-white leading-[1.1] tracking-tight mb-6">
-                Ready to become a Spacelift Pro?
-              </h2>
-              <p className="text-lg text-[#8D9EB2] leading-relaxed mb-10">
-                Apply to join our network of trusted renovation professionals. We review every application personally and will be in touch within 5 business days.
-              </p>
-              <Link href="#apply" className="inline-flex items-center justify-center gap-2 bg-[#FC4C4C] text-white font-semibold px-8 py-4 rounded-full hover:bg-[#CA3D3D] transition-colors duration-200 text-base">
-                Apply now <ArrowRight size={18} strokeWidth={1.25} />
+          <div className="max-w-2xl">
+            <span className="text-xs font-black tracking-widest uppercase text-[#3B86E1] mb-6 block">Join the network</span>
+            <h2 className="text-4xl md:text-5xl font-black text-white leading-[1.1] tracking-tight mb-6">
+              Become a Spacelift Pro.
+            </h2>
+            <p className="text-lg text-[#8D9EB2] leading-relaxed mb-10">
+              Apply to join our network of trusted renovation partners. Every application is reviewed personally, and we’ll follow up within five business days.
+            </p>
+            <Link href="#apply" className="inline-flex items-center justify-center gap-2 bg-[#FC4C4C] text-white font-semibold px-8 py-4 rounded-full hover:bg-[#CA3D3D] transition-colors duration-200 text-base">
+              Apply to join <ArrowRight size={18} strokeWidth={1.25} />
+            </Link>
+            <p className="mt-6 text-[#8D9EB2] text-sm">
+              Prefer to talk first?{‘ ‘}
+              <Link href="#talk" className="text-white/70 hover:text-white underline underline-offset-2 transition-colors duration-200">
+                Talk with our team →
               </Link>
-            </div>
-            <div id="talk" className="bg-white/5 rounded-3xl p-8 border border-white/10">
-              <h3 className="text-xl font-bold text-white mb-3">Prefer to talk first?</h3>
-              <p className="text-[#8D9EB2] text-base leading-relaxed mb-8">
-                We’re happy to answer questions about the program, what it means to be a Spacelift Pro, and whether it’s a good fit for your business.
-              </p>
-              <Link href="#talk" className="inline-flex items-center gap-2 border border-white/30 text-white font-semibold px-6 py-3 rounded-full hover:border-white hover:bg-white/5 transition-colors duration-200 text-sm">
-                Talk with our team <ArrowRight size={16} strokeWidth={1.25} />
-              </Link>
-            </div>
+            </p>
           </div>
         </div>
       </section>
