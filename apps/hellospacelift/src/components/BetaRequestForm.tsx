@@ -1,18 +1,23 @@
 'use client'
 
-import { useState } from 'react'
-import { useSearchParams, useRouter } from 'next/navigation'
+import { Suspense, useState, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 import { ArrowRight } from 'lucide-react'
 
-export default function BetaRequestForm() {
-  const searchParams = useSearchParams()
+function BetaRequestFormInner() {
   const router = useRouter()
+  const [submitted, setSubmitted] = useState(false)
   const [email, setEmail] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
 
-  // Success state lives in the URL — readable on SSR and survives hard refresh
-  const submitted = searchParams.get('app-request') === 'success'
+  // Read success param directly from the browser URL — works on hard refresh
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    if (params.get('app-request') === 'success') {
+      setSubmitted(true)
+    }
+  }, [])
 
   if (submitted) {
     return (
@@ -70,5 +75,13 @@ export default function BetaRequestForm() {
       </div>
       {error && <p className="text-red-400 text-sm pl-2">{error}</p>}
     </form>
+  )
+}
+
+export default function BetaRequestForm() {
+  return (
+    <Suspense fallback={null}>
+      <BetaRequestFormInner />
+    </Suspense>
   )
 }
