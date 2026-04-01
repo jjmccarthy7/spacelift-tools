@@ -65,7 +65,7 @@ export default function ProsPage() {
           <div className="mb-16">
             <span className="text-xs font-black tracking-widest uppercase text-[#3B86E1]">Why Spacelift</span>
             <h2 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-black text-[#141B24] leading-[1.1] tracking-tight max-w-2xl">
-              Built to support the people who build.
+              Four ways we support<br />our partners.
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
