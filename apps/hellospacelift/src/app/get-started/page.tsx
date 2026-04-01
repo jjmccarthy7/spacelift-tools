@@ -114,7 +114,7 @@ export default function GetStartedPage() {
           </h2>
           <p className="text-2xl text-[#FC4C4C] font-black mb-5">Do I love the place I live?</p>
           <p className="text-lg text-[#545F6B] leading-relaxed max-w-2xl mx-auto">
-            At Spacelift, we believe you should. And that you can. Because life is better when you love where you live.
+            At Spacelift, we believe you should. And that you can.<br /> Because life is better when you love where you live.
           </p>
         </div>
       </section>
