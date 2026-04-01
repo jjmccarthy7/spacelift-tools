@@ -11,10 +11,10 @@ const advisorExpectations = [
 
 export default function GetStartedPage() {
   return (
-    <div className="pt-16">
+    <div>
 
       {/* ── Hero ─────────────────────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-white py-20 md:py-28">
+      <section className="relative overflow-hidden bg-white pt-32 pb-20 md:pt-40 md:pb-28">
 
         {/* Graph-paper background — blueprint grid, ~6% opacity, scoped to this section */}
         <div
