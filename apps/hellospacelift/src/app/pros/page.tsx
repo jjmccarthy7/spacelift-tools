@@ -5,7 +5,7 @@ const whyJoin = [
   {
     icon: Users,
     title: 'Serious Homeowners',
-    description: 'Every homeowner we introduce has already worked with a Spacelift Advisor to clarify their ideas, priorities, and expectations. You\'re meeting people who are ready to renovate — not just gathering quotes.',
+    description: 'Every homeowner we introduce has already worked with a Spacelift Advisor to clarify their ideas, priorities, and expectations. You\'re meeting people who are ready to renovate.',
   },
   {
     icon: TrendingUp,
@@ -14,7 +14,7 @@ const whyJoin = [
   },
   {
     icon: Shield,
-    title: 'Steady Project Pipeline',
+    title: 'Steady Pipeline',
     description: 'Spacelift is designed to create a steady flow of renovation opportunities — so when you\'re ready for your next project, there are homeowners ready to meet you.',
   },
   {
