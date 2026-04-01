@@ -1,35 +1,12 @@
 'use client'
 
-import { useState } from 'react'
+import { Suspense } from 'react'
+import { useSearchParams } from 'next/navigation'
 import { ArrowRight } from 'lucide-react'
 
-export default function BetaRequestForm() {
-  const [email, setEmail] = useState('')
-  const [submitted, setSubmitted] = useState(false)
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState('')
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setLoading(true)
-    setError('')
-
-    try {
-      await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams({
-          'form-name': 'app-request',
-          email,
-        }).toString(),
-      })
-      setSubmitted(true)
-    } catch {
-      setError('Something went wrong. Please try again.')
-    } finally {
-      setLoading(false)
-    }
-  }
+function BetaRequestFormInner() {
+  const searchParams = useSearchParams()
+  const submitted = searchParams.get('app-request') === 'success'
 
   if (submitted) {
     return (
@@ -43,8 +20,8 @@ export default function BetaRequestForm() {
     <form
       name="app-request"
       method="POST"
+      action="/get-started?app-request=success"
       data-netlify="true"
-      onSubmit={handleSubmit}
       className="space-y-3"
     >
       <input type="hidden" name="form-name" value="app-request" />
@@ -52,23 +29,25 @@ export default function BetaRequestForm() {
         <input
           type="email"
           name="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
           placeholder="your@email.com"
           required
           className="w-full px-5 py-4 rounded-full bg-[#EEF1F4] text-[#141B24] placeholder-[#8D9EB2] border border-transparent focus:outline-none focus:border-white/50 text-base"
         />
         <button
           type="submit"
-          disabled={loading}
-          className="w-full inline-flex items-center justify-center gap-2 bg-[#FC4C4C] text-white font-semibold px-8 py-4 rounded-full hover:bg-[#CA3D3D] transition-colors duration-200 text-base disabled:opacity-60 disabled:cursor-not-allowed"
+          className="w-full inline-flex items-center justify-center gap-2 bg-[#FC4C4C] text-white font-semibold px-8 py-4 rounded-full hover:bg-[#CA3D3D] transition-colors duration-200 text-base"
         >
-          {loading ? 'Sending…' : <>Request the app <ArrowRight size={18} strokeWidth={1.25} /></>}
+          Request the app <ArrowRight size={18} strokeWidth={1.25} />
         </button>
       </div>
-      {error && (
-        <p className="text-red-400 text-sm pl-2">{error}</p>
-      )}
     </form>
+  )
+}
+
+export default function BetaRequestForm() {
+  return (
+    <Suspense fallback={null}>
+      <BetaRequestFormInner />
+    </Suspense>
   )
 }
