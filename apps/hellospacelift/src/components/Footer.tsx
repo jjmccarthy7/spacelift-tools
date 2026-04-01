@@ -73,8 +73,7 @@ export default function Footer() {
           <div>
             <p className="text-xs font-black uppercase tracking-widest text-white mb-4">Get the App</p>
             <ul className="flex flex-col gap-2">
-              <li><Link href="/download" className="text-sm text-[#8D9EB2] hover:text-white transition-colors duration-200">iOS Download</Link></li>
-              <li><Link href="/download" className="text-sm text-[#8D9EB2] hover:text-white transition-colors duration-200">Android Download</Link></li>
+              <li><Link href="/get-started" className="text-sm text-[#8D9EB2] hover:text-white transition-colors duration-200">Request early access</Link></li>
             </ul>
           </div>
         </div>
