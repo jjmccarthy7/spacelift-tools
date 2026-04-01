@@ -19,7 +19,7 @@ export default function BetaRequestForm() {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams({
-          'form-name': 'app-beta-request',
+          'form-name': 'app-request',
           email,
         }).toString(),
       })
@@ -41,13 +41,13 @@ export default function BetaRequestForm() {
 
   return (
     <form
-      name="app-beta-request"
+      name="app-request"
       method="POST"
       data-netlify="true"
       onSubmit={handleSubmit}
       className="space-y-3"
     >
-      <input type="hidden" name="form-name" value="app-beta-request" />
+      <input type="hidden" name="form-name" value="app-request" />
       <div className="flex flex-col gap-3 w-full">
         <input
           type="email"
