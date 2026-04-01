@@ -13,8 +13,32 @@ export default function GetStartedPage() {
   return (
     <div className="pt-16">
 
-      <section className="bg-white py-24 md:py-32">
-        <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-20">
+      {/* ── Hero ─────────────────────────────────────────────────────────────── */}
+      <section className="relative overflow-hidden bg-white py-20 md:py-28">
+
+        {/* Graph-paper background — blueprint grid, ~6% opacity, scoped to this section */}
+        <div
+          className="absolute inset-0 z-0 pointer-events-none"
+          style={{
+            backgroundImage: [
+              'linear-gradient(rgba(59,134,225,0.115) 1px, transparent 1px)',
+              'linear-gradient(90deg, rgba(59,134,225,0.115) 1px, transparent 1px)',
+              'linear-gradient(rgba(59,134,225,0.078) 1px, transparent 1px)',
+              'linear-gradient(90deg, rgba(59,134,225,0.078) 1px, transparent 1px)',
+            ].join(','),
+            backgroundSize: '200px 200px, 200px 200px, 40px 40px, 40px 40px',
+          }}
+        />
+
+        {/* Subtle white wash over text — reduces grid competition behind copy */}
+        <div
+          className="absolute inset-0 z-[1] pointer-events-none"
+          style={{
+            background: 'linear-gradient(to right, rgba(255,255,255,0.82) 0%, rgba(255,255,255,0.82) 48%, rgba(255,255,255,0) 68%)',
+          }}
+        />
+
+        <div className="relative z-10 max-w-[1280px] mx-auto px-6 md:px-12 lg:px-20">
           <span className="inline-block text-xs font-black tracking-widest uppercase text-[#3B86E1] mb-6">
             Get started
           </span>
@@ -22,15 +46,17 @@ export default function GetStartedPage() {
             Love where you live.
           </h1>
           <p className="text-lg md:text-xl text-[#8D9EB2] leading-relaxed max-w-xl">
-            Start by exploring your ideas in the Spacelift app, or talk with a Spacelift Advisor. Choose the path that feels right for you.
+            Start by exploring your ideas in the Spacelift app, or talk with a Spacelift Advisor. Choose the path that feels right.
           </p>
         </div>
       </section>
 
+      {/* ── Option cards ─────────────────────────────────────────────────────── */}
       <section className="bg-[#EEF1F4] py-16 md:py-24">
         <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
 
+            {/* Option 01 — App */}
             <div className="bg-[#141B24] rounded-3xl p-10 md:p-12 flex flex-col">
               <div className="mb-3">
                 <span className="text-6xl font-black leading-none text-[#3B86E1]">01</span>
@@ -47,6 +73,7 @@ export default function GetStartedPage() {
               </div>
             </div>
 
+            {/* Option 02 — Advisor */}
             <div className="bg-white rounded-3xl p-10 md:p-12 flex flex-col border border-[#EEF1F4]">
               <div className="mb-3">
                 <span className="text-6xl font-black leading-none text-[#3B86E1]">02</span>
@@ -63,7 +90,7 @@ export default function GetStartedPage() {
                   {advisorExpectations.map((item, i) => (
                     <li key={i} className="flex items-start gap-3">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#FC4C4C] mt-2.5 flex-shrink-0" />
-                      <span className="text-base text-[#141B24] leading-relaxed">{item}</span>
+                      <span className="text-lg text-[#8D9EB2] leading-relaxed">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -79,6 +106,7 @@ export default function GetStartedPage() {
         </div>
       </section>
 
+      {/* ── Closing ──────────────────────────────────────────────────────────── */}
       <section className="bg-white py-20 md:py-28">
         <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-20 text-center">
           <h2 className="text-3xl md:text-4xl font-black text-[#141B24] leading-[1.1] tracking-tight mb-6 max-w-2xl mx-auto">
