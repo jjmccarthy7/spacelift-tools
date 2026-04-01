@@ -1,24 +1,24 @@
 import Link from 'next/link'
-import { ArrowRight, Users, TrendingUp, Shield, Star, CheckCircle, Wrench } from 'lucide-react'
+import { ArrowRight, CheckCircle, Wrench } from 'lucide-react'
 
 const whyJoin = [
   {
-    icon: Users,
+    step: '01',
     title: 'Serious Homeowners',
     description: 'Every homeowner we introduce has already worked with a Spacelift Advisor to clarify their ideas, priorities, and expectations. You\'re meeting people who are ready to renovate.',
   },
   {
-    icon: TrendingUp,
+    step: '02',
     title: 'Warm Introductions',
     description: 'Spacelift introductions are based on fit. We introduce a maximum of three partners to each project, so you\'re meeting homeowners through a thoughtful referral — not competing with a crowd.',
   },
   {
-    icon: Shield,
+    step: '03',
     title: 'Steady Pipeline',
     description: 'Spacelift is designed to create a steady flow of renovation opportunities — so when you\'re ready for your next project, there are homeowners ready to meet you.',
   },
   {
-    icon: Star,
+    step: '04',
     title: 'Continuous Feedback',
     description: 'After every project, we ask both the homeowner and the contractor for feedback. This helps us continuously ensure we\'re introducing the right clients to the right partners.',
   },
@@ -70,10 +70,10 @@ export default function ProsPage() {
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {whyJoin.map(({ icon: Icon, title, description }) => (
-              <div key={title} className="bg-[#EEF1F4] rounded-3xl p-8 hover:shadow-md transition-shadow duration-300">
-                <div className="w-10 h-10 rounded-2xl bg-white flex items-center justify-center mb-6">
-                  <Icon size={20} strokeWidth={1.25} className="text-[#FC4C4C]" />
+            {whyJoin.map(({ step, title, description }) => (
+              <div key={step} className="bg-[#EEF1F4] rounded-3xl p-8 hover:shadow-md transition-shadow duration-300">
+                <div className="mb-3">
+                  <span className="text-5xl font-black leading-none text-[#3B86E1]">{step}</span>
                 </div>
                 <h3 className="text-xl font-bold text-[#141B24] mb-3">{title}</h3>
                 <p className="text-[#8D9EB2] text-base leading-relaxed">{description}</p>
