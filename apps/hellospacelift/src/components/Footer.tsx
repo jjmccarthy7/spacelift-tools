@@ -8,7 +8,7 @@ export default function Footer() {
         {/* Top row: logo + tagline + social */}
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8 mb-12">
           <div className="max-w-xs">
-            <span className="text-white font-black text-xl tcking-tight block mb-2" style={{ fontFamily: 'var(--font-primary)' }}>
+            <span className="text-white font-black text-3xl tracking-tight block mb-2" style={{ fontFamily: 'var(--font-primary)' }}>
               spacelift
             </span>
             <p className="text-sm text-[#8D9EB2] leading-relaxed">
@@ -66,7 +66,7 @@ export default function Footer() {
             <p className="text-xs font-black uppercase tracking-widest text-white mb-4">Company</p>
             <ul className="flex flex-col gap-2">
               <li><Link href="/about" className="text-sm text-[#8D9EB2] hover:text-white transition-colors duration-200">About Us</Link></li>
-              <li><Link href="/reviews" className="text-sm text-[#8D9EB2] hover:text-white transition-colors duration-200">Reviews</Link></li>
+              <li><span className="text-sm text-[#8D9EB2] cursor-default">Reviews</span></li>
               <li><a href="mailto:info@hellospacelift.com" className="text-sm text-[#8D9EB2] hover:text-white transition-colors duration-200">Contact Us</a></li>
             </ul>
           </div>
@@ -82,7 +82,7 @@ export default function Footer() {
         <div className="border-t border-[#ffffff1a] pt-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <p className="text-xs text-[#8D9EB2]">&copy; 2026 Spacelift. All rights reserved.</p>
           <div className="flex gap-6">
-            <Link href="/terms" className="text-xs text-[#8D9EB2] hover:text-white transition-colors duration-200">Terms &amp; Conditions</Link>
+            <span className="text-xs text-[#8D9EB2] cursor-default">Terms &amp; Conditions</span>
             <Link href="/privacy" className="text-xs text-[#8D9EB2] hover:text-white transition-colors duration-200">Privacy Policy</Link>
           </div>
         </div>

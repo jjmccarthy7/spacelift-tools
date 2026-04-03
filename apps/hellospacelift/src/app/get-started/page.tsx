@@ -89,7 +89,7 @@ export default function GetStartedPage() {
                 <ul className="space-y-3">
                   {advisorExpectations.map((item, i) => (
                     <li key={i} className="flex items-start gap-3">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#FC4C4C] mt-2.5 flex-shrink-0" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#8D9EB2] mt-2.5 flex-shrink-0" />
                       <span className="text-lg text-[#8D9EB2] leading-relaxed">{item}</span>
                     </li>
                   ))}
