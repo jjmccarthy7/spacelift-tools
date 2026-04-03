@@ -1,35 +1,21 @@
 'use client'
 
-import { useState } from 'react'
+import { Suspense, useState, useEffect } from 'react'
 import { ArrowRight } from 'lucide-react'
 
-export default function BetaRequestForm() {
-  const [email, setEmail] = useState('')
+function BetaRequestFormInner() {
   const [submitted, setSubmitted] = useState(false)
+  const [email, setEmail] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setLoading(true)
-    setError('')
-
-    try {
-      await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams({
-          'form-name': 'app-request',
-          email,
-        }).toString(),
-      })
+  // Read success param directly from the browser URL — works on hard refresh
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    if (params.get('app-request') === 'success') {
       setSubmitted(true)
-    } catch {
-      setError('Something went wrong. Please try again.')
-    } finally {
-      setLoading(false)
     }
-  }
+  }, [])
 
   if (submitted) {
     return (
@@ -37,6 +23,27 @@ export default function BetaRequestForm() {
         Thanks — we&apos;ll send you a link to the app soon. Keep an eye on your email.
       </p>
     )
+  }
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setLoading(true)
+    setError('')
+    try {
+      // POST to the static netlify-forms.html — Netlify's CDN intercepts static
+      // asset requests, not SSR Lambda routes, so this is required for form capture.
+      await fetch('/netlify-forms.html', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({ 'form-name': 'app-request', email }).toString(),
+      })
+      // Update URL without navigation so there's no scroll-to-top
+      window.history.replaceState(null, '', '/get-started?app-request=success')
+      setSubmitted(true)
+    } catch {
+      setError('Something went wrong. Please try again.')
+      setLoading(false)
+    }
   }
 
   return (
@@ -66,9 +73,15 @@ export default function BetaRequestForm() {
           {loading ? 'Sending…' : <>Request the app <ArrowRight size={18} strokeWidth={1.25} /></>}
         </button>
       </div>
-      {error && (
-        <p className="text-red-400 text-sm pl-2">{error}</p>
-      )}
+      {error && <p className="text-red-400 text-sm pl-2">{error}</p>}
     </form>
+  )
+}
+
+export default function BetaRequestForm() {
+  return (
+    <Suspense fallback={null}>
+      <BetaRequestFormInner />
+    </Suspense>
   )
 }
