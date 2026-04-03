@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
 import BetaRequestForm from '@/components/BetaRequestForm'
+import AdvisorCTA from '@/components/AdvisorCTA'
 
 const advisorExpectations = [
   'A real conversation — no scripts, no pressure',
@@ -94,11 +94,7 @@ export default function GetStartedPage() {
                     </li>
                   ))}
                 </ul>
-                <div className="pt-4">
-                  <a href="#" className="inline-flex items-center gap-2 bg-[#FC4C4C] text-white font-semibold px-8 py-4 rounded-full hover:bg-[#CA3D3D] transition-colors duration-200 text-base w-full justify-center">
-                    Book a free conversation <ArrowRight size={18} strokeWidth={1.25} />
-                  </a>
-                </div>
+                <AdvisorCTA />
               </div>
             </div>
 
