@@ -52,7 +52,7 @@ export default function Navigation() {
       <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-20 h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center" onClick={() => setMobileOpen(false)}>
           <span
-            className={`font-black text-xl tracking-tight transition-colors duration-300 ${logoColor}`}
+            className={`font-black text-3xl tracking-tight transition-colors duration-300 ${logoColor}`}
             style={{ fontFamily: 'var(--font-primary)' }}
           >
             spacelift
