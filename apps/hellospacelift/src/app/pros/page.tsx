@@ -25,7 +25,7 @@ const whyJoin = [
 ]
 
 const whatWeLookFor = [
-  'Licensed and insured in your state',
+  'Properly licensed and insured',
   'Minimum 3 years of professional experience',
   'Strong track record of on-time, on-budget delivery',
   'Pride in craftsmanship — not just completion',
@@ -36,8 +36,32 @@ export default function ProsPage() {
   return (
     <div className="pt-16">
 
-      <section className="bg-[#141B24] min-h-[80vh] flex items-center">
-        <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-20 py-24 md:py-32">
+      {/* ── Hero ───────────────────────────────────────────────────────────────── */}
+      <section className="relative bg-[#141B24] min-h-[80vh] flex items-center overflow-hidden">
+
+        {/* Graph-paper background — same design language as Homeowners, tuned for Foundation Blue */}
+        <div
+          className="absolute inset-0 z-0 pointer-events-none"
+          style={{
+            backgroundImage: [
+              'linear-gradient(rgba(59,134,225,0.18) 1px, transparent 1px)',
+              'linear-gradient(90deg, rgba(59,134,225,0.18) 1px, transparent 1px)',
+              'linear-gradient(rgba(59,134,225,0.12) 1px, transparent 1px)',
+              'linear-gradient(90deg, rgba(59,134,225,0.12) 1px, transparent 1px)',
+            ].join(','),
+            backgroundSize: '200px 200px, 200px 200px, 40px 40px, 40px 40px',
+          }}
+        />
+
+        {/* Subtle dark wash over text column — softens grid behind copy */}
+        <div
+          className="absolute inset-0 z-[1] pointer-events-none"
+          style={{
+            background: 'linear-gradient(to right, rgba(20,27,36,0.72) 0%, rgba(20,27,36,0.72) 48%, rgba(20,27,36,0) 70%)',
+          }}
+        />
+
+        <div className="relative z-10 max-w-[1280px] w-full mx-auto px-6 md:px-12 lg:px-20 py-24 md:py-32">
           <div className="max-w-3xl">
             <span className="inline-block text-xs font-black tracking-widest uppercase text-[#3B86E1] mb-6">
               For Renovation Professionals
@@ -50,7 +74,7 @@ export default function ProsPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="#apply" className="inline-flex items-center justify-center gap-2 bg-[#FC4C4C] text-white font-semibold px-8 py-4 rounded-full hover:bg-[#CA3D3D] transition-colors duration-200 text-base">
-                Apply to become a Spacelift Pro <ArrowRight size={18} strokeWidth={1.25} />
+                Partner with Spacelift <ArrowRight size={18} strokeWidth={1.25} />
               </Link>
               <Link href="#talk" className="inline-flex items-center justify-center gap-2 border border-white/30 text-white font-semibold px-8 py-4 rounded-full hover:border-white hover:bg-white/5 transition-colors duration-200 text-base">
                 Talk with our team
@@ -60,6 +84,36 @@ export default function ProsPage() {
         </div>
       </section>
 
+      {/* ── Our Standard ───────────────────────────────────────────────────────── */}
+      <section className="bg-[#EEF1F4] py-24 md:py-32">
+        <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <span className="text-xs font-black tracking-widest uppercase text-[#3B86E1] mb-6 block">Our standard</span>
+              <h2 className="text-4xl md:text-5xl font-black text-[#141B24] leading-[1.1] tracking-tight mb-8">
+                We don't work with<br />just anyone.
+              </h2>
+              <p className="text-lg text-[#8D9EB2] leading-relaxed mb-8">
+                Spacelift homeowners trust us to send them the right people. That's a responsibility we take seriously. Our Pro partners meet a high bar — because our homeowners deserve nothing less.
+              </p>
+              <div className="flex items-center gap-3">
+                <Wrench size={18} strokeWidth={1.25} className="text-[#FC4C4C]" />
+                <span className="text-sm font-semibold text-[#141B24]">Vetted. Verified. Trusted.</span>
+              </div>
+            </div>
+            <div className="space-y-4">
+              {whatWeLookFor.map((item, i) => (
+                <div key={i} className="flex items-start gap-4 bg-white rounded-2xl px-6 py-5">
+                  <CheckCircle size={20} strokeWidth={1.25} className="text-[#0ED096] mt-0.5 flex-shrink-0" />
+                  <p className="text-[#141B24] text-base font-medium">{item}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Why Spacelift ──────────────────────────────────────────────────────── */}
       <section id="why" className="bg-white py-24 md:py-32">
         <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-20">
           <div className="mb-16">
@@ -82,34 +136,7 @@ export default function ProsPage() {
         </div>
       </section>
 
-      <section className="bg-[#EEF1F4] py-24 md:py-32">
-        <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <span className="text-xs font-black tracking-widest uppercase text-[#3B86E1] mb-6 block">Our standard</span>
-              <h2 className="text-4xl md:text-5xl font-black text-[#141B24] leading-[1.1] tracking-tight mb-8">
-                We don’t work with<br />just anyone.
-              </h2>
-              <p className="text-lg text-[#8D9EB2] leading-relaxed mb-8">
-                Spacelift homeowners trust us to send them the right people. That’s a responsibility we take seriously. Our Pro partners meet a high bar — because our homeowners deserve nothing less.
-              </p>
-              <div className="flex items-center gap-3">
-                <Wrench size={18} strokeWidth={1.25} className="text-[#FC4C4C]" />
-                <span className="text-sm font-semibold text-[#141B24]">Vetted. Verified. Trusted.</span>
-              </div>
-            </div>
-            <div className="space-y-4">
-              {whatWeLookFor.map((item, i) => (
-                <div key={i} className="flex items-start gap-4 bg-white rounded-2xl px-6 py-5">
-                  <CheckCircle size={20} strokeWidth={1.25} className="text-[#0ED096] mt-0.5 flex-shrink-0" />
-                  <p className="text-[#141B24] text-base font-medium">{item}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
+      {/* ── Apply ──────────────────────────────────────────────────────────────── */}
       <section id="apply" className="bg-[#141B24] pt-24 md:pt-32 pb-16 md:pb-20">
         <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-20">
           <div className="max-w-2xl">
@@ -118,16 +145,16 @@ export default function ProsPage() {
               Become a Spacelift Pro.
             </h2>
             <p className="text-lg text-[#8D9EB2] leading-relaxed mb-10">
-              Apply to join our network of trusted renovation partners. Every application is reviewed personally, and we’ll follow up within five business days.
+              Apply to join our network of trusted renovation partners. Every application is reviewed personally, and we'll follow up within five business days.
             </p>
             <Link href="#apply" className="inline-flex items-center justify-center gap-2 bg-[#FC4C4C] text-white font-semibold px-8 py-4 rounded-full hover:bg-[#CA3D3D] transition-colors duration-200 text-base">
-              Apply to join <ArrowRight size={18} strokeWidth={1.25} />
+              Partner with Spacelift <ArrowRight size={18} strokeWidth={1.25} />
             </Link>
             <p className="mt-6 text-[#8D9EB2] text-sm">
               Prefer to talk first?{"  "}
-              <Link href="#talk" className="text-white/70 hover:text-white underline underline-offset-2 transition-colors duration-200">
+              <a href="https://calendar.app.google/NPqbhaaTXGHxCXZdA" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white underline underline-offset-2 transition-colors duration-200">
                 Book time with our team
-              </Link>
+              </a>
             </p>
           </div>
           <hr className="mt-16 md:mt-20 border-0 h-px bg-white/10" />
