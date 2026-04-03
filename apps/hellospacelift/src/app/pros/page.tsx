@@ -148,13 +148,13 @@ export default function ProsPage() {
               Apply to join our network of trusted renovation partners. Every application is reviewed personally, and we'll follow up within five business days.
             </p>
             <Link href="#apply" className="inline-flex items-center justify-center gap-2 bg-[#FC4C4C] text-white font-semibold px-8 py-4 rounded-full hover:bg-[#CA3D3D] transition-colors duration-200 text-base">
-              Apply to join <ArrowRight size={18} strokeWidth={1.25} />
+              Partner with Spacelift <ArrowRight size={18} strokeWidth={1.25} />
             </Link>
             <p className="mt-6 text-[#8D9EB2] text-sm">
               Prefer to talk first?{"  "}
-              <Link href="#talk" className="text-white/70 hover:text-white underline underline-offset-2 transition-colors duration-200">
+              <a href="https://calendar.app.google/NPqbhaaTXGHxCXZdA" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white underline underline-offset-2 transition-colors duration-200">
                 Book time with our team
-              </Link>
+              </a>
             </p>
           </div>
           <hr className="mt-16 md:mt-20 border-0 h-px bg-white/10" />
