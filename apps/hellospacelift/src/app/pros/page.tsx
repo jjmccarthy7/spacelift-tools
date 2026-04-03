@@ -61,7 +61,7 @@ export default function ProsPage() {
           }}
         />
 
-        <div className="relative z-10 max-w-[1280px] mx-auto px-6 md:px-12 lg:px-20 py-24 md:py-32">
+        <div className="relative z-10 max-w-[1280px] w-full mx-auto px-6 md:px-12 lg:px-20 py-24 md:py-32">
           <div className="max-w-3xl">
             <span className="inline-block text-xs font-black tracking-widest uppercase text-[#3B86E1] mb-6">
               For Renovation Professionals
