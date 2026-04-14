@@ -76,9 +76,9 @@ export default function ProsPage() {
               <Link href="#apply" className="inline-flex items-center justify-center gap-2 bg-[#FC4C4C] text-white font-semibold px-8 py-4 rounded-full hover:bg-[#CA3D3D] transition-colors duration-200 text-base">
                 Partner with Spacelift <ArrowRight size={18} strokeWidth={1.25} />
               </Link>
-              <Link href="#talk" className="inline-flex items-center justify-center gap-2 border border-white/30 text-white font-semibold px-8 py-4 rounded-full hover:border-white hover:bg-white/5 transition-colors duration-200 text-base">
+              <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1mF6uhyVfGIGuTkHKUGZ-9b-htBREaP43kPRcqONt98mD02VFUxwp98-e7Zhsr7NbRJJCwrXas" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 border border-white/30 text-white font-semibold px-8 py-4 rounded-full hover:border-white hover:bg-white/5 transition-colors duration-200 text-base">
                 Talk with our team
-              </Link>
+              </a>
             </div>
           </div>
         </div>
@@ -147,12 +147,12 @@ export default function ProsPage() {
             <p className="text-lg text-[#8D9EB2] leading-relaxed mb-10">
               Apply to join our network of trusted renovation partners. Every application is reviewed personally, and we'll follow up within five business days.
             </p>
-            <Link href="#apply" className="inline-flex items-center justify-center gap-2 bg-[#FC4C4C] text-white font-semibold px-8 py-4 rounded-full hover:bg-[#CA3D3D] transition-colors duration-200 text-base">
+            <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1mF6uhyVfGIGuTkHKUGZ-9b-htBREaP43kPRcqONt98mD02VFUxwp98-e7Zhsr7NbRJJCwrXas" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-[#FC4C4C] text-white font-semibold px-8 py-4 rounded-full hover:bg-[#CA3D3D] transition-colors duration-200 text-base">
               Partner with Spacelift <ArrowRight size={18} strokeWidth={1.25} />
-            </Link>
+            </a>
             <p className="mt-6 text-[#8D9EB2] text-sm">
               Prefer to talk first?{"  "}
-              <a href="https://calendar.app.google/NPqbhaaTXGHxCXZdA" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white underline underline-offset-2 transition-colors duration-200">
+              <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1mF6uhyVfGIGuTkHKUGZ-9b-htBREaP43kPRcqONt98mD02VFUxwp98-e7Zhsr7NbRJJCwrXas" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white underline underline-offset-2 transition-colors duration-200">
                 Book time with our team
               </a>
             </p>
