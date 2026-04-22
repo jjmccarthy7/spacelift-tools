@@ -3,8 +3,8 @@ import TrackedLink from '@/components/TrackedLink'
 
 const problems = [
   'You have ideas but no idea where to start.',
-  'You've heard renovation horror stories.',
-  'You don't know who to trust.',
+  "You've heard renovation horror stories.",
+  "You don't know who to trust.",
   'The costs feel unpredictable and scary.',
   'That project has been on the list for years.',
 ]
@@ -13,17 +13,17 @@ const howItWorks = [
   {
     step: '01',
     title: 'Explore with the app',
-    description: 'Describe your project, upload photos of your space, and get a real sense of what's possible — scope, style, and cost — all before you talk to anyone.',
+    description: "Describe your project, upload photos of your space, and get a real sense of what's possible — scope, style, and cost — all before you talk to anyone.",
   },
   {
     step: '02',
     title: 'Talk to a Spacelift Advisor',
-    description: 'Our advisors are renovation experts, not salespeople. They'll help you understand your options, ask the right questions, and build a plan you feel confident in.',
+    description: "Our advisors are renovation experts, not salespeople. They'll help you understand your options, ask the right questions, and build a plan you feel confident in.",
   },
   {
     step: '03',
     title: 'Build with local Spacelift Pros',
-    description: 'We match you with vetted local professionals who are the right fit for your project. They'll do the work. You'll love the result.',
+    description: "We match you with vetted local professionals who are the right fit for your project. They'll do the work. You'll love the result.",
   },
 ]
 
