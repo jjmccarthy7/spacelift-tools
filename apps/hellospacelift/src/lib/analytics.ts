@@ -1,35 +1,47 @@
-import * as amplitude from '@amplitude/analytics-browser'
+// Dynamic import keeps the Amplitude bundle out of the SSR path entirely.
+// All functions are safe to call from server-rendered client components.
 
-let initialized = false
+type AmplitudeLib = typeof import('@amplitude/analytics-browser')
 
-/**
- * Initialize Amplitude once per page load.
- * Safe to call multiple times — subsequent calls are no-ops.
- * Must only be called from a browser context (client components).
- */
-export function initAmplitude(): void {
-  if (initialized || typeof window === 'undefined') return
-  const apiKey = process.env.NEXT_PUBLIC_AMPLITUDE_API_KEY
-  if (!apiKey) return
+let amplitude: AmplitudeLib | null = null
 
-  amplitude.init(apiKey, {
-    defaultTracking: {
-      pageViews: true,
-      sessions: true,
-      attribution: true,
-      formInteractions: true,
-    },
-  })
-  initialized = true
+async function load(): Promise<AmplitudeLib | null> {
+  if (typeof window === 'undefined') return null
+  if (!amplitude) {
+    amplitude = await import('@amplitude/analytics-browser')
+  }
+  return amplitude
 }
 
 /**
- * Fire a custom event. No-ops on the server and before init.
+ * Initialise Amplitude once per page load.
+ * Safe to call multiple times — subsequent calls are no-ops.
+ */
+export function initAmplitude(): void {
+  if (typeof window === 'undefined') return
+  const apiKey = process.env.NEXT_PUBLIC_AMPLITUDE_API_KEY
+  if (!apiKey) return
+
+  load().then((amp) => {
+    if (!amp) return
+    amp.init(apiKey, {
+      defaultTracking: {
+        pageViews: true,
+        sessions: true,
+        attribution: true,
+        formInteractions: true,
+      },
+    })
+  })
+}
+
+/**
+ * Fire a custom event. No-ops before init resolves or on the server.
  */
 export function track(
   eventName: string,
   properties?: Record<string, string | number | boolean>,
 ): void {
-  if (typeof window === 'undefined') return
+  if (!amplitude) return
   amplitude.track(eventName, properties)
 }

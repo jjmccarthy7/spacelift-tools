@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { ArrowRight, CheckCircle } from 'lucide-react'
 import TrackedLink from '@/components/TrackedLink'
 
