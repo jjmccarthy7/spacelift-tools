@@ -126,19 +126,20 @@ export default function AboutPage() {
       </section>
 
       {/* ── What We Believe ───────────────────────────────────────────────────── */}
-      <section className="bg-white py-24 md:py-32">
+      <section className="bg-white py-32 md:py-40">
         <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-20">
-          <div className="mb-16">
+          <div className="mb-20">
             <span className="text-xs font-black tracking-widest uppercase text-[#3B86E1] mb-6 block">Our beliefs</span>
-            <h2 className="text-4xl md:text-5xl font-black text-[#141B24] leading-[1.1] tracking-tight">
+            <h2 className="text-4xl md:text-5xl font-black text-[#141B24] leading-[1.1] tracking-tight max-w-sm">
               What we believe.
             </h2>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {beliefs.map(({ heading, body }) => (
-              <div key={heading} className="border-t-2 border-[#3B86E1] pt-8">
-                <h3 className="text-xl font-black text-[#141B24] mb-4 tracking-tight">{heading}</h3>
-                <p className="text-[#545F6B] text-base leading-relaxed">{body}</p>
+              <div key={heading} className="bg-white border border-[#E4E9EF] rounded-[24px] p-8 flex flex-col">
+                <div className="h-0.5 w-10 bg-[#3B86E1] mb-8" />
+                <h3 className="text-xl font-black text-[#141B24] mb-5 tracking-tight leading-snug">{heading}</h3>
+                <p className="text-[#545F6B] text-base leading-[1.75]">{body}</p>
               </div>
             ))}
           </div>
