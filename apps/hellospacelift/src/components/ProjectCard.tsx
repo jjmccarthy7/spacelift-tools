@@ -1,4 +1,7 @@
+'use client'
+
 import Image from 'next/image'
+import { track } from '@/lib/analytics'
 
 interface ProjectCardProps {
   photo: string
@@ -9,7 +12,8 @@ interface ProjectCardProps {
 export default function ProjectCard({ photo, roomType, location }: ProjectCardProps) {
   return (
     <div
-      className="bg-white overflow-hidden shadow group
+      onClick={() => track('Project Card Clicked', { room_type: roomType, location })}
+      className="bg-white overflow-hidden shadow group cursor-pointer
         hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(0,0,0,0.12)]
         transition-[transform,box-shadow] duration-200 ease-out"
       style={{ borderRadius: '24px' }}

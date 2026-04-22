@@ -1,5 +1,10 @@
 import Link from 'next/link'
 import { ArrowRight, CheckCircle, Wrench } from 'lucide-react'
+import TrackedLink from '@/components/TrackedLink'
+import TrackedAnchor from '@/components/TrackedAnchor'
+
+const CALENDAR_URL =
+  'https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1mF6uhyVfGIGuTkHKUGZ-9b-htBREaP43kPRcqONt98mD02VFUxwp98-e7Zhsr7NbRJJCwrXas'
 
 const whyJoin = [
   {
@@ -39,7 +44,7 @@ export default function ProsPage() {
       {/* ── Hero ───────────────────────────────────────────────────────────────── */}
       <section className="relative bg-[#141B24] min-h-[80vh] flex items-center overflow-hidden">
 
-        {/* Graph-paper background — same design language as Homeowners, tuned for Foundation Blue */}
+        {/* Graph-paper background */}
         <div
           className="absolute inset-0 z-0 pointer-events-none"
           style={{
@@ -53,7 +58,7 @@ export default function ProsPage() {
           }}
         />
 
-        {/* Subtle dark wash over text column — softens grid behind copy */}
+        {/* Subtle dark wash over text column */}
         <div
           className="absolute inset-0 z-[1] pointer-events-none"
           style={{
@@ -73,12 +78,22 @@ export default function ProsPage() {
               Our partners are local professionals we know well and trust to deliver exceptional experiences with beautiful results.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="#apply" className="inline-flex items-center justify-center gap-2 bg-[#FC4C4C] text-white font-semibold px-8 py-4 rounded-full hover:bg-[#CA3D3D] transition-colors duration-200 text-base">
+              <TrackedLink
+                href="#apply"
+                eventProps={{ cta_text: 'Partner with Spacelift', location: 'pros_hero', destination: '#apply' }}
+                className="inline-flex items-center justify-center gap-2 bg-[#FC4C4C] text-white font-semibold px-8 py-4 rounded-full hover:bg-[#CA3D3D] transition-colors duration-200 text-base"
+              >
                 Partner with Spacelift <ArrowRight size={18} strokeWidth={1.25} />
-              </Link>
-              <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1mF6uhyVfGIGuTkHKUGZ-9b-htBREaP43kPRcqONt98mD02VFUxwp98-e7Zhsr7NbRJJCwrXas" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 border border-white/30 text-white font-semibold px-8 py-4 rounded-full hover:border-white hover:bg-white/5 transition-colors duration-200 text-base">
+              </TrackedLink>
+              <TrackedAnchor
+                href={CALENDAR_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                eventProps={{ cta_text: 'Talk with our team', location: 'pros_hero', destination: 'calendar' }}
+                className="inline-flex items-center justify-center gap-2 border border-white/30 text-white font-semibold px-8 py-4 rounded-full hover:border-white hover:bg-white/5 transition-colors duration-200 text-base"
+              >
                 Talk with our team
-              </a>
+              </TrackedAnchor>
             </div>
           </div>
         </div>
@@ -147,14 +162,26 @@ export default function ProsPage() {
             <p className="text-lg text-[#8D9EB2] leading-relaxed mb-10">
               Apply to join our network of trusted renovation partners. Every application is reviewed personally, and we'll follow up within five business days.
             </p>
-            <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1mF6uhyVfGIGuTkHKUGZ-9b-htBREaP43kPRcqONt98mD02VFUxwp98-e7Zhsr7NbRJJCwrXas" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-[#FC4C4C] text-white font-semibold px-8 py-4 rounded-full hover:bg-[#CA3D3D] transition-colors duration-200 text-base">
+            <TrackedAnchor
+              href={CALENDAR_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              eventProps={{ cta_text: 'Partner with Spacelift', location: 'pros_apply', destination: 'calendar' }}
+              className="inline-flex items-center justify-center gap-2 bg-[#FC4C4C] text-white font-semibold px-8 py-4 rounded-full hover:bg-[#CA3D3D] transition-colors duration-200 text-base"
+            >
               Partner with Spacelift <ArrowRight size={18} strokeWidth={1.25} />
-            </a>
+            </TrackedAnchor>
             <p className="mt-6 text-[#8D9EB2] text-sm">
               Prefer to talk first?{"  "}
-              <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1mF6uhyVfGIGuTkHKUGZ-9b-htBREaP43kPRcqONt98mD02VFUxwp98-e7Zhsr7NbRJJCwrXas" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white underline underline-offset-2 transition-colors duration-200">
+              <TrackedAnchor
+                href={CALENDAR_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                eventProps={{ cta_text: 'Book time with our team', location: 'pros_apply', destination: 'calendar' }}
+                className="text-white/70 hover:text-white underline underline-offset-2 transition-colors duration-200"
+              >
                 Book time with our team
-              </a>
+              </TrackedAnchor>
             </p>
           </div>
           <hr className="mt-16 md:mt-20 border-0 h-px bg-white/10" />

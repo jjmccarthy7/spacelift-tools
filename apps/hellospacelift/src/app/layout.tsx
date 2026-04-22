@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
+import AmplitudeProvider from '@/components/AmplitudeProvider'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -31,9 +32,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <body className="font-sans antialiased">
-        <Navigation />
-        <main>{children}</main>
-        <Footer />
+        <AmplitudeProvider>
+          <Navigation />
+          <main>{children}</main>
+          <Footer />
+        </AmplitudeProvider>
       </body>
     </html>
   )
