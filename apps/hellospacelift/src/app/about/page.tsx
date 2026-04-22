@@ -4,18 +4,18 @@ import { ArrowRight } from 'lucide-react'
 const steps = [
   {
     number: '01',
-    title: 'Explore possibilities in the app',
-    body: 'Take a video of your space, describe the changes you want, and get an instant sense of scope and cost — before you talk to anyone.',
+    title: 'Explore your ideas',
+    body: 'Use our app to show us your space, describe the changes you want, and instantly see ballpark estimates.',
   },
   {
     number: '02',
     title: 'Talk with a Spacelift Advisor',
-    body: 'A real conversation with a real person. No scripts, no pressure. Just honest guidance to help you think clearly about your project.',
+    body: 'Our advisors help you find clarity. Ask questions, get honest guidance, and move forward with confidence.',
   },
   {
     number: '03',
-    title: "Work with Spacelift's trusted local renovation partners",
-    body: "We introduce you to vetted Spacelift Pros who are the right fit for your project — so you can move forward with confidence.",
+    title: 'Build with local Spacelift Pros',
+    body: 'We recommend trusted local professionals from our network who are the best fit for you and your project.',
   },
 ]
 
