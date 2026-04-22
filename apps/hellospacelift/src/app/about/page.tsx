@@ -21,11 +21,11 @@ const steps = [
 
 const beliefs = [
   {
-    heading: 'Homes matter.',
+    heading: <>Homes<br />Matter.</>,
     body: "Life is too short to live in a home you don't love. The space around you shapes how you feel every day.",
   },
   {
-    heading: 'You can get smart before you start.',
+    heading: <>You can get smart<br />before you start.</>,
     body: 'Our app helps you understand possibilities, scope, and cost before you commit to anything — so you go in informed.',
   },
   {
@@ -135,8 +135,8 @@ export default function AboutPage() {
             </h2>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            {beliefs.map(({ heading, body }) => (
-              <div key={heading} className="bg-white border border-[#E4E9EF] rounded-[24px] p-8 flex flex-col">
+            {beliefs.map(({ heading, body }, i) => (
+              <div key={i} className="bg-white border border-[#E4E9EF] rounded-[24px] p-8 flex flex-col">
                 <div className="h-0.5 w-10 bg-[#3B86E1] mb-8" />
                 <h3 className="text-xl font-black text-[#141B24] mb-5 tracking-tight leading-snug">{heading}</h3>
                 <p className="text-[#545F6B] text-base leading-[1.75]">{body}</p>
