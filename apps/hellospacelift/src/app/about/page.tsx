@@ -14,7 +14,7 @@ const steps = [
   },
   {
     number: '03',
-    title: 'Work with trusted local partners',
+    title: "Work with Spacelift's trusted local renovation partners",
     body: "We introduce you to vetted Spacelift Pros who are the right fit for your project — so you can move forward with confidence.",
   },
 ]
@@ -110,8 +110,8 @@ export default function AboutPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
             {steps.map(({ number, title, body }) => (
-              <div key={number} className="bg-white rounded-3xl p-8">
-                <div className="mb-4">
+              <div key={number} className="bg-white rounded-[32px] p-8 shadow-sm hover:shadow-md transition-shadow duration-300">
+                <div className="mb-3">
                   <span className="text-5xl font-black leading-none text-[#3B86E1]">{number}</span>
                 </div>
                 <h3 className="text-xl font-bold text-[#141B24] mb-3">{title}</h3>
