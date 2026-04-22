@@ -22,7 +22,7 @@ const steps = [
 const beliefs = [
   {
     heading: 'Homes matter.',
-    body: 'Life is too short to live in a home you don't love. The space around you shapes how you feel every day.',
+    body: "Life is too short to live in a home you don't love. The space around you shapes how you feel every day.",
   },
   {
     heading: 'You can get smart before you start.',
@@ -30,7 +30,7 @@ const beliefs = [
   },
   {
     heading: 'Great outcomes come from great people.',
-    body: 'Technology can clarify. But it's the right people — advisors and pros who genuinely care — that make the journey better and the outcome better.',
+    body: "Technology can clarify. But it's the right people — advisors and pros who genuinely care — that make the journey better and the outcome better.",
   },
 ]
 
