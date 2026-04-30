@@ -12,7 +12,8 @@
           "next": "15.5.14",
           "react": "^19.0.0",
           "react-dom": "^19.0.0",
-          "lucide-react": "^0.474.0"
+          "lucide-react": "^0.474.0",
+          "@amplitude/analytics-browser": "^2.11.0"
     },
     "devDependencies": {
           "@types/node": "^22",

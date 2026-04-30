@@ -4,15 +4,25 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import ProjectCard from '@/components/ProjectCard'
-import projectsData from '@/data/projects.json'
+import { track } from '@/lib/analytics'
 
 // ── Project data ──────────────────────────────────────────────────────────────
-const allProjects = projectsData
-  .filter((p) => p.active)
-  .map((p) => ({ photo: p.after_image, roomType: p.room_type, location: p.location_display }))
+const allProjects = [
+  { photo: '/hero-kitchen.png', roomType: 'Kitchen',     location: 'Austin, TX'        },
+  { photo: '/hero-kitchen.png', roomType: 'Bathroom',    location: 'Denver, CO'        },
+  { photo: '/hero-kitchen.png', roomType: 'Living Room', location: 'Chicago, IL'       },
+  { photo: '/hero-kitchen.png', roomType: 'Exterior',    location: 'Seattle, WA'       },
+  { photo: '/hero-kitchen.png', roomType: 'Bedroom',     location: 'Nashville, TN'     },
+  { photo: '/hero-kitchen.png', roomType: 'Laundry',     location: 'Minneapolis, MN'   },
+  { photo: '/hero-kitchen.png', roomType: 'Bathroom',    location: 'Portland, OR'      },
+  { photo: '/hero-kitchen.png', roomType: 'Kitchen',     location: 'San Francisco, CA' },
+  { photo: '/hero-kitchen.png', roomType: 'Garden',      location: 'Phoenix, AZ'       },
+  { photo: '/hero-kitchen.png', roomType: 'Conversions', location: 'Los Angeles, CA'   },
+  { photo: '/hero-kitchen.png', roomType: 'Family Room', location: 'Boston, MA'        },
+  { photo: '/hero-kitchen.png', roomType: 'Atrium',      location: 'Atlanta, GA'       },
+]
 
 // ── Filter groups ─────────────────────────────────────────────────────────────
-// Maps UI filter label -> raw roomTypes it should match
 const filterGroups: Record<string, string[]> = {
   Kitchen:         ['Kitchen'],
   Bathroom:        ['Bathroom'],
@@ -33,6 +43,11 @@ export default function ProjectsPage() {
       : allProjects.filter((p) =>
           (filterGroups[activeFilter] ?? []).includes(p.roomType)
         )
+
+  function handleFilterClick(label: string) {
+    setActiveFilter(label)
+    track('Gallery Filter Clicked', { filter_label: label, page: 'projects' })
+  }
 
   return (
     <div className="pt-16">
@@ -60,7 +75,7 @@ export default function ProjectsPage() {
             {filterLabels.map((label) => (
               <button
                 key={label}
-                onClick={() => setActiveFilter(label)}
+                onClick={() => handleFilterClick(label)}
                 className={`px-5 py-2 rounded-full text-sm font-semibold transition-colors duration-200 ${
                   activeFilter === label
                     ? 'bg-[#FC4C4C] text-white'
@@ -99,6 +114,7 @@ export default function ProjectsPage() {
           </p>
           <Link
             href="/get-started"
+            onClick={() => track('CTA Clicked', { cta_text: 'Get Started', location: 'projects_bottom_cta', destination: '/get-started' })}
             className="inline-flex items-center gap-2 bg-[#FC4C4C] text-white font-semibold px-8 py-4 rounded-full hover:bg-[#CA3D3D] transition-colors duration-200 text-base"
           >
             Get Started <ArrowRight size={18} strokeWidth={1.25} />
