@@ -1,5 +1,6 @@
 // Dynamic import keeps the Amplitude bundle out of the SSR path entirely.
 // All functions are safe to call from server-rendered client components.
+// Initialised via AmplitudeProvider in the root layout.
 
 type AmplitudeLib = typeof import('@amplitude/analytics-browser')
 
