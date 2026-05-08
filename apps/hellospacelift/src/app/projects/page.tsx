@@ -5,31 +5,31 @@ import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import ProjectCard from '@/components/ProjectCard'
 import { track } from '@/lib/analytics'
+import projectsData from '@/data/projects.json'
 
-// ── Project data ──────────────────────────────────────────────────────────────
-const allProjects = [
-  { photo: '/hero-kitchen.png', roomType: 'Kitchen',     location: 'Austin, TX'        },
-  { photo: '/hero-kitchen.png', roomType: 'Bathroom',    location: 'Denver, CO'        },
-  { photo: '/hero-kitchen.png', roomType: 'Living Room', location: 'Chicago, IL'       },
-  { photo: '/hero-kitchen.png', roomType: 'Exterior',    location: 'Seattle, WA'       },
-  { photo: '/hero-kitchen.png', roomType: 'Bedroom',     location: 'Nashville, TN'     },
-  { photo: '/hero-kitchen.png', roomType: 'Laundry',     location: 'Minneapolis, MN'   },
-  { photo: '/hero-kitchen.png', roomType: 'Bathroom',    location: 'Portland, OR'      },
-  { photo: '/hero-kitchen.png', roomType: 'Kitchen',     location: 'San Francisco, CA' },
-  { photo: '/hero-kitchen.png', roomType: 'Garden',      location: 'Phoenix, AZ'       },
-  { photo: '/hero-kitchen.png', roomType: 'Conversions', location: 'Los Angeles, CA'   },
-  { photo: '/hero-kitchen.png', roomType: 'Family Room', location: 'Boston, MA'        },
-  { photo: '/hero-kitchen.png', roomType: 'Atrium',      location: 'Atlanta, GA'       },
-]
+// ── Real project data from data source ───────────────────────────────────────
+// Only show active projects. Fails loudly in dev if the JSON is missing or empty.
+const allProjects = projectsData
+  .filter((p) => p.active)
+  .map((p) => ({
+    photo: p.after_image,
+    roomType: p.room_type,
+    location: p.location_display,
+  }))
+
+if (process.env.NODE_ENV === 'development' && allProjects.length === 0) {
+  console.warn('[Projects] No active projects found in data/projects.json')
+}
 
 // ── Filter groups ─────────────────────────────────────────────────────────────
+// Maps UI filter label -> raw room_type values in projects.json
 const filterGroups: Record<string, string[]> = {
   Kitchen:         ['Kitchen'],
   Bathroom:        ['Bathroom'],
   'Living Spaces': ['Bedroom', 'Dining Room', 'Family Room', 'Living Room'],
-  Outdoor:         ['Exterior', 'Garden', 'Pool'],
+  Outdoor:         ['Exterior', 'Garden', 'Pool', 'Backyard'],
   Additions:       ['Conversions', 'Atrium'],
-  Utility:         ['Laundry'],
+  Utility:         ['Laundry', 'Office'],
 }
 
 const filterLabels = ['All', ...Object.keys(filterGroups)]
@@ -87,7 +87,7 @@ export default function ProjectsPage() {
             ))}
           </div>
 
-          {/* Grid — 3 col desktop / 2 col tablet / 1 col mobile, 32px gap */}
+          {/* Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filtered.map((project, i) => (
               <ProjectCard key={i} {...project} />
