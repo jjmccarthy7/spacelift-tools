@@ -26,13 +26,17 @@ const howItWorks = [
   },
 ]
 
-// Homepage teaser — 4 featured projects
-const featuredProjects = [
-  { photo: '/hero-kitchen.png', roomType: 'Kitchen',      location: 'Austin, TX'    },
-  { photo: '/hero-kitchen.png', roomType: 'Bathroom',     location: 'Denver, CO'    },
-  { photo: '/hero-kitchen.png', roomType: 'Living Room',  location: 'Chicago, IL'   },
-  { photo: '/hero-kitchen.png', roomType: 'Outdoor',      location: 'Seattle, WA'   },
-]
+import projectsData from '@/data/projects.json'
+
+// Homepage teaser — up to 4 featured active projects from data source
+const featuredProjects = projectsData
+  .filter((p) => p.featured && p.active)
+  .slice(0, 4)
+  .map((p) => ({
+    photo: p.after_image,
+    roomType: p.room_type,
+    location: p.location_display,
+  }))
 
 export default function HomePage() {
   return (
