@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { ArrowRight, CheckCircle } from 'lucide-react'
 import TrackedLink from '@/components/TrackedLink'
 import ProjectCard from '@/components/ProjectCard'
@@ -43,27 +44,78 @@ const howItWorks = [
 
 export default function HomeownersPage() {
   return (
-    <div className="pt-16">
+    <div>
 
-      <section className="bg-white min-h-[80vh] flex items-center">
-        <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-20 py-24 md:py-32">
-          <div className="max-w-3xl">
-            <span className="inline-block text-xs font-black tracking-widest uppercase text-[#FC4C4C] mb-6">
-              For homeowners
-            </span>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-[#141B24] leading-[1.05] tracking-tight mb-8">
-              The space you've imagined is closer than you think.
-            </h1>
-            <p className="text-lg md:text-xl text-[#8D9EB2] leading-relaxed max-w-xl mb-12">
-              Renovation doesn't have to be overwhelming. Spacelift guides you from the first idea all the way through to a finished space you love.
-            </p>
-            <TrackedLink
-              href="/get-started"
-              eventProps={{ cta_text: 'Get Started', location: 'homeowners_hero', destination: '/get-started' }}
-              className="inline-flex items-center justify-center gap-2 bg-[#FC4C4C] text-white font-semibold px-8 py-4 rounded-full hover:bg-[#CA3D3D] transition-colors duration-200 text-base"
-            >
-              Get Started <ArrowRight size={18} strokeWidth={1.25} />
-            </TrackedLink>
+      {/* ── Hero ─────────────────────────────────────────────────────────────── */}
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-white">
+
+        {/* Graph-paper background — blueprint grid, ~6% opacity, scoped to this section */}
+        <div
+          className="absolute inset-0 z-0 pointer-events-none"
+          style={{
+            backgroundImage: [
+              'linear-gradient(rgba(59,134,225,0.115) 1px, transparent 1px)',
+              'linear-gradient(90deg, rgba(59,134,225,0.115) 1px, transparent 1px)',
+              'linear-gradient(rgba(59,134,225,0.078) 1px, transparent 1px)',
+              'linear-gradient(90deg, rgba(59,134,225,0.078) 1px, transparent 1px)',
+            ].join(','),
+            backgroundSize: '200px 200px, 200px 200px, 40px 40px, 40px 40px',
+          }}
+        />
+
+        {/* White wash over text column — reduces grid competition behind copy */}
+        <div
+          className="absolute inset-0 z-[1] pointer-events-none"
+          style={{
+            background: 'linear-gradient(to right, rgba(255,255,255,0.82) 0%, rgba(255,255,255,0.82) 48%, rgba(255,255,255,0) 68%)',
+          }}
+        />
+
+        <div className="relative z-10 max-w-[1280px] w-full mx-auto px-6 md:px-12 lg:px-20 pt-32 pb-24 md:pt-40 md:pb-32">
+          <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-12 items-center">
+
+            {/* Left column — text */}
+            <div>
+              <span className="inline-block text-xs font-black tracking-widest uppercase text-[#3B86E1] mb-6">
+                For homeowners
+              </span>
+              <h1 className="text-5xl md:text-7xl lg:text-[4.875rem] font-black text-[#141B24] leading-[1.05] tracking-tight mb-8">
+                The space you&apos;ve imagined is closer than you think.
+              </h1>
+              <p className="text-lg md:text-xl text-[#545F6B] leading-relaxed max-w-xl mb-12">
+                Use the Spacelift app to show us your space, describe the changes you want, and see instant ballpark estimates.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <TrackedLink
+                  href="/get-started"
+                  eventProps={{ cta_text: 'Get Started', location: 'homeowners_hero', destination: '/get-started' }}
+                  className="inline-flex items-center justify-center gap-2 bg-[#FC4C4C] text-white font-semibold px-8 py-4 rounded-full hover:bg-[#CA3D3D] transition-colors duration-200 text-base"
+                >
+                  Get Started <ArrowRight size={18} strokeWidth={1.25} />
+                </TrackedLink>
+                <Link
+                  href="#how-it-works"
+                  className="inline-flex items-center justify-center gap-2 bg-white border border-[#3B86E1] text-[#3B86E1] font-semibold px-8 py-4 rounded-full hover:bg-[#EEF1F4] transition-colors duration-200 text-base"
+                >
+                  Our Process
+                </Link>
+              </div>
+            </div>
+
+            {/* Right column — phone */}
+            <div className="hidden lg:flex justify-center">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/camera-screen-with-bezel.png"
+                alt="Spacelift app on iPhone"
+                style={{
+                  width: '346px',
+                  height: 'auto',
+                  filter: 'drop-shadow(0 50px 90px rgba(0,0,0,0.18)) drop-shadow(0 20px 40px rgba(0,0,0,0.08))',
+                }}
+              />
+            </div>
+
           </div>
         </div>
       </section>
@@ -99,7 +151,7 @@ export default function HomeownersPage() {
         </div>
       </section>
 
-      <section className="bg-[#EEF1F4] py-24 md:py-32">
+      <section id="how-it-works" className="bg-[#EEF1F4] py-24 md:py-32">
         <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-20">
           <div className="mb-16">
             <span className="text-xs font-black tracking-widest uppercase text-[#3B86E1]">How it works</span>
