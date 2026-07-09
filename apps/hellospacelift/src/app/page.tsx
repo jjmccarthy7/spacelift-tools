@@ -44,8 +44,9 @@ export default function HomePage() {
       {/* Hero */}
       <section className="relative min-h-screen flex flex-col">
         <div className="absolute inset-0 z-0">
+          {/* Previous hero image retained for instant rollback: src="/hero-kitchen.png" */}
           <img
-            src="/hero-kitchen.png"
+            src="/hero-kitchen-3.png"
             alt="Beautiful renovated home interior"
             className="w-full h-full object-cover object-center"
           />
