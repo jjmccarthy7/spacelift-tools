@@ -67,18 +67,18 @@ export default function GetStartedPage() {
                 Explore the possibilities by taking a video of your space and describing the changes you want to make. The app instantly gives you a real sense of scope and cost before you talk to anyone. Then book time with a Spacelift Advisor whenever you&apos;re ready.
               </p>
               {/* TODO: Add App Store and Google Play links once store listings are approved. */}
-              <div className="flex flex-col items-start" style={{ gap: '12px' }}>
+              <div className="flex flex-col sm:flex-row items-start" style={{ gap: '14px' }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/badge-app-store.svg"
                   alt="Download on the App Store"
-                  style={{ width: '135px', height: '40px', objectFit: 'contain', objectPosition: 'left' }}
+                  style={{ width: '180px', height: '60px' }}
                 />
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/badge-google-play.svg"
                   alt="Get it on Google Play"
-                  style={{ width: '135px', height: '40px', objectFit: 'contain', objectPosition: 'left' }}
+                  style={{ width: '203px', height: '60px' }}
                 />
               </div>
             </div>
