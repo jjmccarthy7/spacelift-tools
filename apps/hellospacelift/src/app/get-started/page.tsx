@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import BetaRequestForm from '@/components/BetaRequestForm'
 import AdvisorCTA from '@/components/AdvisorCTA'
 
 const advisorExpectations = [
@@ -67,9 +66,20 @@ export default function GetStartedPage() {
               <p className="text-[#8D9EB2] text-lg leading-relaxed mb-14 flex-grow">
                 Explore the possibilities by taking a video of your space and describing the changes you want to make. The app instantly gives you a real sense of scope and cost before you talk to anyone. Then book time with a Spacelift Advisor whenever you&apos;re ready.
               </p>
-              <div className="space-y-4">
-                <p className="text-xs font-semibold text-[#8D9EB2] uppercase tracking-widest">Request early access</p>
-                <BetaRequestForm />
+              {/* TODO: Add App Store and Google Play links once store listings are approved. */}
+              <div className="flex flex-col items-start" style={{ gap: '12px' }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/badge-app-store.svg"
+                  alt="Download on the App Store"
+                  style={{ width: '135px', height: '40px', objectFit: 'contain', objectPosition: 'left' }}
+                />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/badge-google-play.svg"
+                  alt="Get it on Google Play"
+                  style={{ width: '135px', height: '40px', objectFit: 'contain', objectPosition: 'left' }}
+                />
               </div>
             </div>
 
