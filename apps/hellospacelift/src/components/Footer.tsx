@@ -72,9 +72,21 @@ export default function Footer() {
           </div>
           <div>
             <p className="text-xs font-black uppercase tracking-widest text-white mb-4">Get the App</p>
-            <ul className="flex flex-col gap-2">
-              <li><Link href="/get-started" className="text-sm text-[#8D9EB2] hover:text-white transition-colors duration-200">Request early access</Link></li>
-            </ul>
+            {/* TODO: Add App Store and Google Play links once store listings are approved. */}
+            <div className="flex flex-col items-start" style={{ gap: '12px' }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/badge-app-store.svg"
+                alt="Download on the App Store"
+                style={{ width: '135px', height: '40px', objectFit: 'contain', objectPosition: 'left' }}
+              />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/badge-google-play.svg"
+                alt="Get it on Google Play"
+                style={{ width: '135px', height: '40px', objectFit: 'contain', objectPosition: 'left' }}
+              />
+            </div>
           </div>
         </div>
 
