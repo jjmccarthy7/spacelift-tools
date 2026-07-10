@@ -66,7 +66,7 @@ export default function Footer() {
             <p className="text-xs font-black uppercase tracking-widest text-white mb-4">Company</p>
             <ul className="flex flex-col gap-2">
               <li><Link href="/about" className="text-sm text-[#8D9EB2] hover:text-white transition-colors duration-200">About Us</Link></li>
-              <li><span className="text-sm text-[#8D9EB2] cursor-default">Reviews</span></li>
+              <li><Link href="/support" className="text-sm text-[#8D9EB2] hover:text-white transition-colors duration-200">Support</Link></li>
               <li><a href="mailto:info@hellospacelift.com" className="text-sm text-[#8D9EB2] hover:text-white transition-colors duration-200">Contact Us</a></li>
             </ul>
           </div>
