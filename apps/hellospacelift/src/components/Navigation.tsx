@@ -9,7 +9,7 @@ const navLinks = [
   { label: 'Homeowners', href: '/homeowners' },
   { label: 'Pros', href: '/pros' },
   { label: 'Projects', href: '/projects' },
-  { label: 'Get Started', href: '/get-started' },
+  { label: 'Get the App', href: '/get-started' },
 ]
 
 export default function Navigation() {
@@ -52,14 +52,14 @@ export default function Navigation() {
       <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-20 h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center" onClick={() => setMobileOpen(false)}>
           <span
-            className={`font-black text-xl tracking-tight transition-colors duration-300 ${logoColor}`}
+            className={`font-black text-3xl tracking-tight transition-colors duration-300 ${logoColor}`}
             style={{ fontFamily: 'var(--font-primary)' }}
           >
             spacelift
           </span>
         </Link>
         <div className="hidden md:flex items-center gap-8">
-          {navLinks.filter(l => l.label !== 'Get Started').map((link) => (
+          {navLinks.filter(l => l.label !== 'Get the App').map((link) => (
             <Link
               key={link.href}
               href={link.href}
@@ -76,7 +76,7 @@ export default function Navigation() {
             href="/get-started"
             className={`text-sm font-semibold px-5 py-2 rounded-full transition-colors duration-300 ${ctaBg}`}
           >
-            Get Started
+            Get the App
           </Link>
         </div>
         <button
@@ -89,7 +89,7 @@ export default function Navigation() {
       </div>
       {mobileOpen && (
         <div className="md:hidden bg-white border-t border-[#EEF1F4] px-6 py-4 flex flex-col gap-4">
-          {navLinks.filter(l => l.label !== 'Get Started').map((link) => (
+          {navLinks.filter(l => l.label !== 'Get the App').map((link) => (
             <Link
               key={link.href}
               href={link.href}
@@ -106,7 +106,7 @@ export default function Navigation() {
             onClick={() => setMobileOpen(false)}
             className="bg-[#141B24] text-white text-sm font-semibold px-5 py-3 rounded-full text-center hover:bg-[#1e2a38] transition-colors duration-200"
           >
-            Get Started
+            Get the App
           </Link>
         </div>
       )}
