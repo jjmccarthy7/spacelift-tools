@@ -1,11 +1,33 @@
-import Link from 'next/link'
-import AdvisorCTA from '@/components/AdvisorCTA'
+/**
+ * /get-started — launch funnel configuration
+ *
+ * The app is the front door to every Spacelift project.
+ * Visitors land here, download the app, and enter the guided funnel:
+ *   01 Explore with the app → 02 Talk with an Advisor → 03 Build with local Pros
+ *
+ * The pre-launch two-path version (app OR advisor) is preserved in
+ * _page-two-path.tsx for easy restoration and future A/B testing.
+ */
 
-const advisorExpectations = [
-  'A real conversation — no scripts, no pressure',
-  'Honest guidance about your project and options',
-  'Help understanding scope, cost, and next steps',
-  'Introductions to vetted Spacelift Pros when you\'re ready',
+const steps = [
+  {
+    step: '01',
+    title: 'Explore with the app',
+    description:
+      'Describe your project, upload photos or videos, and discover what\'s possible before talking to anyone.',
+  },
+  {
+    step: '02',
+    title: 'Talk with a Spacelift Advisor',
+    description:
+      'Once you have a project started, your advisor helps you refine scope, budget, priorities, and next steps.',
+  },
+  {
+    step: '03',
+    title: 'Build with local Spacelift Pros',
+    description:
+      'When you\'re ready, Spacelift introduces you to the right local professionals for your project.',
+  },
 ]
 
 export default function GetStartedPage() {
@@ -44,84 +66,57 @@ export default function GetStartedPage() {
           <h1 className="text-5xl md:text-7xl font-black text-[#141B24] leading-[1.05] tracking-tight mb-8 max-w-3xl">
             Love where you live.
           </h1>
-          <p className="text-lg md:text-xl text-[#8D9EB2] leading-relaxed max-w-xl">
-            Start by exploring your ideas in the Spacelift app, or talk with a Spacelift Advisor. Choose the path that feels right.
-          </p>
-        </div>
-      </section>
-
-      {/* ── Option cards ─────────────────────────────────────────────────────── */}
-      <section className="bg-[#EEF1F4] py-16 md:py-24">
-        <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-
-            {/* Option 01 — App */}
-            <div className="bg-[#141B24] rounded-3xl p-10 md:p-12 flex flex-col">
-              <div className="mb-3">
-                <span className="text-6xl font-black leading-none text-[#3B86E1]">01</span>
-              </div>
-              <h2 className="text-3xl md:text-4xl font-black text-white leading-[1.1] tracking-tight mb-6">
-                Get the Spacelift app.
-              </h2>
-              <p className="text-[#8D9EB2] text-lg leading-relaxed mb-14 flex-grow">
-                Explore the possibilities by taking a video of your space and describing the changes you want to make. The app instantly gives you a real sense of scope and cost before you talk to anyone. Then book time with a Spacelift Advisor whenever you&apos;re ready.
-              </p>
-              {/* TODO: Add App Store and Google Play links once store listings are approved. */}
-              <div className="flex flex-col sm:flex-row items-start" style={{ gap: '14px' }}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/badge-app-store.svg"
-                  alt="Download on the App Store"
-                  style={{ width: '180px', height: '60px' }}
-                />
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/badge-google-play.svg"
-                  alt="Get it on Google Play"
-                  style={{ width: '203px', height: '60px' }}
-                />
-              </div>
-            </div>
-
-            {/* Option 02 — Advisor */}
-            <div className="bg-white rounded-3xl p-10 md:p-12 flex flex-col border border-[#EEF1F4]">
-              <div className="mb-3">
-                <span className="text-6xl font-black leading-none text-[#3B86E1]">02</span>
-              </div>
-              <h2 className="text-3xl md:text-4xl font-black text-[#141B24] leading-[1.1] tracking-tight mb-6">
-                Talk to a Spacelift Advisor.
-              </h2>
-              <p className="text-[#8D9EB2] text-lg leading-relaxed mb-10 flex-grow">
-                Not sure where to start? That&apos;s exactly what our advisors are here for. They&apos;re renovation experts — not salespeople — and the conversation is free, honest, and genuinely useful.
-              </p>
-              <div className="space-y-4">
-                <p className="text-xs font-semibold text-[#8D9EB2] uppercase tracking-widest">What to expect</p>
-                <ul className="space-y-3">
-                  {advisorExpectations.map((item, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#8D9EB2] mt-2.5 flex-shrink-0" />
-                      <span className="text-lg text-[#8D9EB2] leading-relaxed">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-                <AdvisorCTA />
-              </div>
-            </div>
-
+          <div className="max-w-2xl mb-12 space-y-5">
+            <p className="text-lg md:text-xl text-[#8D9EB2] leading-relaxed">
+              Every Spacelift project starts with our app — an infinitely knowledgeable, always available renovation advisor in your pocket.
+            </p>
+            <p className="text-lg md:text-xl text-[#8D9EB2] leading-relaxed">
+              Take a video of your space and describe the changes you&apos;re considering — the app will instantly help you understand project scope, cost, and possibilities. Explore ideas as much as you&apos;d like, then connect with a Spacelift Advisor whenever you&apos;re ready to bring your project to life.
+            </p>
+          </div>
+          {/* TODO: Add App Store and Google Play links once store listings are approved. */}
+          <div className="flex flex-col sm:flex-row items-start" style={{ gap: '16px' }}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/badge-app-store.svg"
+              alt="Download on the App Store"
+              style={{ width: '204px', height: '68px' }}
+            />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/badge-google-play.svg"
+              alt="Get it on Google Play"
+              style={{ width: '229px', height: '68px' }}
+            />
           </div>
         </div>
       </section>
 
-      {/* ── Closing ──────────────────────────────────────────────────────────── */}
-      <section className="bg-white py-20 md:py-28">
-        <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-20 text-center">
-          <h2 className="text-4xl md:text-5xl font-black text-[#141B24] leading-[1.1] tracking-tight mb-6 mx-auto">
-            Every great renovation starts with<br /> a simple question.
-          </h2>
-          <p className="text-2xl text-[#FC4C4C] font-black mb-5">Do I love the place I live?</p>
-          <p className="text-lg text-[#545F6B] leading-relaxed max-w-2xl mx-auto">
-            At Spacelift, we believe you should. And that you can.<br /> Because life is better when you love where you live.
-          </p>
+      {/* ── How Spacelift Works ──────────────────────────────────────────────── */}
+      <section className="bg-[#EEF1F4] py-16 md:py-24">
+        <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-20">
+          <div className="mb-12">
+            <span className="text-xs font-black tracking-widest uppercase text-[#3B86E1]">
+              How it works
+            </span>
+            <h2 className="mt-4 text-4xl md:text-5xl font-black text-[#141B24] leading-[1.1] tracking-tight max-w-2xl">
+              Great spaces in three<br /> simple steps
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {steps.map(({ step, title, description }) => (
+              <div
+                key={step}
+                className="bg-white rounded-[32px] p-8 shadow hover:shadow-lg transition-shadow duration-300"
+              >
+                <div className="mb-3">
+                  <span className="text-5xl font-black leading-none text-[#3B86E1]">{step}</span>
+                </div>
+                <h3 className="text-xl font-bold text-[#141B24] mb-3">{title}</h3>
+                <p className="text-[#8D9EB2] text-base leading-relaxed">{description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
