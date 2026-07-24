@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import AppStoreBadge, { APPLE_APP_STORE_URL } from '@/components/AppStoreBadge'
 
 export default function Footer() {
   return (
@@ -72,12 +73,10 @@ export default function Footer() {
           </div>
           <div>
             <p className="text-xs font-black uppercase tracking-widest text-white mb-4">Get the App</p>
-            {/* TODO: Add App Store and Google Play links once store listings are approved. */}
             <div className="flex flex-col items-start" style={{ gap: '12px' }}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/badge-app-store.svg"
-                alt="Download on the App Store"
+              <AppStoreBadge
+                store="apple"
+                href={APPLE_APP_STORE_URL}
                 style={{ width: '135px', height: '40px', objectFit: 'contain', objectPosition: 'left' }}
               />
               {/* eslint-disable-next-line @next/next/no-img-element */}

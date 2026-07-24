@@ -1,12 +1,12 @@
 /**
  * Meta Pixel utility — typed wrapper for window.fbq
  *
- * Mirrors the shape of src/lib/analytics.ts.
- * Import `pixel` wherever you need to fire standard or custom events.
+ * Low-level platform API. Do NOT import this in components.
+ * Fire business events via src/lib/events.ts instead — it fans out to
+ * all active analytics platforms including this one.
  *
  * PageView on initial load is handled by the base script in layout.tsx.
  * PageView on route changes is handled by MetaPixelProvider.
- * Custom events can be fired from any client component via pixel.track().
  */
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -31,7 +31,7 @@ export type MetaPixelEvent =
 
 export const pixel = {
   /**
-   * Fire a standard or custom Meta Pixel event.
+   * Fire a standard Meta Pixel event (fbq('track', ...)).
    * Safe to call on the server — no-ops if fbq is not initialised.
    */
   track(event: MetaPixelEvent | string, params?: Record<string, unknown>): void {
@@ -40,6 +40,19 @@ export const pixel = {
       window.fbq('track', event, params)
     } else {
       window.fbq('track', event)
+    }
+  },
+
+  /**
+   * Fire a custom Meta Pixel event (fbq('trackCustom', ...)).
+   * Use this for events not in Meta's standard event list.
+   */
+  trackCustom(event: string, params?: Record<string, unknown>): void {
+    if (typeof window === 'undefined' || typeof window.fbq !== 'function') return
+    if (params) {
+      window.fbq('trackCustom', event, params)
+    } else {
+      window.fbq('trackCustom', event)
     }
   },
 
