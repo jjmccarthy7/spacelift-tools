@@ -9,6 +9,8 @@
  * _page-two-path.tsx for easy restoration and future A/B testing.
  */
 
+import AppStoreBadge, { APPLE_APP_STORE_URL } from '@/components/AppStoreBadge'
+
 const steps = [
   {
     step: '01',
@@ -78,12 +80,10 @@ export default function GetStartedPage() {
                   Take a video of your space and describe the changes you&apos;re considering — the app will instantly help you understand project scope, cost, and possibilities. Explore ideas as much as you&apos;d like, then connect with a Spacelift Advisor whenever you&apos;re ready to bring your project to life.
                 </p>
               </div>
-              {/* TODO: Add App Store and Google Play links once store listings are approved. */}
               <div className="flex flex-col sm:flex-row items-start" style={{ gap: '16px' }}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/badge-app-store.svg"
-                  alt="Download on the App Store"
+                <AppStoreBadge
+                  store="apple"
+                  href={APPLE_APP_STORE_URL}
                   style={{ width: '204px', height: '68px' }}
                 />
                 {/* eslint-disable-next-line @next/next/no-img-element */}
