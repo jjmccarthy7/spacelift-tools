@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import AppStoreBadge, { APPLE_APP_STORE_URL } from '@/components/AppStoreBadge'
+import AppStoreBadge, { APPLE_APP_STORE_URL, GOOGLE_PLAY_URL } from '@/components/AppStoreBadge'
 
 export default function Footer() {
   return (
@@ -79,10 +79,9 @@ export default function Footer() {
                 href={APPLE_APP_STORE_URL}
                 style={{ width: '135px', height: '40px', objectFit: 'contain', objectPosition: 'left' }}
               />
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/badge-google-play.svg"
-                alt="Get it on Google Play"
+              <AppStoreBadge
+                store="google"
+                href={GOOGLE_PLAY_URL}
                 style={{ width: '135px', height: '40px', objectFit: 'contain', objectPosition: 'left' }}
               />
             </div>
