@@ -20,12 +20,23 @@ import { pixel } from '@/lib/meta-pixel'
 export type AppStore = 'apple' | 'google'
 
 /**
- * User tapped an app-store download badge.
+ * User tapped the Apple App Store download badge.
  *
- * Amplitude:   'App Store Click'  { store: 'apple' | 'google' }
- * Meta Pixel:  'AppStoreClick'    { store: 'apple' | 'google' }
+ * Amplitude:   'App Store Click'  { store: 'apple' }
+ * Meta Pixel:  'AppStoreClick'    { store: 'apple' }
  */
-export function trackAppStoreClick(store: AppStore): void {
-  track('App Store Click', { store })
-  pixel.trackCustom('AppStoreClick', { store })
+export function trackAppStoreClick(): void {
+  track('App Store Click', { store: 'apple' })
+  pixel.trackCustom('AppStoreClick', { store: 'apple' })
+}
+
+/**
+ * User tapped the Google Play Store download badge.
+ *
+ * Amplitude:   'Google Play Click'  { store: 'google' }
+ * Meta Pixel:  'GooglePlayClick'    { store: 'google' }
+ */
+export function trackGooglePlayClick(): void {
+  track('Google Play Click', { store: 'google' })
+  pixel.trackCustom('GooglePlayClick', { store: 'google' })
 }
