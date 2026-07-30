@@ -92,7 +92,6 @@ export default function Footer() {
         <div className="border-t border-[#ffffff1a] pt-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <p className="text-xs text-[#8D9EB2]">&copy; 2026 Spacelift. All rights reserved.</p>
           <div className="flex gap-6">
-            <span className="text-xs text-[#8D9EB2] cursor-default">Terms &amp; Conditions</span>
             <Link href="/privacy" className="text-xs text-[#8D9EB2] hover:text-white transition-colors duration-200">Privacy Policy</Link>
           </div>
         </div>
